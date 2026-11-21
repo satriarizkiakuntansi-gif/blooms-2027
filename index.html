@@ -1038,6 +1038,68 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 @media (max-width:560px){
   .c-menu{grid-template-columns:repeat(2,1fr);}
 }
+/* ================= REVISI v3 ================= */
+.btn-mini.outline{background:#fff; color:var(--watermelon); box-shadow:inset 0 0 0 2px #FBD3D9;}
+.btn-mini.outline:hover{background:#FFF3F5;}
+.toolbar .btn-mini{padding:12px 16px; border-radius:14px; font-size:13px;}
+.pill-red{background:#FFE3E7; color:#C92A44;}
+
+/* avatar kecil di tabel */
+.nm-cell{display:flex; align-items:center; gap:10px;}
+.nm-cell .pav{margin:0;}
+.pav.md{width:52px; height:52px; box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--ring,var(--olive));}
+.pav.md.noimg b{font-size:22px;}
+
+/* (5) kartu Queue Status */
+.toggle-card{align-items:stretch; text-align:center; gap:12px; padding:22px;}
+.toggle-status{font-size:20px; display:flex; align-items:center; justify-content:center;}
+.toggle-card .btn-mini{width:100%; padding:13px; font-size:14px; border-radius:14px;}
+.toggle-card .btn-mini+.btn-mini{margin-left:0;}
+
+/* (6) header sticky + footer full */
+.c-main{padding:0 24px 84px;}
+.c-brand{position:sticky; top:0; z-index:45; margin:0 0 18px; padding:calc(12px + env(safe-area-inset-top,0px)) 0 12px; background:rgba(255,252,236,.95); box-shadow:0 0 0 100vmax rgba(255,252,236,.95); clip-path:inset(0 -100vmax);}
+@media (max-width:640px){ .c-main{padding:0 16px 84px;} }
+#participant-app{padding-bottom:76px;}
+.bottom-nav{bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; border-radius:0; gap:0; padding:4px 6px calc(4px + env(safe-area-inset-bottom,0px)); background:rgba(255,255,255,.97); box-shadow:0 -6px 20px -14px rgba(0,50,25,.45);}
+.c-bottom-nav{max-width:none;}
+.nav-btn{padding:6px 0 5px; gap:2px; font-size:10.5px; border-radius:12px;}
+.nav-btn svg{width:20px; height:20px;}
+
+/* (7) tombol kecil di pojok tiket */
+#participant-app .ticket-card{padding-top:52px;}
+#participant-app .ticket-card>.tk-corner{position:absolute; top:10px; right:10px; display:flex; gap:6px; z-index:4;}
+.tk-ic{width:32px; height:32px; border-radius:50%; padding:0; background:rgba(255,255,255,.28); color:#fff; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(4px);}
+.tk-ic:hover{background:rgba(255,255,255,.42);}
+.tk-ic svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+#queue-after .ticket-actions{display:none;}
+
+/* (2) galeri check-in */
+.modal-box.gal-box{max-width:760px;}
+.gal-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px;}
+.gal-item{display:block; padding:0; text-align:left; background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);}
+.gal-item img{width:100%; aspect-ratio:1; object-fit:cover; background:var(--cream);}
+.gal-item span{display:block; padding:6px 9px 8px; font-size:11.5px; font-weight:800; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.gal-item small{display:block; font-size:10.5px; font-weight:700; color:var(--ink-soft);}
+.gal-item.late{box-shadow:0 0 0 3px var(--watermelon);}
+
+/* (8) check-in terlambat */
+.ci-receipt.late .cr-top{background:linear-gradient(135deg,#F7788B,#C92A44);}
+.ci-receipt.late .cr-badge{background:#fff; box-shadow:0 0 0 6px rgba(255,255,255,.3);}
+.ci-receipt.late .cr-badge svg{stroke:#C92A44;}
+.ci-receipt.late .cr-stamp{color:#C92A44;}
+.ci-receipt.late .cr-row.big b{color:#C92A44;}
+.ci-receipt.late .cr-pill{background:#FFE3E7; color:#C92A44 !important;}
+.pf-status.ok.late{background:linear-gradient(135deg,#F7788B,#C92A44);}
+
+/* (9) banner pengingat check-in */
+.ci-alert{position:relative; z-index:3; margin:12px 20px 0; display:flex; align-items:center; gap:13px; padding:13px 14px; border-radius:22px; cursor:pointer; background:linear-gradient(135deg,#FFE3E7,#FBB9C3); border:2px solid #fff; box-shadow:0 18px 30px -16px rgba(241,94,115,.85); animation:pageIn .5s var(--ease) both;}
+.ci-alert-icon{width:46px; height:46px; border-radius:16px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(145deg,#F7788B,#E24560); animation:wiggle 2.6s ease-in-out infinite; transform-origin:50% 20%;}
+.ci-alert-icon svg{width:24px; height:24px; fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;}
+.ci-alert-text{flex:1; min-width:0;}
+.ci-alert-text b{display:block; font-family:'Fraunces',serif; font-size:14.5px; font-weight:800; color:#7A1428; line-height:1.2;}
+.ci-alert-text small{display:block; margin-top:3px; font-size:12px; font-weight:700; color:#8F2A3C; line-height:1.4;}
+.ci-alert-btn{flex-shrink:0; background:var(--watermelon); color:#fff; font-weight:800; font-size:12px; padding:10px 13px; border-radius:13px; white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -1096,6 +1158,15 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <small>Know the rules before the event starts.</small>
       </div>
       <span class="sop-alert-btn">Detail SOP ›</span>
+    </div>
+
+    <div class="ci-alert hidden" id="ci-alert" role="button" tabindex="0" onclick="goTo('checkin')">
+      <div class="ci-alert-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div>
+      <div class="ci-alert-text">
+        <b id="ci-alert-title">You haven’t checked in yet!</b>
+        <small id="ci-alert-sub">Please check in now.</small>
+      </div>
+      <span class="ci-alert-btn">Check in ›</span>
     </div>
 
     <div class="p-section"><h2>What's next for you</h2></div>
@@ -1278,7 +1349,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     <div id="ci-already" class="ci-receipt hidden">
       <div class="cr-top">
         <span class="cr-badge"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-        <div><b>You’re checked in!</b><small>Your presence at the garden has been recorded.</small></div>
+        <div><b id="cr-title">You’re checked in!</b><small id="cr-sub">Your presence at the garden has been recorded.</small></div>
       </div>
       <div class="cr-photo" id="cr-photo"><div id="cr-media"></div><span class="cr-stamp">CHECKED IN</span></div>
       <div class="cr-rows">
@@ -1336,6 +1407,11 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <div class="tk-label">YOUR QUEUE NUMBER</div>
         <div class="tk-num" id="tk-number">#000</div>
         <div class="tk-ahead">People Ahead of You: <span id="tk-ahead">0</span></div>
+        <div class="tk-corner">
+          <button class="tk-ic" onclick="refreshQueue()" aria-label="Refresh status" title="Refresh"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></button>
+          <button class="tk-ic" onclick="downloadTicket()" aria-label="Download ticket" title="Download ticket"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19.5h14"/></svg></button>
+          <button class="tk-ic" onclick="if(confirm('Leave the queue?'))leaveQueue()" aria-label="Leave queue" title="Leave queue"><svg viewBox="0 0 24 24"><path d="M9.5 4.5H6.5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/><path d="M14 8l4 4-4 4M18 12H9.5"/></svg></button>
+        </div>
       </div>
       <p class="ticket-note">Feel free to enjoy the event! Keep an eye on this screen and head to the booth when you're 2 spots away.</p>
       <div class="ticket-actions">
@@ -1505,6 +1581,16 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         </div>
       </div>
 
+      <div class="c-cat" style="--cc:#356AC7;">
+        <div class="c-cat-title">PENGATURAN</div>
+        <div class="c-menu">
+          <button class="menu-card mc-blue" onclick="cGoTo('event')">
+            <div class="menu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div>
+            <span>Atur Event</span>
+          </button>
+        </div>
+      </div>
+
       <div class="c-cat" style="--cc:#F15E73;">
         <div class="c-cat-title">MAIN EVENT</div>
         <div class="c-menu">
@@ -1545,6 +1631,8 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <div class="stat-box"><div class="n" id="ck-stat-total">0</div><div class="l">Total Expected</div></div>
       </div>
       <div class="toolbar">
+        <button class="btn-mini blue" onclick="openGallery()">🖼 View Gallery</button>
+        <button class="btn-mini outline" onclick="resetAllCheckins()">⟲ Reset Attendance</button>
         <input type="text" id="ck-search" placeholder="Search by name or NIM..." oninput="renderCheckinTable()">
         <div class="tabs" id="ck-tabs">
           <button class="tab-btn active" data-filter="all" onclick="setCkFilter('all')">All</button>
@@ -1575,6 +1663,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <div class="toggle-card">
           <div class="toggle-status open" id="pb-status-label">Queue Status: OPEN</div>
           <button class="btn-mini watermelon" id="pb-toggle-btn" onclick="toggleQueueStatus()">Pause Queue</button>
+          <button class="btn-mini outline" onclick="resetQueueAll()">⟲ Reset Queue</button>
         </div>
       </div>
       <div class="tabs" style="margin-bottom:14px;">
@@ -1611,6 +1700,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
       </div>
       <div class="toolbar">
         <button class="add-btn" onclick="openGroupModal('new')">+ New Group</button>
+        <button class="btn-mini outline" onclick="resetAllGroups()">⟲ Reset Groups</button>
         <input type="text" id="gm-search" placeholder="Search group, member name, or NIM..." oninput="drawGroupsAdmin()">
       </div>
       <div class="gm-grid" id="gm-grid"></div>
@@ -1661,6 +1751,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
       <div class="c-head"><h2>Participant Data</h2><p>Add, edit, or verify participant NIM, credentials, and groups.</p></div>
       <div class="toolbar">
         <button class="add-btn" onclick="openParticipantModal()">+ Add Participant</button>
+        <button class="btn-mini outline" onclick="resetProfilePhotos()">⟲ Reset Profile Photos</button>
         <input type="text" id="db-search" placeholder="Search by NO, NIM, or Name..." oninput="renderDbTable()">
         <select id="db-group-filter" onchange="renderDbTable()" style="padding:11px 14px;border-radius:11px;border:2px solid var(--line);font-weight:700;font-size:13px;color:var(--ink-soft);">
           <option value="">All Groups</option>
@@ -1705,6 +1796,21 @@ label.btn-mini{display:inline-block; cursor:pointer;}
       <div class="sopedit-actions">
         <button class="btn-mini" onclick="resetAboutDefault()">Load Default Text</button>
         <button class="add-btn" id="ab-save-btn" onclick="saveAbout()" style="margin-left:auto;">Save &amp; Publish</button>
+      </div>
+    </div>
+
+    <!-- ============ ATUR EVENT ============ -->
+    <div class="c-page" data-cpage="event">
+      <div class="c-head"><h2>Atur Event</h2><p>Set the latest arrival time. Participants who check in after it are marked late.</p></div>
+      <div class="card satisfaction-wrap">
+        <div class="field"><label>Latest arrival time</label>
+          <input type="datetime-local" id="ev-deadline">
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="add-btn" onclick="saveEventSettings()">Save</button>
+          <button class="btn-mini outline" onclick="clearEventDeadline()">Remove Deadline</button>
+        </div>
+        <div class="link-preview" id="ev-info">No deadline set. Nobody will be marked late.</div>
       </div>
     </div>
 
@@ -1769,6 +1875,15 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 </div>
 
 <!-- ============ MODALS ============ -->
+<div class="modal-overlay" id="gallery-modal" onclick="if(event.target===this)closeModal('gallery-modal')">
+  <div class="modal-box gal-box">
+    <h3>Check-in Gallery</h3>
+    <p class="sub" id="gal-sub">Loading…</p>
+    <div class="gal-grid" id="gal-grid"></div>
+    <div class="modal-actions"><button class="btn-mini" onclick="closeModal('gallery-modal')">Close</button></div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="selfie-modal">
   <div class="modal-box">
     <h3 id="sm-title">Check-in Proof</h3>
@@ -2036,6 +2151,7 @@ function renderParticipantDashboard(){
   document.getElementById('p-name').textContent = currentUser.name;
   document.getElementById('p-group').textContent = currentUser.group || '—';
   document.getElementById('mc-checkin').classList.toggle('done', !!currentUser.checked_in);
+  updateCheckinAlert();
   renderAbout();
 }
 
@@ -2089,7 +2205,7 @@ async function submitCheckin(){
     const time = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
 
     const { error: updErr } = await sb.from('participants').update({
-      checked_in: true, ...nowStamp(), photo_url: photoUrl
+      checked_in: true, ...nowStamp(), photo_url: photoUrl, is_late: await isLateNow()
     }).eq('nim', currentUser.nim);
     if(updErr) throw updErr;
     burstConfetti(); toast('Check-in successful! Welcome to the garden 🌸', 'good');
@@ -2530,6 +2646,7 @@ function renderCommitteePage(page){
   if(page==='sop' && !editorLoaded) loadSopEditor();
   if(page==='garden' && !editorLoaded) loadGardenAdmin();
   if(page==='about' && !editorLoaded) loadAboutEditor();
+  if(page==='event' && !editorLoaded) loadEventSettings();
   if(page==='profile' && !editorLoaded) loadCommitteeProfile();
 }
 function toggleSidebar(open){
@@ -2574,7 +2691,7 @@ async function renderCheckinTable(){
   rows.forEach(u=>{
     const tr = document.createElement('tr');
     tr.innerHTML = `<td><b>${u.name}</b></td><td>${u.nim}</td><td>${u.group||'—'}</td>
-    <td>${u.checked_in ? `<span class="pill pill-green">Checked in at ${u.checkin_time}</span>` : `<span class="pill pill-orange">Not yet</span>`}</td>
+    <td>${u.checked_in ? `<span class="pill ${u.is_late?'pill-red':'pill-green'}">${u.is_late?'Late • ':''}Checked in at ${u.checkin_time}</span>` : `<span class="pill pill-orange">Not yet</span>`}</td>
     <td>${u.checked_in ? `<button class="btn-mini" onclick="viewSelfie('${u.nim}')">View Selfie</button>` : `<button class="btn-mini watermelon" onclick="markPresent('${u.nim}')">Mark Present</button>`}</td>`;
     tbody.appendChild(tr);
   });
@@ -2594,7 +2711,7 @@ async function viewSelfie(nim){
   openModal('selfie-modal');
 }
 async function resetCheckinModal(){
-  await sb.from('participants').update({ checked_in:false, checkin_time:null, checkin_at:null, photo_url:null }).eq('nim', selfieModalNim);
+  await sb.from('participants').update({ checked_in:false, checkin_time:null, checkin_at:null, photo_url:null, is_late:false }).eq('nim', selfieModalNim);
   closeModal('selfie-modal'); renderCheckinTable(); renderDashboardStats();
 }
 
@@ -2704,7 +2821,7 @@ function renderDbTable(){
   rows.forEach((u)=>{
     const no = dbCache.indexOf(u)+1;
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${no}</td><td>${u.nim}</td><td><b>${u.name}</b></td><td>${u.password}</td><td>${u.group||'—'}</td><td>${escHTML(u.jurusan)||'—'}</td><td>${escHTML(u.email)||'—'}</td>
+    tr.innerHTML = `<td>${no}</td><td>${u.nim}</td><td><div class="nm-cell">${personAvatar(u,'sm')}<b>${escHTML(u.name)}</b></div></td><td>${u.password}</td><td>${u.group||'—'}</td><td>${escHTML(u.jurusan)||'—'}</td><td>${escHTML(u.email)||'—'}</td>
     <td style="display:flex;gap:6px;"><button class="btn-mini blue" onclick="openParticipantModal('${u.nim}')">Edit</button>
     <button class="btn-mini watermelon" onclick="deleteParticipant('${u.nim}')">Delete</button></td>`;
     tbody.appendChild(tr);
@@ -3144,6 +3261,12 @@ function fillCheckinReceipt(already){
   $id('cr-time').textContent = p.time;
   $id('cr-group').textContent = u.group || '—';
   $id('cr-how').textContent = u.photo_url ? 'Selfie verified' : 'Marked by committee';
+  const late = !!u.is_late;
+  $id('ci-already').classList.toggle('late', late);
+  $id('cr-title').textContent = late ? 'You’re checked in, but late' : 'You’re checked in!';
+  $id('cr-sub').textContent = late ? 'You arrived after the arrival deadline. Please be on time next time!' : 'Your presence at the garden has been recorded.';
+  document.querySelector('#ci-already .cr-badge').innerHTML = late ? SVG_CLOCK : SVG_CHECK;
+  document.querySelector('#cr-photo .cr-stamp').textContent = late ? 'CHECKED IN • LATE' : 'CHECKED IN';
 }
 
 /* ----- profil peserta ----- */
@@ -3160,9 +3283,9 @@ async function renderProfilePage(){
   st.onclick = ()=>goTo('checkin');
   if(u.checked_in){
     const p = checkinParts(u);
-    st.className = 'pf-status ok';
+    st.className = 'pf-status ok' + (u.is_late ? ' late' : '');
     st.innerHTML = `<span class="pf-st-ico">${SVG_CHECK}</span>
-      <div class="pf-st-txt"><b>Checked in</b><small>${p.date ? escHTML(p.date) + '<br>' : ''}at ${escHTML(p.time)}</small></div>` +
+      <div class="pf-st-txt"><b>${u.is_late ? 'Checked in • Late' : 'Checked in'}</b><small>${p.date ? escHTML(p.date) + '<br>' : ''}at ${escHTML(p.time)}</small></div>` +
       (u.photo_url ? `<img class="pf-st-thumb" src="${escHTML(u.photo_url)}" alt="">` : '');
   }else{
     st.className = 'pf-status no';
@@ -3568,6 +3691,171 @@ async function removeCommitteePhoto(){
     p.prepend(r);
   });
 })();
+
+/* ===================== REVISI v3 ===================== */
+const pad3 = n => String(n).padStart(2,'0').padStart(3,'0');
+
+/* (1) reset semua grup */
+async function resetAllGroups(){
+  if(!confirm('Reset ALL groups? Every participant becomes Unassigned. Participant data is kept.')) return;
+  const { error } = await sb.from('participants').update({ group:null }).eq('role','participant');
+  if(error){ console.error(error); toast('Could not reset the groups.', 'warn'); return; }
+  gmOpen.clear(); toast('All groups have been reset.', 'good'); loadGroupsAdmin();
+}
+
+/* (2) reset kehadiran + galeri */
+async function resetAllCheckins(){
+  if(!confirm('Reset ALL attendance? Every check-in (including selfies) will be cancelled.')) return;
+  const { error } = await sb.from('participants')
+    .update({ checked_in:false, checkin_time:null, checkin_at:null, photo_url:null, is_late:false }).eq('role','participant');
+  if(error){ console.error(error); toast('Could not reset attendance.', 'warn'); return; }
+  toast('All attendance has been reset.', 'good'); renderCheckinTable(); renderDashboardStats();
+}
+async function openGallery(){
+  openModal('gallery-modal');
+  const box = $id('gal-grid'), sub = $id('gal-sub');
+  box.innerHTML = ''; sub.textContent = 'Loading…';
+  const { data, error } = await sb.from('participants')
+    .select('nim,name,photo_url,checkin_time,is_late')
+    .eq('role','participant').eq('checked_in', true).not('photo_url','is',null).order('checkin_at',{ascending:false});
+  if(error){ console.error(error); sub.textContent = 'Could not load the gallery.'; return; }
+  const rows = data || [];
+  sub.textContent = rows.length ? rows.length + ' check-in photo' + (rows.length > 1 ? 's' : '') + ' • tap a photo to see details' : 'No check-in photos yet.';
+  box.innerHTML = rows.map(u=>`
+    <button class="gal-item${u.is_late?' late':''}" onclick="viewSelfie('${escHTML(u.nim)}')">
+      <img src="${escHTML(u.photo_url)}" loading="lazy" alt="">
+      <span>${escHTML(u.name)}<small>${escHTML(u.checkin_time || '')}${u.is_late ? ' • Late' : ''}</small></span>
+    </button>`).join('');
+}
+
+/* (3) reset antrian photobooth */
+async function resetQueueAll(){
+  if(!confirm('Reset the whole photobooth queue? All tickets (waiting, serving, done) will be deleted.')) return;
+  const { error } = await sb.from('queue').delete().gte('ticket', 0);
+  if(error){ console.error(error); toast('Could not reset the queue.', 'warn'); return; }
+  window.__served = false;
+  toast('Photobooth queue has been reset.', 'good'); renderPhotobooth(); renderDashboardStats();
+}
+
+/* (4) reset foto profil (data peserta tetap) */
+async function resetProfilePhotos(){
+  if(!confirm('Remove ALL participant profile photos? Their data stays, only the photos are cleared.')) return;
+  const { error } = await sb.from('participants').update({ photo_url:null }).eq('role','participant');
+  if(error){ console.error(error); toast('Could not reset the photos.', 'warn'); return; }
+  toast('All profile photos have been removed.', 'good'); renderDatabase(); renderCheckinTable();
+}
+
+/* (5) photobooth dengan foto profil */
+async function getPhotoMap(rows){
+  const nims = [...new Set(rows.map(r=>r.nim))], map = {};
+  if(!nims.length) return map;
+  const { data } = await sb.from('participants').select('nim,name,photo_url').in('nim', nims);
+  (data || []).forEach(p=>{ map[p.nim] = p; });
+  return map;
+}
+function pbPerson(t, map){
+  const p = map[t.nim] || { nim:t.nim, name:t.name };
+  return `<div class="nm-cell">${personAvatar(p,'md')}<b>${escHTML(t.name)}</b></div>`;
+}
+async function renderPhotobooth(){
+  const { data: statusRow } = await sb.from('settings').select('value').eq('key','queue_status').maybeSingle();
+  const status = (statusRow && statusRow.value) || 'open';
+  $id('pb-status-label').textContent = 'Queue Status: ' + (status==='open' ? 'OPEN' : 'PAUSED');
+  $id('pb-status-label').className = 'toggle-status ' + (status==='open' ? 'open' : 'paused');
+  $id('pb-toggle-btn').textContent = status==='open' ? 'Pause Queue' : 'Resume Queue';
+
+  const { data } = await sb.from('queue').select('*').order('ticket', {ascending:true});
+  const q = data || [];
+  const ph = await getPhotoMap(q);
+  const serving = q.find(t=>t.status==='serving');
+  $id('pb-now').textContent = serving ? '#' + pad3(serving.ticket) : '—';
+  if(serving) $id('pb-now-name').innerHTML = pbPerson(serving, ph);
+  else $id('pb-now-name').textContent = 'No active session right now. Waiting for attendees to join the queue.';
+
+  const waiting = q.filter(t=>t.status==='waiting');
+  const tb1 = $id('pb-upnext-tbody'); tb1.innerHTML = '';
+  $id('pbtab-upnext').textContent = `Up Next (${waiting.length})`;
+  $id('pb-upnext-empty').classList.toggle('hidden', waiting.length > 0);
+  waiting.forEach((t,i)=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>#${pad3(t.ticket)}</td><td>${pbPerson(t, ph)}</td><td>${escHTML(t.nim)}</td>
+    <td>${i<2 ? '<span class="pill pill-orange">GET READY</span>' : '<span class="pill" style="background:#EFF1EA;color:var(--ink-soft);">WAITING</span>'}</td>`;
+    tb1.appendChild(tr);
+  });
+
+  const done = q.filter(t=>t.status==='done');
+  $id('pbtab-completed').textContent = `Completed (${done.length})`;
+  const tb2 = $id('pb-completed-tbody'); tb2.innerHTML = '';
+  $id('pb-completed-empty').classList.toggle('hidden', done.length > 0);
+  done.slice().reverse().forEach(t=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>#${pad3(t.ticket)}</td><td>${pbPerson(t, ph)}</td><td>${escHTML(t.nim)}</td><td>Snapped at ${escHTML(t.done_at || '—')}</td>`;
+    tb2.appendChild(tr);
+  });
+}
+
+/* (8) Atur Event: batas jam kedatangan */
+function toLocalInput(iso){
+  const d = new Date(iso); if(isNaN(d)) return '';
+  const p = n => String(n).padStart(2,'0');
+  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+function showDeadlineInfo(iso){
+  const el = $id('ev-info');
+  if(!iso){ el.textContent = 'No deadline set. Nobody will be marked late.'; return; }
+  const d = new Date(iso);
+  const full = d.toLocaleString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  const rem = new Date(d.getTime() - 5*60000).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  el.innerHTML = 'Deadline: <b>' + full + '</b><br>Anyone who checks in after this is marked <b>late</b>.<br>The reminder banner appears from <b>' + rem + '</b> for participants who haven’t checked in.';
+}
+async function loadEventSettings(){
+  editorLoaded = true;
+  const v = await getSetting('checkin_deadline');
+  $id('ev-deadline').value = v ? toLocalInput(v) : '';
+  showDeadlineInfo(v);
+}
+async function saveEventSettings(){
+  const val = $id('ev-deadline').value;
+  if(!val){ toast('Pick a date and time first.', 'warn'); return; }
+  try{
+    const iso = new Date(val).toISOString();
+    await setSetting('checkin_deadline', iso);
+    showDeadlineInfo(iso); toast('Event settings saved.', 'good');
+  }catch(e){ console.error(e); toast('Could not save. Please try again.', 'warn'); }
+}
+async function clearEventDeadline(){
+  if(!confirm('Remove the arrival deadline?')) return;
+  try{ await setSetting('checkin_deadline', ''); $id('ev-deadline').value = ''; showDeadlineInfo(''); toast('Deadline removed.', 'info'); }
+  catch(e){ console.error(e); toast('Could not remove the deadline.', 'warn'); }
+}
+async function isLateNow(){
+  try{ const dl = await getSetting('checkin_deadline'); return !!dl && Date.now() > new Date(dl).getTime(); }
+  catch(e){ return false; }
+}
+
+/* (9) banner pengingat check-in di dashboard peserta */
+async function updateCheckinAlert(){
+  const box = $id('ci-alert');
+  if(!box || !currentUser || currentUser.role !== 'participant') return;
+  await refreshCurrentUser();
+  let dl = null; try{ dl = await getSetting('checkin_deadline'); }catch(e){}
+  if(!dl || currentUser.checked_in){ box.classList.add('hidden'); return; }
+  const left = new Date(dl).getTime() - Date.now();
+  if(left > 5*60000){ box.classList.add('hidden'); return; }
+  const hhmm = new Date(dl).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  if(left > 0){
+    $id('ci-alert-title').textContent = 'You haven’t checked in yet!';
+    $id('ci-alert-sub').textContent = 'Only ' + Math.ceil(left/60000) + ' min left. Please check in before ' + hhmm + '.';
+  }else{
+    $id('ci-alert-title').textContent = 'The arrival deadline has passed';
+    $id('ci-alert-sub').textContent = 'You can still check in, but it will be marked as late.';
+  }
+  box.classList.remove('hidden');
+}
+setInterval(function(){
+  const pg = document.querySelector('#participant-app .p-page.active');
+  if(currentUser && currentUser.role === 'participant' && pg && pg.dataset.page === 'dashboard') updateCheckinAlert();
+}, 30000);
 
 /* ----- modal helpers ----- */
 function openModal(id){ document.getElementById(id).classList.add('show'); }
