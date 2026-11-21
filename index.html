@@ -1100,6 +1100,31 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 .ci-alert-text b{display:block; font-family:'Fraunces',serif; font-size:14.5px; font-weight:800; color:#7A1428; line-height:1.2;}
 .ci-alert-text small{display:block; margin-top:3px; font-size:12px; font-weight:700; color:#8F2A3C; line-height:1.4;}
 .ci-alert-btn{flex-shrink:0; background:var(--watermelon); color:#fff; font-weight:800; font-size:12px; padding:10px 13px; border-radius:13px; white-space:nowrap;}
+/* ================= REVISI v4 ================= */
+/* foto bergantian */
+.ab-wphoto{opacity:0; transition:opacity .6s ease;}
+.ab-wphoto.on{opacity:1;}
+
+/* slider sambutan kanan-kiri */
+.wl-slider{position:relative; border-radius:28px; overflow:hidden; background:#fff; box-shadow:var(--shadow-lg);}
+.wl-track{display:flex; transition:transform .5s var(--ease);}
+.wl-track>.ab-welcome{flex:0 0 100%; min-width:0; border-radius:0; box-shadow:none;}
+.ab-welcome.chair .ab-wtop{background:radial-gradient(circle at 85% 0%,#5B8BE0,transparent 55%),linear-gradient(160deg,#356AC7,#1D4E89);}
+.ab-welcome.chair .ab-qmark{color:var(--blue);}
+.wl-arrow{position:absolute; top:78px; z-index:6; width:36px; height:36px; padding:0 0 3px; border-radius:50%; background:rgba(255,255,255,.92); color:var(--green-dk); font-size:22px; font-weight:900; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 16px -8px rgba(0,0,0,.5);}
+.wl-arrow.l{left:10px;} .wl-arrow.r{right:10px;}
+.wl-dots{position:absolute; top:16px; left:50%; transform:translateX(-50%); z-index:6; display:flex; gap:6px;}
+.wl-dot{display:block; width:8px; height:8px; border-radius:8px; background:rgba(255,255,255,.5); transition:all .3s;}
+.wl-dot.on{width:22px; background:var(--yellow);}
+
+/* editor About (panitia) */
+.ab-pane .card{max-width:640px;}
+.ab-slots{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px;}
+.ab-slot{text-align:center;}
+.ab-slot-img{height:150px; border-radius:18px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:var(--green-soft); border:2px dashed #CFE3D4; font-size:12px; font-weight:800; color:var(--ink-soft);}
+.ab-slot-img img{width:100%; height:100%; object-fit:contain; object-position:bottom;}
+.ab-slot-btns{display:flex; gap:6px; justify-content:center; margin-top:8px;}
+.ab-slot-btns .btn-mini+.btn-mini{margin-left:0;}
 </style>
 </head>
 <body>
@@ -1209,7 +1234,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
   <div id="cm-stash" class="hidden">
     <div class="cm-card" id="cm-card">
-      <div class="cm-head"><h3>Say hi to the Project Officer 💬</h3><span class="live-badge">LIVE</span></div>
+      <div class="cm-head"><h3>Say hi to BAK Famz 💬</h3><span class="live-badge">LIVE</span></div>
       <p class="cm-sub" id="cm-sub">Loading comments…</p>
       <div class="cm-list" id="cm-list"></div>
       <div class="cm-form">
@@ -1763,29 +1788,38 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <div id="db-empty" class="empty-state hidden">No participants match your search or filter.</div>
       </div>
     </div>
-      <!-- ============ ABOUT EDITOR ============ -->
+
+    <!-- ============ ABOUT EDITOR ============ -->
     <div class="c-page" data-cpage="about">
-      <div class="c-head"><h2>About Editor</h2><p>Publish the Project Officer's photo and welcome message, and explain what BLOOMS 2027 is. Participants see it at the bottom of their dashboard.</p></div>
-      <div class="gl-wrap">
+      <div class="c-head"><h2>About Editor</h2><p>Atur sambutan Project Officer dan Chairman (masing-masing 3 foto yang bergantian tiap 2 detik), serta penjelasan acara. Satu tombol Save &amp; Publish menyimpan semuanya.</p></div>
+
+      <div class="tabs" style="margin-bottom:16px;">
+        <button class="tab-btn active" data-abtab="po" onclick="setAbTab('po')">Project Officer</button>
+        <button class="tab-btn" data-abtab="ch" onclick="setAbTab('ch')">Chairman</button>
+        <button class="tab-btn" data-abtab="ev" onclick="setAbTab('ev')">About Event</button>
+      </div>
+
+      <div class="ab-pane" id="ab-pane-po">
         <div class="card">
-          <div class="gl-label">PROJECT OFFICER</div>
-          <div class="ab-po">
-            <div class="ab-photo">
-              <img id="ab-photo-img" class="hidden" alt="Project Officer photo">
-              <span id="ab-photo-empty">No photo yet.<br>PNG without background works best.</span>
-            </div>
-            <div class="ab-po-fields">
-              <div class="field"><label>Name</label><input type="text" id="ab-po-name" placeholder="Project Officer's name"></div>
-              <div class="field"><label>Title</label><input type="text" id="ab-po-title" placeholder="Project Officer"></div>
-              <div class="ab-btns">
-                <label class="btn-mini blue" for="ab-photo-file">Choose photo</label>
-                <button class="btn-mini watermelon hidden" id="ab-photo-remove" onclick="removeAboutPhoto()">Remove</button>
-              </div>
-              <input type="file" id="ab-photo-file" accept="image/png,image/webp,image/jpeg" class="hidden" onchange="pickAboutPhoto(this.files[0])">
-            </div>
-          </div>
-          <div class="field"><label>Welcome message</label><textarea id="ab-greeting" rows="7" placeholder="Write the Project Officer's welcome words..."></textarea></div>
+          <div class="gl-label">PROJECT OFFICER • 3 PHOTOS</div>
+          <div class="ab-slots" id="ab-slots-po"></div>
+          <div class="field"><label>Name</label><input type="text" id="ab-po-name" placeholder="Project Officer's name"></div>
+          <div class="field"><label>Title</label><input type="text" id="ab-po-title" placeholder="Project Officer"></div>
+          <div class="field"><label>Welcome message</label><textarea id="ab-greeting" rows="8" placeholder="Write the Project Officer's welcome words..."></textarea></div>
         </div>
+      </div>
+
+      <div class="ab-pane hidden" id="ab-pane-ch">
+        <div class="card">
+          <div class="gl-label">CHAIRMAN BAK FEB UNDIP 2026/2027 • 3 PHOTOS</div>
+          <div class="ab-slots" id="ab-slots-ch"></div>
+          <div class="field"><label>Name</label><input type="text" id="ab-ch-name" placeholder="Chairman's name"></div>
+          <div class="field"><label>Title</label><input type="text" id="ab-ch-title" placeholder="Chairman BAK FEB Undip 2026/2027"></div>
+          <div class="field"><label>Welcome message</label><textarea id="ab-ch-greeting" rows="8" placeholder="Write the Chairman's welcome words..."></textarea></div>
+        </div>
+      </div>
+
+      <div class="ab-pane hidden" id="ab-pane-ev">
         <div class="card">
           <div class="gl-label">ABOUT THE EVENT</div>
           <div class="field"><label>Headline</label><input type="text" id="ab-headline"></div>
@@ -1793,6 +1827,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
           <div class="field"><label>Highlights (one per line)</label><textarea id="ab-high" rows="5"></textarea></div>
         </div>
       </div>
+
       <div class="sopedit-actions">
         <button class="btn-mini" onclick="resetAboutDefault()">Load Default Text</button>
         <button class="add-btn" id="ab-save-btn" onclick="saveAbout()" style="margin-left:auto;">Save &amp; Publish</button>
@@ -3380,7 +3415,7 @@ async function updateGardenBanner(){
 /* ----- About BLOOMS (peserta) ----- */
 const DEFAULT_ABOUT = {
   po_name:'', po_title:'Project Officer', po_photo:'',
-  greeting:'Welcome to BLOOMS 2027! We prepared this season with all our hearts so that every one of you feels at home. Take your time, meet new friends, and enjoy every moment in our garden. Let’s grow together!',
+  greeting:'Hello, BAK Famz! With the warmest hugs and biggest smiles, welcome to BLOOMS 2027! We poured our hearts, time, and passion into preparing this season so that every single one of you truly feels at home the moment you step in. This garden was created as a safe, joyful space for us to connect, share stories, and build genuine bonds beyond our daily routines. Take your time to settle in, meet new friends, and cherish every little moment we are about to create here. May this season be the start of unforgettable memories—let’s bloom and grow together!',
   headline:'Planting roots, learning new things, growing together',
   desc:'BLOOMS 2027 is a welcoming season where new faces become one garden. Throughout the event you will meet your group, discover the campus community, and take your first steps toward growing together.',
   highlights:[
@@ -3856,6 +3891,212 @@ setInterval(function(){
   const pg = document.querySelector('#participant-app .p-page.active');
   if(currentUser && currentUser.role === 'participant' && pg && pg.dataset.page === 'dashboard') updateCheckinAlert();
 }, 30000);
+
+/* ===================== REVISI v4: PO + CHAIRMAN ===================== */
+const CHAIR_TITLE = 'Chairman BAK FEB Undip 2026/2027';
+
+async function getChairman(){
+  const base = { name:'', title:CHAIR_TITLE, greeting:'', photos:[] };
+  try{
+    const v = await getSetting('chairman_content');
+    if(v) return Object.assign(base, JSON.parse(v), { saved:true });
+  }catch(e){ console.error(e); }
+  return Object.assign(base, { saved:false });
+}
+
+/* ----- tampilan peserta: slider kanan-kiri ----- */
+let wlIdx = 0, abTick = 0;
+function wlApply(){
+  const t = $id('wl-track'); if(!t) return;
+  const n = t.children.length;
+  wlIdx = Math.max(0, Math.min(n - 1, wlIdx));
+  t.style.transform = 'translateX(-' + (wlIdx * 100) + '%)';
+  document.querySelectorAll('#wl-slider .wl-dot').forEach((d,i)=>d.classList.toggle('on', i === wlIdx));
+}
+function wlGo(d){
+  const t = $id('wl-track'); if(!t) return;
+  const n = t.children.length;
+  wlIdx = (wlIdx + d + n) % n;
+  wlApply();
+}
+/* foto bergantian tiap 2 detik */
+setInterval(function(){
+  abTick++;
+  document.querySelectorAll('.ab-wtop').forEach(w=>{
+    const im = w.querySelectorAll('.ab-wphoto');
+    if(im.length < 2) return;
+    const k = abTick % im.length;
+    im.forEach((x,i)=>x.classList.toggle('on', i === k));
+  });
+}, 2000);
+
+async function renderAbout(){
+  const box = $id('about-wrap'); if(!box) return;
+  const a = await getAbout(), c = await getChairman();
+  const nl = s => escHTML(s).replace(/\n/g, '<br>');
+
+  const slide = (cls, tag, name, title, greeting, photos, seed) => {
+    const media = photos.length
+      ? photos.map((u,i)=>`<img class="ab-wphoto${i===0?' on':''}" src="${escHTML(u)}" alt="${escHTML(name)}">`).join('')
+      : `<div class="ab-wav">${personAvatar({ name:name || 'P', nim:seed }, 'xl')}</div>`;
+    return `<div class="ab-welcome ${cls}">
+      <div class="ab-wtop">
+        <span class="ab-flw f1">${flowerSVG('#F4808D','#FADE73')}</span>
+        <span class="ab-flw f2">${flowerSVG('#99CFF5','#FADE73')}</span>
+        <div class="ab-wid">
+          <span class="ab-tag">${tag}</span>
+          <b class="ab-poname">${escHTML(name)}</b>
+          <small>${escHTML(title)}</small>
+        </div>
+        ${media}
+      </div>
+      <div class="ab-wbody"><span class="ab-qmark">“</span><p>${nl(greeting)}</p></div>
+    </div>`;
+  };
+
+  const slides = [];
+  if(a.saved && (a.po_name || a.greeting)){
+    const poPh = (a.po_photos && a.po_photos.length) ? a.po_photos : (a.po_photo ? [a.po_photo] : []);
+    slides.push(slide('', 'WELCOME MESSAGE', a.po_name, a.po_title || 'Project Officer', a.greeting, poPh, 'po'));
+  }
+  if(c.saved && (c.name || c.greeting)){
+    slides.push(slide('chair', 'CHAIRMAN’S MESSAGE', c.name, c.title || CHAIR_TITLE, c.greeting, c.photos || [], 'chairman'));
+  }
+
+  let html = '';
+  if(slides.length){
+    const multi = slides.length > 1;
+    html += `<div class="wl-slider" id="wl-slider">
+      <div class="wl-track" id="wl-track">${slides.join('')}</div>
+      ${multi ? `<button class="wl-arrow l" onclick="wlGo(-1)" aria-label="Previous">‹</button>
+      <button class="wl-arrow r" onclick="wlGo(1)" aria-label="Next">›</button>
+      <div class="wl-dots">${slides.map((_,i)=>`<i class="wl-dot${i===0?' on':''}"></i>`).join('')}</div>` : ''}
+    </div>`;
+  }
+  html += '<div id="cm-slot"></div>';
+  const pts = (a.highlights || []).filter(Boolean);
+  html += `<div class="ab-event">
+    <span class="ab-tag g">WHAT IS BLOOMS 2027?</span>
+    <h3>${escHTML(a.headline)}</h3>
+    <p>${nl(a.desc)}</p>
+    ${pts.length ? `<div class="ab-points">${pts.map((t,i)=>`<div class="ab-point"><span class="ab-pn c${i % 6}">${i+1}</span><p>${escHTML(t)}</p></div>`).join('')}</div>` : ''}
+  </div>`;
+
+  const cmc = $id('cm-card'), cms = $id('cm-stash');
+  if(cmc && cms) cms.appendChild(cmc);
+  box.innerHTML = html;
+
+  const sl = $id('wl-slider');
+  if(sl){
+    let x0 = null;
+    sl.addEventListener('touchstart', e=>{ x0 = e.touches[0].clientX; }, { passive:true });
+    sl.addEventListener('touchend', e=>{
+      if(x0 == null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if(Math.abs(dx) > 50) wlGo(dx < 0 ? 1 : -1);
+    });
+    wlApply();
+  }
+  placeComments();
+}
+
+/* ----- editor panitia: 3 slot foto per orang ----- */
+let abPh = { po:[], ch:[] };
+const abEmpty = urls => [0,1,2].map(i=>({ url:(urls && urls[i]) || '', file:null, prev:(urls && urls[i]) || '' }));
+
+function setAbTab(t){
+  ['po','ch','ev'].forEach(k=>$id('ab-pane-' + k).classList.toggle('hidden', k !== t));
+  document.querySelectorAll('[data-abtab]').forEach(b=>b.classList.toggle('active', b.dataset.abtab === t));
+}
+function drawSlots(who){
+  $id('ab-slots-' + who).innerHTML = abPh[who].map((s,i)=>`
+    <div class="ab-slot">
+      <div class="ab-slot-img">${s.prev ? `<img src="${escHTML(s.prev)}" alt="">` : `<span>Photo ${i+1}</span>`}</div>
+      <div class="ab-slot-btns">
+        <label class="btn-mini blue" for="abf-${who}-${i}">${s.prev ? 'Change' : 'Choose'}</label>
+        ${s.prev ? `<button class="btn-mini watermelon" onclick="abClear('${who}',${i})">✕</button>` : ''}
+      </div>
+      <input type="file" id="abf-${who}-${i}" accept="image/png,image/webp,image/jpeg" class="hidden" onchange="abPick('${who}',${i},this.files[0])">
+    </div>`).join('');
+}
+function abPick(who, i, f){
+  if(!f) return;
+  if(!/^image\/(png|webp|jpeg)$/.test(f.type)){ toast('Please choose a PNG, WEBP, or JPG file.', 'warn'); return; }
+  if(f.size > 5 * 1024 * 1024){ toast('That file is too large (max 5 MB).', 'warn'); return; }
+  abPh[who][i].file = f;
+  abPh[who][i].prev = URL.createObjectURL(f);
+  drawSlots(who);
+}
+function abClear(who, i){
+  abPh[who][i] = { url:'', file:null, prev:'' };
+  drawSlots(who);
+}
+async function abUpload(who){
+  const out = [];
+  for(let i = 0; i < 3; i++){
+    const s = abPh[who][i];
+    if(s.file){
+      const f = s.file;
+      const ext = f.type === 'image/webp' ? 'webp' : f.type === 'image/jpeg' ? 'jpg' : 'png';
+      const path = who + '_' + Date.now() + '_' + i + '.' + ext;
+      const { error } = await sb.storage.from('garden').upload(path, f, { contentType:f.type, upsert:true });
+      if(error) throw error;
+      s.url = sb.storage.from('garden').getPublicUrl(path).data.publicUrl;
+      s.prev = s.url; s.file = null;
+    }
+    if(s.url) out.push(s.url);
+  }
+  return out;
+}
+
+async function loadAboutEditor(){
+  editorLoaded = true;
+  const a = await getAbout(), c = await getChairman();
+  const poUrls = (a.po_photos && a.po_photos.length) ? a.po_photos : (a.po_photo ? [a.po_photo] : []);
+  abPh.po = abEmpty(poUrls);
+  abPh.ch = abEmpty(c.photos);
+  $id('ab-po-name').value = a.po_name || '';
+  $id('ab-po-title').value = a.po_title || '';
+  $id('ab-greeting').value = a.greeting || '';
+  $id('ab-ch-name').value = c.name || '';
+  $id('ab-ch-title').value = c.title || CHAIR_TITLE;
+  $id('ab-ch-greeting').value = c.greeting || '';
+  $id('ab-headline').value = a.headline || '';
+  $id('ab-desc').value = a.desc || '';
+  $id('ab-high').value = (a.highlights || []).join('\n');
+  drawSlots('po'); drawSlots('ch');
+  loadModComments();
+}
+
+async function saveAbout(){
+  const btn = $id('ab-save-btn'); btn.disabled = true; btn.textContent = 'Saving...';
+  try{
+    const poPhotos = await abUpload('po');
+    const chPhotos = await abUpload('ch');
+    await setSetting('about_content', JSON.stringify({
+      po_name: $id('ab-po-name').value.trim(),
+      po_title: $id('ab-po-title').value.trim() || 'Project Officer',
+      po_photo: poPhotos[0] || '',
+      po_photos: poPhotos,
+      greeting: $id('ab-greeting').value.trim(),
+      headline: $id('ab-headline').value.trim(),
+      desc: $id('ab-desc').value.trim(),
+      highlights: $id('ab-high').value.split('\n').map(x=>x.trim()).filter(Boolean)
+    }));
+    await setSetting('chairman_content', JSON.stringify({
+      name: $id('ab-ch-name').value.trim(),
+      title: $id('ab-ch-title').value.trim() || CHAIR_TITLE,
+      greeting: $id('ab-ch-greeting').value.trim(),
+      photos: chPhotos
+    }));
+    drawSlots('po'); drawSlots('ch');
+    burstConfetti(); toast('Welcome messages published! Participants see them right away.', 'good');
+  }catch(e){
+    console.error(e); toast('Could not save. Make sure the "garden" storage bucket and its policies exist.', 'warn');
+  }finally{
+    btn.disabled = false; btn.textContent = 'Save & Publish';
+  }
+}
 
 /* ----- modal helpers ----- */
 function openModal(id){ document.getElementById(id).classList.add('show'); }
