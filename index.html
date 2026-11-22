@@ -1196,18 +1196,23 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 #participant-app .p-page[data-page="dashboard"] .p-banner{padding-bottom:26px;}
 
 /* (2) Bloom Dump */
-.dump-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; padding:6px 14px 100px;}
-#dump-grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;}
+.dump-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; padding:6px 14px 100px;}
+#dump-grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px;}
 .dump-admin-actions{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:16px;}
-.dump-card{position:relative; border-radius:14px; overflow:hidden; aspect-ratio:1; background:var(--cream); box-shadow:var(--shadow);}
-.dump-grid button.dump-card{display:block; width:100%; padding:0; border:0; color:inherit; text-align:left; cursor:zoom-in;}
-.dump-card img{width:100%; height:100%; object-fit:cover;}
-.dump-card img{transition:transform .2s ease;}
+.dump-card{position:relative; min-width:0; padding:7px; border:1px solid #E8E4D9; border-radius:12px 12px 5px 5px; overflow:hidden; background:#FFFEFA; box-shadow:0 7px 16px rgba(34,54,39,.14); transform:rotate(-1deg);}
+.dump-card:nth-child(4n+2){transform:rotate(1.2deg);}
+.dump-card:nth-child(4n+3){transform:rotate(-.6deg);}
+.dump-card:nth-child(4n){transform:rotate(.8deg);}
+.dump-grid button.dump-card{display:block; width:100%; padding:7px; color:inherit; text-align:left; cursor:zoom-in; transition:transform .18s ease, box-shadow .18s ease;}
+.dump-card-photo{width:100%; aspect-ratio:1; overflow:hidden; border-radius:4px; background:#F2F0E8;}
+.dump-card img{width:100%; height:100%; object-fit:cover; transition:transform .2s ease;}
+.dump-grid button.dump-card:hover{transform:translateY(-3px) rotate(0) scale(1.025); box-shadow:0 12px 22px rgba(34,54,39,.2);}
 .dump-grid button.dump-card:hover img{transform:scale(1.04);}
-.dump-fade{position:absolute; left:0; right:0; bottom:0; padding:18px 8px 8px; background:linear-gradient(to top, rgba(0,20,10,.85), rgba(0,20,10,0));}
-.dump-fade .dump-cap{display:block; font-size:9px; font-weight:600; color:#fff; opacity:.92; line-height:1.3; margin-bottom:3px; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
-.dump-fade b{display:block; font-size:10.5px; font-weight:800; color:#fff; line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-.dump-fade small{display:block; font-size:9px; font-weight:700; color:#fff; opacity:.8; margin-top:1px;}
+.dump-grid button.dump-card:focus-visible{outline:3px solid var(--watermelon); outline-offset:3px;}
+.dump-fade{min-height:60px; padding:8px 4px 2px; text-align:center;}
+.dump-fade .dump-cap{height:25px; display:-webkit-box; overflow:hidden; color:#58705D; font-family:'Fraunces',serif; font-size:10px; font-style:italic; font-weight:600; line-height:1.25; text-overflow:ellipsis; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
+.dump-fade b{display:block; margin-top:4px; overflow:hidden; color:#243B2C; font-size:10px; font-weight:800; line-height:1.2; text-overflow:ellipsis; white-space:nowrap;}
+.dump-fade small{display:block; margin-top:3px; color:#829084; font-size:8px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 .dump-fab{position:fixed; left:50%; transform:translateX(-50%); bottom:92px; z-index:55; display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#F7788B,#F15E73); color:#fff; font-weight:800; font-size:13px; padding:13px 22px; border-radius:100px; box-shadow:0 16px 26px -12px rgba(241,94,115,.85); white-space:nowrap;}
 @media (max-width:340px){
   .dump-grid{grid-template-columns:repeat(3,1fr);}
@@ -4724,11 +4729,11 @@ async function renderDumpGrid(gridId){
     ${gridId==='dump-grid'
       ? `<button type="button" class="dump-card" data-photo="${escHTML(r.photo_url)}" data-name="${escHTML(r.name)}" aria-label="View photo by ${escHTML(r.name)}" onclick="openDumpPhoto(this)">`
       : '<div class="dump-card">'}
-      <img src="${escHTML(r.photo_url)}" loading="lazy" alt="">
+      <div class="dump-card-photo"><img src="${escHTML(r.photo_url)}" loading="lazy" alt=""></div>
       <div class="dump-fade">
-        ${r.caption ? `<span class="dump-cap">${escHTML(r.caption)}</span>` : ''}
+        <span class="dump-cap">${escHTML(r.caption || 'A little bloom memory')}</span>
         <b>${escHTML(r.name)}</b>
-        <small>${escHTML(r.group || '—')}</small>
+        <small>${escHTML(r.group || 'BLOOMS 2027')}</small>
       </div>
     ${gridId==='dump-grid' ? '</button>' : '</div>'}`).join('') : '<div class="empty-state" style="grid-column:1/-1;">No moments yet. Be the first to upload!</div>';
 }
