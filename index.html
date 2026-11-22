@@ -4592,6 +4592,7 @@ function goTo(page){
 }
 
 /* (10) cGoTo diperbarui: Groups & Database dianggap satu nav "dbhub" */
+const committeeAutoRefreshPages = new Set(['dashboard','checkin','photobooth','dump']);
 function cGoTo(page){
   document.querySelectorAll('#committee-app .c-page').forEach(p=>p.classList.remove('active'));
   document.querySelector(`#committee-app .c-page[data-cpage="${page}"]`).classList.add('active');
@@ -4600,7 +4601,15 @@ function cGoTo(page){
   editorLoaded = false; window.scrollTo(0,0);
   clearInterval(committeePollTimer);
   renderCommitteePage(page);
-  committeePollTimer = setInterval(()=>renderCommitteePage(page), 6000);
+  if(committeeAutoRefreshPages.has(page)){
+    committeePollTimer = setInterval(()=>{
+      const active = document.activeElement;
+      const editing = active && (/^(INPUT|TEXTAREA|SELECT)$/.test(active.tagName) || active.isContentEditable)
+        && active.closest('#committee-app');
+      if(editing || document.querySelector('.modal-overlay.show')) return;
+      renderCommitteePage(page);
+    }, 6000);
+  }
 }
 function renderCommitteePage(page){
   if(page==='dashboard') renderDashboardStats();
