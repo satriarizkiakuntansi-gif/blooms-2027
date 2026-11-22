@@ -373,9 +373,10 @@ svg.fl,.flower{display:none;}
 .p-banner p{font-size:13.5px; line-height:1.6; margin-top:12px; max-width:290px; color:rgba(255,255,255,.92);}
 .p-banner-top button{background:rgba(255,255,255,.18) !important; border-radius:12px !important; width:38px !important; height:38px !important; backdrop-filter:blur(4px);}
 .p-banner-top button:hover{background:rgba(255,255,255,.3) !important;}
-.p-group-chip{margin-top:20px; display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--green); font-weight:800; font-size:12.5px; padding:9px 16px; border-radius:100px; box-shadow:0 8px 16px -8px rgba(0,0,0,.3);}
+.p-group-chip{margin-top:0; display:inline-flex; align-items:center; gap:8px; min-width:0; max-width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; background:#fff; color:var(--green); font-weight:800; font-size:12.5px; padding:9px 16px; border-radius:100px; box-shadow:0 8px 16px -8px rgba(0,0,0,.3);}
 .p-group-chip::before{content:'🌿';}
 .p-group-chip b{color:var(--watermelon); font-size:13.5px;}
+.p-banner-links{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:14px; position:relative; z-index:2;}
 
 .p-section{padding:26px 22px 2px;}
 .p-section h2{font-size:19px; font-weight:800; color:var(--green-dk); display:flex; align-items:center; gap:8px;}
@@ -439,6 +440,8 @@ svg.fl,.flower{display:none;}
 .queue-stat-card .num{font-family:'Fraunces',serif; font-size:38px; font-weight:800; line-height:1.1; margin-top:2px;}
 .queue-stat-card .lbl{font-size:11px; opacity:.85; font-weight:800; letter-spacing:.08em;}
 .ticket-card{margin:18px 20px; border-radius:28px; padding:28px 20px; text-align:center; position:relative; overflow:hidden; color:#fff; background:linear-gradient(150deg,#F7788B,#F15E73 60%,#E24560); box-shadow:0 26px 40px -22px rgba(241,94,115,.9); animation:float 4s ease-in-out infinite;}
+.tk-used-stamp{display:inline-flex; align-items:center; gap:7px; margin-top:16px; padding:8px 13px; border:2px solid rgba(255,255,255,.9); border-radius:12px; background:rgba(255,255,255,.94); color:var(--green-dk); font-size:11px; font-weight:900; letter-spacing:.08em; box-shadow:0 6px 14px -8px rgba(0,0,0,.45);}
+.tk-used-stamp::before{content:'✓'; width:18px; height:18px; display:grid; place-items:center; border-radius:50%; background:var(--green); color:#fff; font-size:12px; line-height:1;}
 @keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);}}
 .ticket-card .tk-label{font-size:11.5px; font-weight:800; opacity:.9; letter-spacing:.1em;}
 .ticket-card .tk-num{font-family:'Fraunces',serif; font-size:66px; font-weight:800; margin:4px 0 12px; line-height:1;}
@@ -650,7 +653,7 @@ tr:hover td{background:#FBFCF4;}
 
 /* ---------- banner pengingat SOP ---------- */
 .sop-alert{
-  position:relative; z-index:3; margin:-34px 20px 0; display:flex; align-items:center; gap:13px;
+  position:relative; z-index:3; margin:-12px 20px 0; display:flex; align-items:center; gap:13px;
   padding:14px 14px 14px 14px; border-radius:22px; cursor:pointer;
   background:linear-gradient(135deg,#FFF6C9,#FADE73); border:2px solid #fff;
   box-shadow:0 18px 30px -16px rgba(241,157,58,.85);
@@ -813,9 +816,7 @@ tr:hover td{background:#FBFCF4;}
 .pav.lg{width:124px; height:124px; box-shadow:0 0 0 4px #fff, 0 0 0 8px var(--ring,var(--olive));}
 .pav.xl{width:150px; height:150px; box-shadow:0 0 0 5px #fff, 0 0 0 10px var(--ring,var(--olive));}
 .pav.noimg{display:flex; align-items:center; justify-content:center;}
-.pav.noimg svg{position:absolute; width:150%; height:150%; left:-25%; top:-25%; animation:spin 40s linear infinite;}
-.pav.noimg b{position:relative; z-index:1; font-family:'Fraunces',serif; font-weight:800; color:#fff; font-size:32px; text-shadow:0 3px 8px rgba(0,0,0,.25);}
-.pav.sm.noimg b{font-size:18px;} .pav.lg.noimg b{font-size:52px;} .pav.xl.noimg b{font-size:62px;}
+.pav.noimg svg{width:56%; height:56%; animation:none;}
 #mm-avatar{margin-bottom:18px;}
 
 /* ---------- profil peserta ---------- */
@@ -925,7 +926,7 @@ tr:hover td{background:#FBFCF4;}
 .glb-text span{display:block; margin-top:3px; font-size:12.5px; font-weight:700; color:#7A5410; line-height:1.45;}
 
 /* ---------- menu peserta: kartu terakhir selebar baris ---------- */
-#participant-app .menu-card:last-child{grid-column:span 3;}
+#participant-app .menu-card:last-child{grid-column:span 2;}
 
 /* ---------- about (peserta) ---------- */
 .about-wrap{display:flex; flex-direction:column; gap:16px; padding:14px 20px 6px;}
@@ -956,7 +957,7 @@ tr:hover td{background:#FBFCF4;}
 
 /* ---------- panitia: layout baru ---------- */
 #committee-app.active{display:block;}
-.c-main{margin:0 auto; max-width:1100px; width:100%; padding:18px 24px 130px;}
+.c-main{margin:0 auto; max-width:1320px; width:100%; padding:18px 28px 130px;}
 .c-brand{display:flex; align-items:center; gap:12px; margin-bottom:18px;}
 .c-brand-logo{width:46px; height:46px; padding:6px; border-radius:16px; background:#fff; box-shadow:var(--shadow);}
 .c-brand-logo svg{display:block; width:100%; height:100%; animation:spin 30s linear infinite;}
@@ -1125,6 +1126,156 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 .ab-slot-img img{width:100%; height:100%; object-fit:contain; object-position:bottom;}
 .ab-slot-btns{display:flex; gap:6px; justify-content:center; margin-top:8px;}
 .ab-slot-btns .btn-mini+.btn-mini{margin-left:0;}
+/* ================= REVISI v3 ================= */
+.btn-mini.outline{background:#fff; color:var(--watermelon); box-shadow:inset 0 0 0 2px #FBD3D9;}
+.btn-mini.outline:hover{background:#FFF3F5;}
+.toolbar .btn-mini{padding:12px 16px; border-radius:14px; font-size:13px;}
+.pill-red{background:#FFE3E7; color:#C92A44;}
+
+/* avatar kecil di tabel */
+.nm-cell{display:flex; align-items:center; gap:10px;}
+.nm-cell .pav{margin:0;}
+.pav.md{width:52px; height:52px; box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--ring,var(--olive));}
+.pav.md.noimg b{font-size:22px;}
+
+/* (5) kartu Queue Status */
+.toggle-card{align-items:stretch; text-align:center; gap:12px; padding:22px;}
+.toggle-status{font-size:20px; display:flex; align-items:center; justify-content:center;}
+.toggle-card .btn-mini{width:100%; padding:13px; font-size:14px; border-radius:14px;}
+.toggle-card .btn-mini+.btn-mini{margin-left:0;}
+
+/* (6) header sticky + footer full */
+.c-main{padding:0 24px 84px;}
+.c-brand{position:sticky; top:0; z-index:45; margin:0 0 18px; padding:calc(12px + env(safe-area-inset-top,0px)) 0 12px; background:rgba(255,252,236,.95); box-shadow:0 0 0 100vmax rgba(255,252,236,.95); clip-path:inset(0 -100vmax);}
+@media (max-width:640px){ .c-main{padding:0 16px 84px;} }
+#participant-app{padding-bottom:76px;}
+.bottom-nav{bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; border-radius:0; gap:0; padding:4px 6px calc(4px + env(safe-area-inset-bottom,0px)); background:rgba(255,255,255,.97); box-shadow:0 -6px 20px -14px rgba(0,50,25,.45);}
+.c-bottom-nav{max-width:none;}
+.nav-btn{padding:6px 0 5px; gap:2px; font-size:10.5px; border-radius:12px;}
+.nav-btn svg{width:20px; height:20px;}
+
+/* (7) tombol kecil di pojok tiket */
+#participant-app .ticket-card{padding-top:52px;}
+#participant-app .ticket-card>.tk-corner{position:absolute; top:10px; right:10px; display:flex; gap:6px; z-index:4;}
+.tk-ic{width:32px; height:32px; border-radius:50%; padding:0; background:rgba(255,255,255,.28); color:#fff; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(4px);}
+.tk-ic:hover{background:rgba(255,255,255,.42);}
+.tk-ic svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+#queue-after .ticket-actions{display:none;}
+
+/* (2) galeri check-in */
+.modal-box.gal-box{max-width:760px;}
+.gal-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px;}
+.gal-item{display:block; padding:0; text-align:left; background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);}
+.gal-item img{width:100%; aspect-ratio:1; object-fit:cover; background:var(--cream);}
+.gal-item span{display:block; padding:6px 9px 8px; font-size:11.5px; font-weight:800; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.gal-item small{display:block; font-size:10.5px; font-weight:700; color:var(--ink-soft);}
+.gal-item.late{box-shadow:0 0 0 3px var(--watermelon);}
+
+/* (8) check-in terlambat */
+.ci-receipt.late .cr-top{background:linear-gradient(135deg,#F7788B,#C92A44);}
+.ci-receipt.late .cr-badge{background:#fff; box-shadow:0 0 0 6px rgba(255,255,255,.3);}
+.ci-receipt.late .cr-badge svg{stroke:#C92A44;}
+.ci-receipt.late .cr-stamp{color:#C92A44;}
+.ci-receipt.late .cr-row.big b{color:#C92A44;}
+.ci-receipt.late .cr-pill{background:#FFE3E7; color:#C92A44 !important;}
+.pf-status.ok.late{background:linear-gradient(135deg,#F7788B,#C92A44);}
+
+/* (9) banner pengingat check-in */
+.ci-alert{position:relative; z-index:3; margin:12px 20px 0; display:flex; align-items:center; gap:13px; padding:13px 14px; border-radius:22px; cursor:pointer; background:linear-gradient(135deg,#FFE3E7,#FBB9C3); border:2px solid #fff; box-shadow:0 18px 30px -16px rgba(241,94,115,.85); animation:pageIn .5s var(--ease) both;}
+.ci-alert-icon{width:46px; height:46px; border-radius:16px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(145deg,#F7788B,#E24560); animation:wiggle 2.6s ease-in-out infinite; transform-origin:50% 20%;}
+.ci-alert-icon svg{width:24px; height:24px; fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;}
+.ci-alert-text{flex:1; min-width:0;}
+.ci-alert-text b{display:block; font-family:'Fraunces',serif; font-size:14.5px; font-weight:800; color:#7A1428; line-height:1.2;}
+.ci-alert-text small{display:block; margin-top:3px; font-size:12px; font-weight:700; color:#8F2A3C; line-height:1.4;}
+.ci-alert-btn{flex-shrink:0; background:var(--watermelon); color:#fff; font-weight:800; font-size:12px; padding:10px 13px; border-radius:13px; white-space:nowrap;}
+
+/* ================= REVISI v5 (BATCH 2-7) ================= */
+/* (4) link Garden Layout di banner */
+.p-garden-link{position:static; flex-shrink:0; display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.18); backdrop-filter:blur(4px); color:#fff; font-weight:800; font-size:12.5px; padding:9px 14px; border-radius:100px; white-space:nowrap;}
+.p-garden-link:hover{background:rgba(255,255,255,.3);}
+#participant-app .p-page[data-page="dashboard"] .p-banner{padding-bottom:26px;}
+
+/* (2) Bloom Dump */
+.dump-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; padding:6px 14px 100px;}
+#dump-grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;}
+.dump-card{position:relative; border-radius:14px; overflow:hidden; aspect-ratio:1; background:var(--cream); box-shadow:var(--shadow);}
+.dump-grid button.dump-card{display:block; width:100%; padding:0; border:0; color:inherit; text-align:left; cursor:zoom-in;}
+.dump-card img{width:100%; height:100%; object-fit:cover;}
+.dump-card img{transition:transform .2s ease;}
+.dump-grid button.dump-card:hover img{transform:scale(1.04);}
+.dump-fade{position:absolute; left:0; right:0; bottom:0; padding:18px 8px 8px; background:linear-gradient(to top, rgba(0,20,10,.85), rgba(0,20,10,0));}
+.dump-fade .dump-cap{display:block; font-size:9px; font-weight:600; color:#fff; opacity:.92; line-height:1.3; margin-bottom:3px; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
+.dump-fade b{display:block; font-size:10.5px; font-weight:800; color:#fff; line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.dump-fade small{display:block; font-size:9px; font-weight:700; color:#fff; opacity:.8; margin-top:1px;}
+.dump-fab{position:fixed; left:50%; transform:translateX(-50%); bottom:92px; z-index:55; display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#F7788B,#F15E73); color:#fff; font-weight:800; font-size:13px; padding:13px 22px; border-radius:100px; box-shadow:0 16px 26px -12px rgba(241,94,115,.85); white-space:nowrap;}
+@media (max-width:340px){
+  .dump-grid{grid-template-columns:repeat(3,1fr);}
+  #dump-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+.dump-photo-modal{padding:48px 16px 16px; background:rgba(8,30,18,.9);}
+.dump-photo-modal img{display:block; max-width:94vw; max-height:82vh; object-fit:contain; border-radius:16px; box-shadow:var(--shadow-lg);}
+.dump-photo-close{position:absolute; top:calc(12px + env(safe-area-inset-top,0px)); right:16px; width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,.18); color:#fff; font-size:28px; line-height:1;}
+
+/* (5) komentar nempel di slider welcoming */
+.cm-dock{border-top:1px solid var(--line);}
+.cm-card.compact{background:transparent; box-shadow:none; border-radius:0; padding:14px 16px 16px;}
+.cm-card.compact .cm-head h3{font-size:14.5px;}
+.cm-card.compact .cm-list{max-height:220px; background:transparent; padding:8px 2px;}
+.cm-card.compact .cm-bub{background:transparent !important; box-shadow:none; border-radius:0; border-bottom:1px solid var(--line); padding:8px 2px 10px;}
+.cm-card.compact .cm-msg.mine .cm-bub{color:var(--ink);}
+.cm-card.compact .cm-form input{padding:10px 16px; font-size:13px;}
+.cm-card.compact .cm-send{width:40px; height:40px;}
+
+/* (6) Hello From Us */
+.hfu-wrap{margin-top:16px;}
+.hfu-head{padding:4px 2px 14px;}
+.hfu-head h2{font-size:19px; font-weight:800; color:var(--green-dk);}
+.hfu-head p{font-size:12.5px; color:var(--ink-soft); font-weight:600; margin-top:4px;}
+.hfu-slider{position:relative;}
+.hfu-track{display:flex; transition:transform .5s var(--ease);}
+.hfu-card{display:flex; align-items:center; gap:18px; flex:0 0 100%; min-width:0; background:linear-gradient(160deg,#fff,var(--green-soft)); border-radius:28px; padding:24px 20px; text-align:left; box-shadow:var(--shadow-lg); position:relative; overflow:hidden;}
+.hfu-card::before{content:''; position:absolute; width:140px; height:140px; border-radius:50%; background:rgba(0,122,63,.08); top:-50px; right:-50px;}
+.hfu-card::after{content:''; position:absolute; width:90px; height:90px; border-radius:50%; background:rgba(241,94,115,.08); bottom:-30px; left:-30px;}
+.hfu-photo{flex:0 0 40%; max-width:160px; aspect-ratio:1; margin:0; position:relative; z-index:1;}
+.hfu-photo img{width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 12px 16px rgba(0,50,25,.3));}
+.hfu-photo .avatar.lg{width:100%; height:100%; margin:0; font-size:40px;}
+.hfu-copy{flex:1; min-width:0; position:relative; z-index:1;}
+.hfu-quote{font-family:'Fraunces',serif; font-style:italic; font-size:14px; color:var(--ink); line-height:1.6;}
+.hfu-name{display:block; margin-top:10px; font-size:15.5px; font-weight:800; color:var(--green-dk);}
+.hfu-role{display:block; margin-top:2px; font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--watermelon);}
+
+/* (8)/(9) SOP khusus: Dress Code + Date/Time/Loc */
+.sop-dc, .sop-dtl{padding-left:18px !important;}
+.sop-dc{padding-top:8px !important; padding-bottom:20px !important;}
+.dc-grid{display:flex; gap:16px; align-items:center;}
+.dc-text{flex:1; min-width:0;}
+.dc-tag{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.1em; color:var(--watermelon); background:#FFE3E7; padding:5px 11px; border-radius:100px; margin-bottom:8px;}
+.dc-text p{font-size:13px; line-height:1.6; font-weight:600; color:var(--ink-soft);}
+.dc-photo{position:relative; width:136px; height:168px; flex-shrink:0; border-radius:20px; overflow:hidden; background:#fff; box-shadow:none;}
+.dc-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .6s ease;}
+.dc-photo img.on{opacity:1;}
+.dc-placeholder{display:flex; align-items:center; justify-content:center; width:100%; height:100%; font-size:38px;}
+@media (max-width:360px){ .dc-grid{gap:10px;} .dc-photo{width:120px; height:152px;} }
+.dtl-row{display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px dashed var(--line);}
+.dtl-row:last-of-type{border-bottom:none;}
+.dtl-ico{width:38px; height:38px; border-radius:13px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:var(--green); color:#fff;}
+.dtl-ico svg{width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;}
+.dtl-row small{display:block; font-size:10px; font-weight:800; letter-spacing:.1em; color:var(--ink-soft);}
+.dtl-row b{display:block; margin-top:2px; font-size:14px; font-weight:800; color:var(--ink);}
+.dtl-desc{font-size:13px; font-weight:600; color:var(--ink-soft); line-height:1.6; margin-top:10px;}
+.dtl-maps-btn{display:inline-flex; align-items:center; gap:6px; margin-top:12px; background:var(--green); color:#fff; font-weight:800; font-size:13px; padding:11px 18px; border-radius:100px;}
+
+/* (11) dashboard stat baru */
+.dash-stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:22px; margin-bottom:24px;}
+.dash-group{position:relative; overflow:hidden; border-radius:24px; padding:20px 22px; color:#fff; box-shadow:var(--shadow-lg);}
+.dash-group.dash-att{background:radial-gradient(circle at 90% 0%,#16a860,transparent 55%),linear-gradient(150deg,#007A3F,#004D27);}
+.dash-group.dash-pb{background:radial-gradient(circle at 90% 0%,#F7788B,transparent 55%),linear-gradient(150deg,#F15E73,#C92A44);}
+.dash-group-title{font-size:12px; font-weight:800; letter-spacing:.1em; opacity:.92;}
+.dash-group-row{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px;}
+.dash-mini{background:rgba(255,255,255,.16); border-radius:16px; padding:12px 6px; text-align:center;}
+.dash-mini b{display:block; font-family:'Fraunces',serif; font-size:26px; font-weight:800; line-height:1.1;}
+.dash-mini small{display:block; margin-top:4px; font-size:10px; font-weight:800; letter-spacing:.04em; opacity:.88;}
+@media (max-width:640px){ .dash-stat-grid{grid-template-columns:1fr;} .dash-mini b{font-size:22px;} }
 </style>
 </head>
 <body>
@@ -1168,10 +1319,13 @@ label.btn-mini{display:inline-block; cursor:pointer;}
           <span class="p-tag">PARTICIPANT • BLOOMS 2027</span>
           <h1>Welcome,<span id="p-name">Participant</span></h1>
         </div>
-        <button onclick="logout()" style="background:rgba(255,255,255,.18); color:#fff; width:36px;height:36px;border-radius:10px;font-size:15px;">⎋</button>
+        <button class="c-out" onclick="logout()" aria-label="Log out"><svg viewBox="0 0 24 24"><path d="M9.5 4.5H6.5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/><path d="M14 8l4 4-4 4M18 12H9.5"/></svg></button>
       </div>
       <p>Enjoy your new season of planting roots, learning new things, and growing together with us.</p>
-      <div class="p-group-chip">GROUP&nbsp;:&nbsp;<b id="p-group">—</b></div>
+      <div class="p-banner-links">
+        <div class="p-group-chip">GROUP&nbsp;:&nbsp;<b id="p-group">—</b></div>
+        <button class="p-garden-link" onclick="goTo('garden')">🗺️ Garden Layout ›</button>
+      </div>
     </div>
 
     <div class="sop-alert" role="button" tabindex="0" onclick="goTo('sop')">
@@ -1214,11 +1368,17 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         </div>
         <span>Satisfaction Survey</span>
       </button>
+      <button class="menu-card mc-pink" onclick="goTo('dump')">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="13" rx="2.5"/><circle cx="9" cy="11.5" r="2"/><path d="M14 10.5l3 5H7z"/></svg>
+        </div>
+        <span>Bloom Dump</span>
+      </button>
       <button class="menu-card mc-blue hidden" onclick="goTo('sop')">
         <div class="menu-icon">
           <svg viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16.5" rx="2.5"/><path d="M9 4.5h6V7H9z"/><path d="M8.6 12h6.8M8.6 16h4.6"/></svg>
         </div>
-        <span>SOP Peserta</span>
+        <span>SOP Blooms</span>
       </button>
       <button class="menu-card mc-olive" onclick="goTo('group')">
         <div class="menu-icon">
@@ -1272,7 +1432,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
   <div class="p-page" data-page="sop">
     <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
     <div class="page-head">
-      <h2>SOP Peserta</h2>
+      <h2>SOP Blooms 2027</h2>
       <p>Tap each section to read the rules. Please read everything before the event starts.</p>
     </div>
     <div class="sop-list">
@@ -1432,6 +1592,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <div class="tk-label">YOUR QUEUE NUMBER</div>
         <div class="tk-num" id="tk-number">#000</div>
         <div class="tk-ahead">People Ahead of You: <span id="tk-ahead">0</span></div>
+        <div class="tk-used-stamp hidden" id="tk-used-stamp">PHOTO TAKEN</div>
         <div class="tk-corner">
           <button class="tk-ic" onclick="refreshQueue()" aria-label="Refresh status" title="Refresh"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></button>
           <button class="tk-ic" onclick="downloadTicket()" aria-label="Download ticket" title="Download ticket"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19.5h14"/></svg></button>
@@ -1448,6 +1609,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
   </div>
 
   <div class="p-page" data-page="garden">
+    <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
     <div class="page-head"><h2>Garden Layout</h2><p>Tap the map to zoom in and explore the venue.</p></div>
     <div class="gl-banner" id="gl-banner">
       <div class="glb-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
@@ -1460,6 +1622,22 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     <div class="garden-wrap garden-scroll">
       <img id="garden-img" src="https://placehold.co/900x1200/FCF6C4/007A3F?font=raleway&text=BLOOMS+2027%0AVenue+Layout" onclick="this.classList.toggle('zoomed')">
     </div>
+  </div>
+
+  <div class="p-page" data-page="dump">
+    <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
+    <div class="page-head">
+      <h2>Bloom Dump</h2>
+      <p>Every laugh, quick chat, and fun moment today is part of our shared story. Upload your favorite snapshots and explore what other BAK Famz are capturing!</p>
+    </div>
+    <div class="dump-grid" id="dump-grid"><div class="live-empty">Loading…</div></div>
+    <button class="dump-fab" onclick="openDumpUpload()">📷 Upload Your Fav Moment</button>
+  </div>
+
+  <div class="p-page" data-page="games">
+    <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
+    <div class="page-head"><h2>BLOOMS 2027</h2><p>Pick a game and have some fun with fellow BAK Famz!</p></div>
+    <div class="menu-grid" id="games-grid"><div class="live-empty">Loading…</div></div>
   </div>
 
   <div class="p-page" data-page="profile">
@@ -1509,9 +1687,9 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     <button class="nav-btn active" data-nav="dashboard" onclick="goTo('dashboard')">
       <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 10v9h12v-9" stroke="currentColor" stroke-width="2"/></svg>
       Dashboard</button>
-    <button class="nav-btn" data-nav="garden" onclick="goTo('garden')">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3c3 3 3 6 0 9-3-3-3-6 0-9z" stroke="currentColor" stroke-width="1.8"/><path d="M12 12v9" stroke="currentColor" stroke-width="1.8"/></svg>
-      Garden Layout</button>
+    <button class="nav-btn" data-nav="games" onclick="goTo('games')">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7.5" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 10.5v6M8 19.5h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      Games</button>
     <button class="nav-btn" data-nav="profile" onclick="goTo('profile')">
       <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.3" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c1.2-4 4-5.6 7-5.6s5.8 1.6 7 5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       Profile</button>
@@ -1564,23 +1742,22 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <img id="c-hero-photo" class="c-hero-photo hidden" alt="">
       </div>
 
-      <div class="stat-row" style="margin-top:22px;">
-        <div class="stat-box"><div class="n" id="dash-checked">0</div><div class="l">Checked-In</div></div>
-        <div class="stat-box"><div class="n" id="dash-pending">0</div><div class="l">Pending / Not Yet</div></div>
-        <div class="stat-box"><div class="n" id="dash-queue">0</div><div class="l">In Photobooth Queue</div></div>
-      </div>
-
-      <div class="c-cat" style="--cc:#356AC7;">
-        <div class="c-cat-title">DATABASE</div>
-        <div class="c-menu">
-          <button class="menu-card mc-olive" onclick="cGoTo('groups')">
-            <div class="menu-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.5 19c.6-3.4 2.9-5 5.5-5s4.9 1.6 5.5 5"/><path d="M15.3 14.3c2.5-.4 4.8.9 5.5 4.2"/></svg></div>
-            <span>Groups</span>
-          </button>
-          <button class="menu-card mc-blue" onclick="cGoTo('database')">
-            <div class="menu-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></div>
-            <span>Database</span>
-          </button>
+      <div class="dash-stat-grid">
+        <div class="dash-group dash-att">
+          <div class="dash-group-title">🌿 KEHADIRAN PESERTA</div>
+          <div class="dash-group-row">
+            <div class="dash-mini"><b id="dash-checked">0</b><small>Hadir</small></div>
+            <div class="dash-mini"><b id="dash-pending">0</b><small>Belum Hadir</small></div>
+            <div class="dash-mini"><b id="dash-total">0</b><small>Total Peserta</small></div>
+          </div>
+        </div>
+        <div class="dash-group dash-pb">
+          <div class="dash-group-title">📸 PHOTOBOOTH</div>
+          <div class="dash-group-row">
+            <div class="dash-mini"><b id="dash-pb-wait">0</b><small>Belum</small></div>
+            <div class="dash-mini"><b id="dash-pb-done">0</b><small>Selesai</small></div>
+            <div class="dash-mini"><b id="dash-pb-last">—</b><small>Nomor Terakhir</small></div>
+          </div>
         </div>
       </div>
 
@@ -1603,6 +1780,14 @@ label.btn-mini{display:inline-block; cursor:pointer;}
             <div class="menu-icon"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l7 4V6L7 10z"/><path d="M17.5 9.5a4 4 0 0 1 0 5"/></svg></div>
             <span>About Editor</span>
           </button>
+          <button class="menu-card mc-olive" onclick="cGoTo('dump')">
+            <div class="menu-icon"><svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="13" rx="2.5"/><circle cx="9" cy="11.5" r="2"/><path d="M14 10.5l3 5H7z"/></svg></div>
+            <span>Bloom Dump</span>
+          </button>
+          <button class="menu-card mc-blue" onclick="cGoTo('games')">
+            <div class="menu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.2"/><path d="M12 10.5v6M8 19.5h8"/></svg></div>
+            <span>Game Control</span>
+          </button>
         </div>
       </div>
 
@@ -1611,7 +1796,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <div class="c-menu">
           <button class="menu-card mc-blue" onclick="cGoTo('event')">
             <div class="menu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div>
-            <span>Atur Event</span>
+            <span>Event Control</span>
           </button>
         </div>
       </div>
@@ -1706,18 +1891,30 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     </div>
 
     <div class="c-page" data-cpage="satisfaction">
-      <div class="c-head"><h2>Satisfaction Survey</h2><p>Paste the Google Form link you want participants to fill in.</p></div>
-      <div class="card satisfaction-wrap">
-        <div class="field"><label>Google Form Link</label>
-          <input type="text" id="survey-link-input" placeholder="https://forms.gle/..." style="width:100%;padding:12px 14px;border-radius:11px;border:2px solid var(--line);font-size:14px;">
+      <div class="c-head"><h2>Satisfaction Survey</h2><p>Paste the Google Form link, then switch access on when the session is ready for responses.</p></div>
+      <div class="serving-wrap">
+        <div class="card satisfaction-wrap" style="margin:0;">
+          <div class="field"><label>Google Form Link</label>
+            <input type="text" id="survey-link-input" placeholder="https://forms.gle/..." style="width:100%;padding:12px 14px;border-radius:11px;border:2px solid var(--line);font-size:14px;">
+          </div>
+          <button class="add-btn" onclick="saveSurveyLink()">Save Link</button>
+          <div class="link-preview" id="survey-link-preview">No link saved yet.</div>
         </div>
-        <button class="add-btn" onclick="saveSurveyLink()">Save Link</button>
-        <div class="link-preview" id="survey-link-preview">No link saved yet.</div>
+        <div class="toggle-card">
+          <div class="toggle-status open" id="survey-status-label">Survey Access: OPEN</div>
+          <button class="btn-mini watermelon" id="survey-toggle-btn" onclick="toggleSurveyStatus()">Turn Off</button>
+        </div>
       </div>
     </div>
 
     <div class="c-page" data-cpage="groups">
-      <div class="c-head"><h2>Group Management</h2><p>Organize participants into groups and monitor attendance per group.</p></div>
+      <div class="c-head">
+        <div class="tabs" style="margin-bottom:12px;">
+          <button class="tab-btn active" onclick="cGoTo('groups')">Groups</button>
+          <button class="tab-btn" onclick="cGoTo('database')">Participants</button>
+        </div>
+        <h2>Group Management</h2><p>Organize participants into groups and monitor attendance per group.</p>
+      </div>
       <div class="stat-row">
         <div class="stat-box"><div class="n" id="gm-total">0</div><div class="l">Total Groups</div></div>
         <div class="stat-box"><div class="n" id="gm-assigned">0</div><div class="l">Participants Assigned</div></div>
@@ -1733,12 +1930,33 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     </div>
 
     <div class="c-page" data-cpage="sop">
-      <div class="c-head"><h2>SOP Editor</h2><p>Edit the rules shown on the participant SOP page. Write one rule per line.</p></div>
+      <div class="c-head"><h2>SOP Editor</h2><p>Section 1 and 2 have a special layout. Sections 3 onward are flexible, one rule per line.</p></div>
+
+      <div class="card" style="max-width:720px; margin-bottom:16px;">
+        <div class="gl-label">SECTION 1 • DRESS CODE GUIDE</div>
+        <div class="field"><label>Tagline (shown above the photos)</label><input type="text" id="dc-tagline" placeholder="Dress Code Inspo"></div>
+        <div class="field"><label>Description</label><textarea id="dc-text" rows="3"></textarea></div>
+        <div class="gl-label" style="margin-top:4px;">PHOTOS (3–4, rotate every 2s)</div>
+        <div class="ab-slots" id="dc-slots"></div>
+        <div class="gl-actions"><button class="add-btn" id="dc-save-btn" onclick="saveDresscode()">Save Dress Code</button></div>
+      </div>
+
+      <div class="card" style="max-width:720px; margin-bottom:16px;">
+        <div class="gl-label">SECTION 2 • DATE, TIME &amp; LOCATION</div>
+        <div class="field"><label>Date</label><input type="text" id="dtl-date" placeholder="e.g. Saturday, 14 February 2027"></div>
+        <div class="field"><label>Time</label><input type="text" id="dtl-time" placeholder="e.g. 07.00 - 12.00"></div>
+        <div class="field"><label>Location Name</label><input type="text" id="dtl-loc" placeholder="e.g. FEB Undip Courtyard"></div>
+        <div class="field"><label>Google Maps Link</label><input type="text" id="dtl-maps" placeholder="https://maps.app.goo.gl/..."></div>
+        <div class="field"><label>Note</label><textarea id="dtl-desc" rows="2"></textarea></div>
+        <div class="gl-actions"><button class="add-btn" id="dtl-save-btn" onclick="saveDateTimeLoc()">Save Date, Time &amp; Loc</button></div>
+      </div>
+
+      <div class="gl-label" style="margin-bottom:10px;">SECTIONS 3+ • FLEXIBLE RULES</div>
       <div class="sopedit-list" id="sop-editor"></div>
       <div class="sopedit-actions">
         <button class="btn-mini blue" onclick="addSop()">+ Add Section</button>
         <button class="btn-mini" onclick="resetSopDefault()">↺ Load Default</button>
-        <button class="add-btn" id="sop-save-btn" onclick="saveSop()" style="margin-left:auto;">Save SOP</button>
+        <button class="add-btn" id="sop-save-btn" onclick="saveSop()" style="margin-left:auto;">Save Sections</button>
       </div>
     </div>
 
@@ -1773,7 +1991,13 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     </div>
 
     <div class="c-page" data-cpage="database">
-      <div class="c-head"><h2>Participant Data</h2><p>Add, edit, or verify participant NIM, credentials, and groups.</p></div>
+      <div class="c-head">
+        <div class="tabs" style="margin-bottom:12px;">
+          <button class="tab-btn" onclick="cGoTo('groups')">Groups</button>
+          <button class="tab-btn active" onclick="cGoTo('database')">Participants</button>
+        </div>
+        <h2>Participant Data</h2><p>Add, edit, or verify participant NIM, credentials, and groups.</p>
+      </div>
       <div class="toolbar">
         <button class="add-btn" onclick="openParticipantModal()">+ Add Participant</button>
         <button class="btn-mini outline" onclick="resetProfilePhotos()">⟲ Reset Profile Photos</button>
@@ -1789,6 +2013,21 @@ label.btn-mini{display:inline-block; cursor:pointer;}
       </div>
     </div>
 
+    <div class="c-page" data-cpage="dump">
+      <div class="c-head"><h2>Bloom Dump</h2><p>See and share candid moments from today together with the participants.</p></div>
+      <button class="add-btn" onclick="openDumpUpload()" style="margin-bottom:16px;">📷 Upload Your Fav Moment</button>
+      <div class="dump-grid" id="cdump-grid" style="padding:0;"><div class="live-empty">Loading…</div></div>
+    </div>
+
+    <div class="c-page" data-cpage="games">
+      <div class="c-head"><h2>Game Control</h2><p>Add external game links for participants. Pick a logo and switch access on when ready.</p></div>
+      <div class="sopedit-list" id="game-editor"></div>
+      <div class="sopedit-actions">
+        <button class="btn-mini blue" onclick="addGame()">+ Add Game</button>
+        <button class="add-btn" id="game-save-btn" onclick="saveGames()" style="margin-left:auto;">Save Games</button>
+      </div>
+    </div>
+
     <!-- ============ ABOUT EDITOR ============ -->
     <div class="c-page" data-cpage="about">
       <div class="c-head"><h2>About Editor</h2><p>Atur sambutan Project Officer dan Chairman (masing-masing 3 foto yang bergantian tiap 2 detik), serta penjelasan acara. Satu tombol Save &amp; Publish menyimpan semuanya.</p></div>
@@ -1797,6 +2036,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <button class="tab-btn active" data-abtab="po" onclick="setAbTab('po')">Project Officer</button>
         <button class="tab-btn" data-abtab="ch" onclick="setAbTab('ch')">Chairman</button>
         <button class="tab-btn" data-abtab="ev" onclick="setAbTab('ev')">About Event</button>
+        <button class="tab-btn" data-abtab="team" onclick="setAbTab('team')">Hello From Us</button>
       </div>
 
       <div class="ab-pane" id="ab-pane-po">
@@ -1828,6 +2068,17 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         </div>
       </div>
 
+      <div class="ab-pane hidden" id="ab-pane-team">
+        <div class="card">
+          <div class="gl-label">HELLO FROM US • TEAM LIST (photo background transparent lebih bagus)</div>
+          <div id="team-list" style="display:flex;flex-direction:column;gap:14px;"></div>
+          <div class="gl-actions" style="margin-top:14px;">
+            <button class="btn-mini blue" onclick="addTeamMember()">+ Add Member</button>
+            <button class="add-btn" id="team-save-btn" onclick="saveTeam()" style="margin-left:auto;">Save Team</button>
+          </div>
+        </div>
+      </div>
+
       <div class="sopedit-actions">
         <button class="btn-mini" onclick="resetAboutDefault()">Load Default Text</button>
         <button class="add-btn" id="ab-save-btn" onclick="saveAbout()" style="margin-left:auto;">Save &amp; Publish</button>
@@ -1836,7 +2087,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
     <!-- ============ ATUR EVENT ============ -->
     <div class="c-page" data-cpage="event">
-      <div class="c-head"><h2>Atur Event</h2><p>Set the latest arrival time. Participants who check in after it are marked late.</p></div>
+      <div class="c-head"><h2>Event Control</h2><p>Set the latest arrival time. Participants who check in after it are marked late.</p></div>
       <div class="card satisfaction-wrap">
         <div class="field"><label>Latest arrival time</label>
           <input type="datetime-local" id="ev-deadline">
@@ -1903,6 +2154,9 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     <button class="nav-btn cb-btn active" data-cnav="dashboard" onclick="cGoTo('dashboard')">
       <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 10v9h12v-9" stroke="currentColor" stroke-width="2"/></svg>
       Dashboard</button>
+    <button class="nav-btn cb-btn" data-cnav="dbhub" onclick="cGoTo('groups')">
+      <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6" rx="7" ry="3" stroke="currentColor" stroke-width="1.8"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" stroke="currentColor" stroke-width="1.8"/></svg>
+      Database</button>
     <button class="nav-btn cb-btn" data-cnav="profile" onclick="cGoTo('profile')">
       <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.3" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c1.2-4 4-5.6 7-5.6s5.8 1.6 7 5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       Profile</button>
@@ -1918,6 +2172,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     <div class="modal-actions"><button class="btn-mini" onclick="closeModal('gallery-modal')">Close</button></div>
   </div>
 </div>
+
 
 <div class="modal-overlay" id="selfie-modal">
   <div class="modal-box">
@@ -1998,6 +2253,30 @@ label.btn-mini{display:inline-block; cursor:pointer;}
   </div>
 </div>
 
+<div class="modal-overlay" id="bloomdump-modal" onclick="if(event.target===this)closeModal('bloomdump-modal')">
+  <div class="modal-box">
+    <h3>Upload Your Fav Moment</h3>
+    <p class="sub">Share a candid photo from today with everyone in Bloom Dump.</p>
+    <div class="photo-box" style="margin:0 0 14px;">
+      <img id="dump-prev" class="preview-photo hidden">
+      <label class="add-media-btn">📷 Choose Photo
+        <input type="file" id="dump-file-input" accept="image/*" class="hidden" onchange="pickDumpFile(this.files[0])">
+      </label>
+    </div>
+    <div class="field"><label>Caption (optional)</label>
+      <textarea id="dump-cap-input" rows="2" placeholder="Say something about this moment..." style="width:100%;padding:12px 14px;border-radius:12px;border:2px solid var(--line);font:600 13.5px 'Nunito',sans-serif;"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-mini watermelon" style="flex:1;" id="dump-submit-btn" onclick="submitDump()">Post to Bloom Dump</button>
+      <button class="btn-mini" style="flex:1;" onclick="closeModal('bloomdump-modal')">Cancel</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay dump-photo-modal" id="dump-photo-modal" onclick="if(event.target===this)closeModal('dump-photo-modal')">
+  <button class="dump-photo-close" type="button" aria-label="Close photo" onclick="closeModal('dump-photo-modal')">×</button>
+  <img id="dump-photo-full" alt="">
+</div>
+
 <script>
 /* ===================== UI ENHANCEMENTS ===================== */
 function flowerSVG(petal, center, n){
@@ -2053,7 +2332,7 @@ function watchCounter(el){
     })(t0);
   }).observe(el, {childList:true, characterData:true, subtree:true});
 }
-['dash-checked','dash-pending','dash-queue','ck-stat-checked','ck-stat-pending','ck-stat-total','q-total'].forEach(id=>watchCounter(document.getElementById(id)));
+['ck-stat-checked','ck-stat-pending','ck-stat-total','q-total'].forEach(id=>watchCounter(document.getElementById(id)));
 
 /* dekorasi bunga */
 (function decorate(){
@@ -2100,7 +2379,7 @@ let committeePollTimer = null;
   try{
     const { error } = await sb.from('participants').select('nim').limit(1);
     if(error) throw error;
-    hint.textContent = '🌱 Connected to BLOOMS database.';
+    hint.textContent = 'With Love, Blooms 2027 Committee 🌼';
   }catch(e){
     hint.textContent = '⚠️ Could not connect to the database. Check your Supabase URL/key.';
     console.error('Supabase connection error:', e);
@@ -2191,6 +2470,8 @@ function renderParticipantDashboard(){
 }
 
 async function openSurvey(){
+  const { data: st } = await sb.from('settings').select('value').eq('key','survey_status').maybeSingle();
+  if(!st || st.value !== 'open'){ alert("Sorry, the satisfaction survey isn't open yet. The link will be available once the session starts."); return; }
   const { data } = await sb.from('settings').select('value').eq('key','survey_link').maybeSingle();
   if(data && data.value){ window.open(data.value, '_blank'); }
   else alert('The survey link has not been set up by the committee yet.');
@@ -2265,6 +2546,7 @@ async function renderQueuePage(){
 
   const mine = q.find(t=>t.nim===CURRENT && (t.status==='waiting'||t.status==='serving'));
   const doneMine = q.find(t=>t.nim===CURRENT && t.status==='done');
+  $id('tk-used-stamp').classList.toggle('hidden', !!mine || !doneMine);
 
   if(mine){
     document.getElementById('queue-before').classList.add('hidden');
@@ -2669,7 +2951,13 @@ function cGoTo(page){
   editorLoaded = false; window.scrollTo(0,0);
   clearInterval(committeePollTimer);
   renderCommitteePage(page);
-  committeePollTimer = setInterval(()=>renderCommitteePage(page), 6000);
+  committeePollTimer = setInterval(function(){
+  const ae = document.activeElement;
+  const typing = ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName) && ae.closest('#committee-app');
+  const modalOpen = document.querySelector('.modal-overlay.show');
+  if(typing || modalOpen) return;
+  renderCommitteePage(page);
+}, 6000);
 }
 function renderCommitteePage(page){
   if(page==='dashboard') renderDashboardStats();
@@ -2823,8 +3111,13 @@ async function toggleQueueStatus(){
 /* ----- Satisfaction ----- */
 async function loadSurveyLinkField(){
   const { data } = await sb.from('settings').select('value').eq('key','survey_link').maybeSingle();
-  document.getElementById('survey-link-input').value = (data && data.value) || '';
+  if(!editorLoaded){ document.getElementById('survey-link-input').value = (data && data.value) || ''; editorLoaded = true; }
   document.getElementById('survey-link-preview').textContent = (data && data.value) || 'No link saved yet.';
+  const { data: st } = await sb.from('settings').select('value').eq('key','survey_status').maybeSingle();
+  const status = (st && st.value) || 'closed';
+  document.getElementById('survey-status-label').textContent = 'Survey Access: ' + (status==='open' ? 'OPEN' : 'CLOSED');
+  document.getElementById('survey-status-label').className = 'toggle-status ' + (status==='open' ? 'open' : 'paused');
+  document.getElementById('survey-toggle-btn').textContent = status==='open' ? 'Turn Off' : 'Turn On';
 }
 async function saveSurveyLink(){
   const v = document.getElementById('survey-link-input').value.trim();
@@ -2832,6 +3125,14 @@ async function saveSurveyLink(){
   if(row){ await sb.from('settings').update({ value: v }).eq('key','survey_link'); }
   else{ await sb.from('settings').insert({ key:'survey_link', value: v }); }
   document.getElementById('survey-link-preview').textContent = v || 'No link saved yet.';
+  toast('Survey link saved.', 'good');
+}
+async function toggleSurveyStatus(){
+  const { data: row } = await sb.from('settings').select('value').eq('key','survey_status').maybeSingle();
+  const newStatus = (row && row.value==='open') ? 'closed' : 'open';
+  if(row){ await sb.from('settings').update({ value: newStatus }).eq('key','survey_status'); }
+  else{ await sb.from('settings').insert({ key:'survey_status', value: newStatus }); }
+  loadSurveyLinkField();
 }
 
 /* ----- Database ----- */
@@ -3263,8 +3564,7 @@ function personAvatar(u, size){
     const safe = String(u.photo_url).replace(/['"()\s]/g, c=>'%' + c.charCodeAt(0).toString(16).toUpperCase());
     return `<div class="${cls}" style="--ring:${set[1]};background-image:url('${escHTML(safe)}');"></div>`;
   }
-  const initial = escHTML((u.name || '?').trim().charAt(0).toUpperCase());
-  return `<div class="${cls} noimg" style="--ring:${set[1]};background:linear-gradient(145deg,${set[0]},${set[1]});">${flowerSVG('rgba(255,255,255,.26)','rgba(255,255,255,.34)',8)}<b>${initial}</b></div>`;
+  return `<div class="${cls} noimg" style="--ring:${set[1]};background:linear-gradient(145deg,${set[0]},${set[1]});"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 19.2c1.1-3.8 3.7-5.6 7-5.6s5.9 1.8 7 5.6"/></svg></div>`;
 }
 
 /* ----- waktu check-in (sampai detik) ----- */
@@ -3562,20 +3862,23 @@ async function fetchComments(limit){
 async function loadComments(){
   const list = $id('cm-list');
   if(!list || cmLoading || !currentUser) return;
+  const user = currentUser, nim = CURRENT;
   cmLoading = true;
   try{
     const rows = await fetchComments(80);
+    if(currentUser !== user || CURRENT !== nim) return;
     const sig = rows.map(r=>r.id).join(',');
     if(sig === cmSig) return;
-    cmSig = sig;
     const nims = [...new Set(rows.map(r=>r.nim))];
     const people = {};
     if(nims.length){
       const { data } = await sb.from('participants').select('nim,name,photo_url,role').in('nim', nims);
+      if(currentUser !== user || CURRENT !== nim) return;
       (data || []).forEach(p=>{ people[p.nim] = p; });
     }
+    cmSig = sig;
     const atBottom = cmFirst || (list.scrollHeight - list.scrollTop - list.clientHeight < 60);
-    const isStaff = currentUser.role !== 'participant';
+    const isStaff = user.role !== 'participant';
     $id('cm-sub').textContent = rows.length ? rows.length + ' comment' + (rows.length > 1 ? 's' : '') + ' so far' : 'Be the first to say hello!';
     list.innerHTML = rows.length ? rows.map(r=>{
       const u = people[r.nim] || { nim:r.nim, name:r.name };
@@ -4098,9 +4401,741 @@ async function saveAbout(){
   }
 }
 
+/* ===================== REVISI v3 ===================== */
+/* pad3 duplikat dinonaktifkan */
+
+/* (1) reset semua grup */
+async function resetAllGroups(){
+  if(!confirm('Reset ALL groups? Every participant becomes Unassigned. Participant data is kept.')) return;
+  const { error } = await sb.from('participants').update({ group:null }).eq('role','participant');
+  if(error){ console.error(error); toast('Could not reset the groups.', 'warn'); return; }
+  gmOpen.clear(); toast('All groups have been reset.', 'good'); loadGroupsAdmin();
+}
+
+/* (2) reset kehadiran + galeri */
+async function resetAllCheckins(){
+  if(!confirm('Reset ALL attendance? Every check-in (including selfies) will be cancelled.')) return;
+  const { error } = await sb.from('participants')
+    .update({ checked_in:false, checkin_time:null, checkin_at:null, photo_url:null, is_late:false }).eq('role','participant');
+  if(error){ console.error(error); toast('Could not reset attendance.', 'warn'); return; }
+  toast('All attendance has been reset.', 'good'); renderCheckinTable(); renderDashboardStats();
+}
+async function openGallery(){
+  openModal('gallery-modal');
+  const box = $id('gal-grid'), sub = $id('gal-sub');
+  box.innerHTML = ''; sub.textContent = 'Loading…';
+  const { data, error } = await sb.from('participants')
+    .select('nim,name,photo_url,checkin_time,is_late')
+    .eq('role','participant').eq('checked_in', true).not('photo_url','is',null).order('checkin_at',{ascending:false});
+  if(error){ console.error(error); sub.textContent = 'Could not load the gallery.'; return; }
+  const rows = data || [];
+  sub.textContent = rows.length ? rows.length + ' check-in photo' + (rows.length > 1 ? 's' : '') + ' • tap a photo to see details' : 'No check-in photos yet.';
+  box.innerHTML = rows.map(u=>`
+    <button class="gal-item${u.is_late?' late':''}" onclick="viewSelfie('${escHTML(u.nim)}')">
+      <img src="${escHTML(u.photo_url)}" loading="lazy" alt="">
+      <span>${escHTML(u.name)}<small>${escHTML(u.checkin_time || '')}${u.is_late ? ' • Late' : ''}</small></span>
+    </button>`).join('');
+}
+
+/* (3) reset antrian photobooth */
+async function resetQueueAll(){
+  if(!confirm('Reset the whole photobooth queue? All tickets (waiting, serving, done) will be deleted.')) return;
+  const { error } = await sb.from('queue').delete().gte('ticket', 0);
+  if(error){ console.error(error); toast('Could not reset the queue.', 'warn'); return; }
+  window.__served = false;
+  toast('Photobooth queue has been reset.', 'good'); renderPhotobooth(); renderDashboardStats();
+}
+
+/* (4) reset foto profil (data peserta tetap) */
+async function resetProfilePhotos(){
+  if(!confirm('Remove ALL participant profile photos? Their data stays, only the photos are cleared.')) return;
+  const { error } = await sb.from('participants').update({ photo_url:null }).eq('role','participant');
+  if(error){ console.error(error); toast('Could not reset the photos.', 'warn'); return; }
+  toast('All profile photos have been removed.', 'good'); renderDatabase(); renderCheckinTable();
+}
+
+/* (5) photobooth dengan foto profil */
+async function getPhotoMap(rows){
+  const nims = [...new Set(rows.map(r=>r.nim))], map = {};
+  if(!nims.length) return map;
+  const { data } = await sb.from('participants').select('nim,name,photo_url').in('nim', nims);
+  (data || []).forEach(p=>{ map[p.nim] = p; });
+  return map;
+}
+function pbPerson(t, map){
+  const p = map[t.nim] || { nim:t.nim, name:t.name };
+  return `<div class="nm-cell">${personAvatar(p,'md')}<b>${escHTML(t.name)}</b></div>`;
+}
+async function renderPhotobooth(){
+  const { data: statusRow } = await sb.from('settings').select('value').eq('key','queue_status').maybeSingle();
+  const status = (statusRow && statusRow.value) || 'open';
+  $id('pb-status-label').textContent = 'Queue Status: ' + (status==='open' ? 'OPEN' : 'PAUSED');
+  $id('pb-status-label').className = 'toggle-status ' + (status==='open' ? 'open' : 'paused');
+  $id('pb-toggle-btn').textContent = status==='open' ? 'Pause Queue' : 'Resume Queue';
+
+  const { data } = await sb.from('queue').select('*').order('ticket', {ascending:true});
+  const q = data || [];
+  const ph = await getPhotoMap(q);
+  const serving = q.find(t=>t.status==='serving');
+  $id('pb-now').textContent = serving ? '#' + pad3(serving.ticket) : '—';
+  if(serving) $id('pb-now-name').innerHTML = pbPerson(serving, ph);
+  else $id('pb-now-name').textContent = 'No active session right now. Waiting for attendees to join the queue.';
+
+  const waiting = q.filter(t=>t.status==='waiting');
+  const tb1 = $id('pb-upnext-tbody'); tb1.innerHTML = '';
+  $id('pbtab-upnext').textContent = `Up Next (${waiting.length})`;
+  $id('pb-upnext-empty').classList.toggle('hidden', waiting.length > 0);
+  waiting.forEach((t,i)=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>#${pad3(t.ticket)}</td><td>${pbPerson(t, ph)}</td><td>${escHTML(t.nim)}</td>
+    <td>${i<2 ? '<span class="pill pill-orange">GET READY</span>' : '<span class="pill" style="background:#EFF1EA;color:var(--ink-soft);">WAITING</span>'}</td>`;
+    tb1.appendChild(tr);
+  });
+
+  const done = q.filter(t=>t.status==='done');
+  $id('pbtab-completed').textContent = `Completed (${done.length})`;
+  const tb2 = $id('pb-completed-tbody'); tb2.innerHTML = '';
+  $id('pb-completed-empty').classList.toggle('hidden', done.length > 0);
+  done.slice().reverse().forEach(t=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>#${pad3(t.ticket)}</td><td>${pbPerson(t, ph)}</td><td>${escHTML(t.nim)}</td><td>Snapped at ${escHTML(t.done_at || '—')}</td>`;
+    tb2.appendChild(tr);
+  });
+}
+
+/* (8) Atur Event: batas jam kedatangan */
+function toLocalInput(iso){
+  const d = new Date(iso); if(isNaN(d)) return '';
+  const p = n => String(n).padStart(2,'0');
+  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+function showDeadlineInfo(iso){
+  const el = $id('ev-info');
+  if(!iso){ el.textContent = 'No deadline set. Nobody will be marked late.'; return; }
+  const d = new Date(iso);
+  const full = d.toLocaleString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  const rem = new Date(d.getTime() - 5*60000).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  el.innerHTML = 'Deadline: <b>' + full + '</b><br>Anyone who checks in after this is marked <b>late</b>.<br>The reminder banner appears from <b>' + rem + '</b> for participants who haven’t checked in.';
+}
+async function loadEventSettings(){
+  editorLoaded = true;
+  const v = await getSetting('checkin_deadline');
+  $id('ev-deadline').value = v ? toLocalInput(v) : '';
+  showDeadlineInfo(v);
+}
+async function saveEventSettings(){
+  const val = $id('ev-deadline').value;
+  if(!val){ toast('Pick a date and time first.', 'warn'); return; }
+  try{
+    const iso = new Date(val).toISOString();
+    await setSetting('checkin_deadline', iso);
+    showDeadlineInfo(iso); toast('Event settings saved.', 'good');
+  }catch(e){ console.error(e); toast('Could not save. Please try again.', 'warn'); }
+}
+async function clearEventDeadline(){
+  if(!confirm('Remove the arrival deadline?')) return;
+  try{ await setSetting('checkin_deadline', ''); $id('ev-deadline').value = ''; showDeadlineInfo(''); toast('Deadline removed.', 'info'); }
+  catch(e){ console.error(e); toast('Could not remove the deadline.', 'warn'); }
+}
+async function isLateNow(){
+  try{ const dl = await getSetting('checkin_deadline'); return !!dl && Date.now() > new Date(dl).getTime(); }
+  catch(e){ return false; }
+}
+
+/* (9) banner pengingat check-in di dashboard peserta */
+async function updateCheckinAlert(){
+  const box = $id('ci-alert');
+  if(!box || !currentUser || currentUser.role !== 'participant') return;
+  await refreshCurrentUser();
+  let dl = null; try{ dl = await getSetting('checkin_deadline'); }catch(e){}
+  if(!dl || currentUser.checked_in){ box.classList.add('hidden'); return; }
+  const left = new Date(dl).getTime() - Date.now();
+  if(left > 5*60000){ box.classList.add('hidden'); return; }
+  const hhmm = new Date(dl).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  if(left > 0){
+    $id('ci-alert-title').textContent = 'You haven’t checked in yet!';
+    $id('ci-alert-sub').textContent = 'Only ' + Math.ceil(left/60000) + ' min left. Please check in before ' + hhmm + '.';
+  }else{
+    $id('ci-alert-title').textContent = 'The arrival deadline has passed';
+    $id('ci-alert-sub').textContent = 'You can still check in, but it will be marked as late.';
+  }
+  box.classList.remove('hidden');
+}
+setInterval(function(){
+  const pg = document.querySelector('#participant-app .p-page.active');
+  if(currentUser && currentUser.role === 'participant' && pg && pg.dataset.page === 'dashboard') updateCheckinAlert();
+}, 30000);
+
 /* ----- modal helpers ----- */
 function openModal(id){ document.getElementById(id).classList.add('show'); }
 function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+
+/* ================= REVISI v5 (BATCH 2-7) ================= */
+
+/* (4)+(7) goTo diperbarui: tambah dump & games, garden tetap highlight dashboard */
+function goTo(page){
+  document.querySelectorAll('#participant-app .p-page').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`#participant-app .p-page[data-page="${page}"]`).classList.add('active');
+  const navKey = page==='garden' ? 'dashboard' : page;
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active', b.dataset.nav===navKey));
+  clearInterval(queuePollTimer);
+  if(page==='dashboard') renderParticipantDashboard();
+  if(page==='checkin') renderCheckinPage();
+  if(page==='queue'){ renderQueuePage(); queuePollTimer = setInterval(renderQueuePage, 5000); }
+  if(page==='profile') renderProfilePage();
+  if(page==='group') renderGroupPage();
+  if(page==='sop') renderSopPage();
+  if(page==='garden') loadGardenLayout();
+  if(page==='dump') renderDumpPageP();
+  if(page==='games') renderGamesPage();
+  window.scrollTo(0,0);
+}
+
+/* (10) cGoTo diperbarui: Groups & Database dianggap satu nav "dbhub" */
+function cGoTo(page){
+  document.querySelectorAll('#committee-app .c-page').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`#committee-app .c-page[data-cpage="${page}"]`).classList.add('active');
+  const navKey = page==='profile' ? 'profile' : ((page==='groups'||page==='database') ? 'dbhub' : 'dashboard');
+  document.querySelectorAll('.cb-btn').forEach(b=>b.classList.toggle('active', b.dataset.cnav===navKey));
+  editorLoaded = false; window.scrollTo(0,0);
+  clearInterval(committeePollTimer);
+  renderCommitteePage(page);
+  committeePollTimer = setInterval(()=>renderCommitteePage(page), 6000);
+}
+function renderCommitteePage(page){
+  if(page==='dashboard') renderDashboardStats();
+  if(page==='checkin') renderCheckinTable();
+  if(page==='photobooth') renderPhotobooth();
+  if(page==='satisfaction') loadSurveyLinkField();
+  if(page==='database') renderDatabase();
+  if(page==='groups') loadGroupsAdmin();
+  if(page==='sop' && !editorLoaded) loadSopEditor();
+  if(page==='garden' && !editorLoaded) loadGardenAdmin();
+  if(page==='about' && !editorLoaded) loadAboutEditor();
+  if(page==='event' && !editorLoaded) loadEventSettings();
+  if(page==='games' && !editorLoaded) loadGameEditor();
+  if(page==='dump') renderDumpPageC();
+  if(page==='profile' && !editorLoaded) loadCommitteeProfile();
+}
+
+/* (11) statistik dashboard baru */
+const pad3b = n => String(n).padStart(3,'0');
+async function renderDashboardStats(){
+  const { data: participants } = await sb.from('participants').select('checked_in').eq('role','participant');
+  const list = participants || [];
+  const checked = list.filter(u=>u.checked_in).length;
+  document.getElementById('dash-checked').textContent = checked;
+  document.getElementById('dash-pending').textContent = list.length - checked;
+  document.getElementById('dash-total').textContent = list.length;
+  const { data: q } = await sb.from('queue').select('status,ticket').order('ticket', {ascending:true});
+  const qq = q || [];
+  document.getElementById('dash-pb-wait').textContent = qq.filter(t=>t.status==='waiting'||t.status==='serving').length;
+  document.getElementById('dash-pb-done').textContent = qq.filter(t=>t.status==='done').length;
+  document.getElementById('dash-pb-last').textContent = qq.length ? '#' + pad3b(qq[qq.length-1].ticket) : '—';
+}
+['dash-checked','dash-pending','dash-total','dash-pb-wait','dash-pb-done'].forEach(id=>watchCounter(document.getElementById(id)));
+
+/* ========== (2) BLOOM DUMP ========== */
+async function renderDumpPageP(){ renderDumpGrid('dump-grid'); }
+async function renderDumpPageC(){ renderDumpGrid('cdump-grid'); }
+async function renderDumpGrid(gridId){
+  const grid = $id(gridId); if(!grid) return;
+  grid.innerHTML = '<div class="live-empty">Loading…</div>';
+  const { data, error } = await sb.from('bloom_dump').select('*').order('created_at',{ascending:false}).limit(120);
+  if(error){ console.error(error); grid.innerHTML = '<div class="empty-state">Could not load Bloom Dump.</div>'; return; }
+  const rows = data || [];
+  grid.innerHTML = rows.length ? rows.map(r=>`
+    ${gridId==='dump-grid'
+      ? `<button type="button" class="dump-card" data-photo="${escHTML(r.photo_url)}" data-name="${escHTML(r.name)}" aria-label="View photo by ${escHTML(r.name)}" onclick="openDumpPhoto(this)">`
+      : '<div class="dump-card">'}
+      <img src="${escHTML(r.photo_url)}" loading="lazy" alt="">
+      <div class="dump-fade">
+        ${r.caption ? `<span class="dump-cap">${escHTML(r.caption)}</span>` : ''}
+        <b>${escHTML(r.name)}</b>
+        <small>${escHTML(r.group || '—')}</small>
+      </div>
+    ${gridId==='dump-grid' ? '</button>' : '</div>'}`).join('') : '<div class="empty-state" style="grid-column:1/-1;">No moments yet. Be the first to upload!</div>';
+}
+function openDumpPhoto(card){
+  const image = $id('dump-photo-full');
+  image.src = card.dataset.photo;
+  image.alt = 'Bloom Dump photo by ' + card.dataset.name;
+  openModal('dump-photo-modal');
+}
+let dumpFile = null;
+function openDumpUpload(){
+  dumpFile = null;
+  $id('dump-file-input').value = '';
+  $id('dump-cap-input').value = '';
+  $id('dump-prev').classList.add('hidden');
+  openModal('bloomdump-modal');
+}
+function pickDumpFile(f){
+  if(!f) return;
+  if(!/^image\//.test(f.type)){ toast('Please choose an image file.', 'warn'); return; }
+  if(f.size > 8*1024*1024){ toast('That file is too large (max 8 MB).', 'warn'); return; }
+  dumpFile = f;
+  $id('dump-prev').src = URL.createObjectURL(f);
+  $id('dump-prev').classList.remove('hidden');
+}
+async function submitDump(){
+  if(!dumpFile){ toast('Please choose a photo first.', 'warn'); return; }
+  const btn = $id('dump-submit-btn'); btn.disabled = true; btn.textContent = 'Uploading...';
+  try{
+    const ext = dumpFile.name.split('.').pop() || 'jpg';
+    const path = currentUser.nim + '_' + Date.now() + '.' + ext;
+    const { error: upErr } = await sb.storage.from('bloomdump').upload(path, dumpFile, { upsert:true });
+    if(upErr) throw upErr;
+    const { data: urlData } = sb.storage.from('bloomdump').getPublicUrl(path);
+    const { error } = await sb.from('bloom_dump').insert({
+      nim: currentUser.nim, name: currentUser.name, group: currentUser.group || null,
+      caption: $id('dump-cap-input').value.trim() || null, photo_url: urlData.publicUrl
+    });
+    if(error) throw error;
+    closeModal('bloomdump-modal');
+    burstConfetti(); toast('Your moment has been added to Bloom Dump! 🌸', 'good');
+    renderDumpGrid('dump-grid'); renderDumpGrid('cdump-grid');
+  }catch(e){ console.error(e); toast('Could not upload your photo. Make sure the "bloomdump" storage bucket exists.', 'warn'); }
+  finally{ btn.disabled = false; btn.textContent = 'Post to Bloom Dump'; }
+}
+
+/* ========== (7) GAMES ========== */
+const GAME_ICONS = {
+  puzzle: '<path d="M9 4.5h3.2a1.6 1.6 0 0 1 1.6 1.8c-.1.9.6 1.7 1.5 1.7h1.2a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-1.2c-.9 0-1.6.8-1.5 1.7a1.6 1.6 0 0 1-1.6 1.8H9"/><path d="M9 19.5H6.5A1.5 1.5 0 0 1 5 18v-2.2c0-.9-.8-1.6-1.7-1.5a1.6 1.6 0 0 1-1.8-1.6V9.5A1.6 1.6 0 0 1 3.3 7.9c.9.1 1.7-.6 1.7-1.5V4.5"/>',
+  dice: '<rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="8.5" cy="8.5" r="1.1" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.1" fill="currentColor"/><circle cx="12" cy="12" r="1.1" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.1" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.1" fill="currentColor"/>',
+  trophy: '<path d="M7 4.5h10v4a5 5 0 0 1-10 0v-4z"/><path d="M7 5.5H4.5a2 2 0 0 0 0 4H6M17 5.5h2.5a2 2 0 0 1 0 4H16"/><path d="M12 13.5v3M9 19.5h6"/>',
+  cards: '<rect x="3.5" y="6.5" width="12" height="15" rx="2" transform="rotate(-8 9.5 14)"/><rect x="8" y="4.5" width="12" height="15" rx="2"/>',
+  joystick: '<circle cx="12" cy="7.5" r="3.2"/><path d="M12 10.5v6M8 19.5h8"/>',
+  star: '<path d="M12 3l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6L12 15.4 7 18.2l1.2-5.6L4 8.8l5.6-.6L12 3z"/>'
+};
+function gameIconSVG(key){
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${GAME_ICONS[key] || GAME_ICONS.puzzle}</svg>`;
+}
+const GAME_COLOR_CLASSES = ['mc-green','mc-pink','mc-orange','mc-blue','mc-olive','mc-sky'];
+async function renderGamesPage(){
+  const grid = $id('games-grid'); if(!grid) return;
+  const { data, error } = await sb.from('games').select('*').eq('status','on').order('order_index',{ascending:true});
+  if(error){ console.error(error); grid.innerHTML = '<div class="empty-state">Could not load games.</div>'; return; }
+  const rows = data || [];
+  grid.innerHTML = rows.length ? rows.map((g,i)=>`
+    <button class="menu-card ${GAME_COLOR_CLASSES[i % GAME_COLOR_CLASSES.length]}" onclick="window.open('${escHTML(g.link)}','_blank')">
+      <div class="menu-icon">${gameIconSVG(g.logo)}</div>
+      <span>${escHTML(g.title)}</span>
+    </button>`).join('') : '<div class="empty-state" style="grid-column:1/-1;">No games available right now. Check back later!</div>';
+}
+let gameDraft = [];
+async function loadGameEditor(){
+  editorLoaded = true;
+  const { data } = await sb.from('games').select('*').order('order_index',{ascending:true});
+  gameDraft = (data||[]).map(g=>({ id:g.id, title:g.title, link:g.link, logo:g.logo||'puzzle', status:g.status||'on' }));
+  drawGameEditor();
+}
+const GAME_LOGO_KEYS = Object.keys(GAME_ICONS);
+function drawGameEditor(){
+  $id('game-editor').innerHTML = gameDraft.map((g,i)=>`
+    <div class="sopedit-card">
+      <div class="sopedit-top">
+        <span class="sop-num" style="background:${SOP_COLORS[i % SOP_COLORS.length]};">${gameIconSVG(g.logo)}</span>
+        <input type="text" value="${escHTML(g.title)}" placeholder="Game title" oninput="gameDraft[${i}].title=this.value">
+        <div class="sopedit-btns">
+          <button class="btn-mini" onclick="moveGame(${i},-1)">↑</button>
+          <button class="btn-mini" onclick="moveGame(${i},1)">↓</button>
+          <button class="btn-mini watermelon" onclick="delGame(${i})">✕</button>
+        </div>
+      </div>
+      <input type="text" value="${escHTML(g.link)}" placeholder="https://..." style="width:100%;padding:11px 14px;border-radius:12px;border:2px solid var(--line);font-size:13.5px;margin-bottom:10px;" oninput="gameDraft[${i}].link=this.value">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+        <select onchange="gameDraft[${i}].logo=this.value; drawGameEditor();" style="padding:9px 12px;border-radius:11px;border:2px solid var(--line);font-weight:700;font-size:13px;">
+          ${GAME_LOGO_KEYS.map(k=>`<option value="${k}"${k===g.logo?' selected':''}>${k}</option>`).join('')}
+        </select>
+        <button class="btn-mini ${g.status==='on'?'':'watermelon'}" onclick="gameDraft[${i}].status = gameDraft[${i}].status==='on'?'off':'on'; drawGameEditor();">${g.status==='on' ? 'Access: ON' : 'Access: OFF'}</button>
+      </div>
+    </div>`).join('') || '<div class="empty-state">No games yet. Click + Add Game.</div>';
+}
+function addGame(){ gameDraft.push({ id:null, title:'', link:'', logo:'puzzle', status:'on' }); drawGameEditor(); }
+function moveGame(i,d){ const j=i+d; if(j<0||j>=gameDraft.length) return; [gameDraft[i],gameDraft[j]]=[gameDraft[j],gameDraft[i]]; drawGameEditor(); }
+function delGame(i){
+  if(!confirm('Delete this game?')) return;
+  const g = gameDraft[i];
+  if(g.id) sb.from('games').delete().eq('id', g.id).then(()=>{});
+  gameDraft.splice(i,1); drawGameEditor();
+}
+async function saveGames(){
+  const btn = $id('game-save-btn'); btn.disabled = true; btn.textContent = 'Saving...';
+  try{
+    for(let i=0;i<gameDraft.length;i++){
+      const g = gameDraft[i];
+      if(!g.title.trim() || !g.link.trim()) continue;
+      const payload = { title:g.title.trim(), link:g.link.trim(), logo:g.logo, status:g.status, order_index:i };
+      if(g.id){ await sb.from('games').update(payload).eq('id', g.id); }
+      else{ const { data } = await sb.from('games').insert(payload).select().maybeSingle(); if(data) g.id = data.id; }
+    }
+    toast('Games saved!', 'good');
+  }catch(e){ console.error(e); toast('Could not save games.', 'warn'); }
+  finally{ btn.disabled = false; btn.textContent = 'Save Games'; }
+}
+
+/* ========== (5)+(6) KOMENTAR NEMPEL + HELLO FROM US ========== */
+function placeComments(){
+  const card = $id('cm-card');
+  if(!card) return;
+  const dock = $id('cm-dock');
+  const slot = $id('cm-slot');
+  if(dock){ dock.appendChild(card); card.classList.add('compact'); }
+  else if(slot){ slot.appendChild(card); card.classList.remove('compact'); }
+  cmFirst = true; cmSig = '';
+  loadComments();
+}
+
+async function getCommitteeProfiles(){
+  const { data, error } = await sb.from('committee_profiles').select('*').order('order_index',{ascending:true});
+  if(error){ console.error(error); return []; }
+  return data || [];
+}
+let hfuIdx = 0;
+function hfuApply(){
+  const t = $id('hfu-track'); if(!t) return;
+  const n = t.children.length;
+  hfuIdx = Math.max(0, Math.min(n - 1, hfuIdx));
+  t.style.transform = 'translateX(-' + (hfuIdx * 100) + '%)';
+  document.querySelectorAll('#hfu-dots .wl-dot').forEach((d,i)=>d.classList.toggle('on', i === hfuIdx));
+}
+function hfuGo(d){
+  const t = $id('hfu-track'); if(!t) return;
+  const n = t.children.length;
+  hfuIdx = (hfuIdx + d + n) % n;
+  hfuApply();
+}
+
+async function renderAbout(){
+  const box = $id('about-wrap'); if(!box) return;
+  const a = await getAbout(), c = await getChairman(), team = await getCommitteeProfiles();
+  const nl = s => escHTML(s).replace(/\n/g, '<br>');
+
+  const slide = (cls, tag, name, title, greeting, photos, seed) => {
+    const media = photos.length
+      ? photos.map((u,i)=>`<img class="ab-wphoto${i===0?' on':''}" src="${escHTML(u)}" alt="${escHTML(name)}">`).join('')
+      : `<div class="ab-wav">${personAvatar({ name:name || 'P', nim:seed }, 'xl')}</div>`;
+    return `<div class="ab-welcome ${cls}">
+      <div class="ab-wtop">
+        <span class="ab-flw f1">${flowerSVG('#F4808D','#FADE73')}</span>
+        <span class="ab-flw f2">${flowerSVG('#99CFF5','#FADE73')}</span>
+        <div class="ab-wid">
+          <span class="ab-tag">${tag}</span>
+          <b class="ab-poname">${escHTML(name)}</b>
+          <small>${escHTML(title)}</small>
+        </div>
+        ${media}
+      </div>
+      <div class="ab-wbody"><span class="ab-qmark">“</span><p>${nl(greeting)}</p></div>
+    </div>`;
+  };
+
+  const slides = [];
+  if(a.saved && (a.po_name || a.greeting)){
+    const poPh = (a.po_photos && a.po_photos.length) ? a.po_photos : (a.po_photo ? [a.po_photo] : []);
+    slides.push(slide('', 'WELCOME MESSAGE', a.po_name, a.po_title || 'Project Officer', a.greeting, poPh, 'po'));
+  }
+  if(c.saved && (c.name || c.greeting)){
+    slides.push(slide('chair', 'CHAIRMAN’S MESSAGE', c.name, c.title || CHAIR_TITLE, c.greeting, c.photos || [], 'chairman'));
+  }
+
+  let html = '';
+  if(slides.length){
+    const multi = slides.length > 1;
+    html += `<div class="wl-slider" id="wl-slider">
+      <div class="wl-track" id="wl-track">${slides.join('')}</div>
+      ${multi ? `<button class="wl-arrow l" onclick="wlGo(-1)" aria-label="Previous">‹</button>
+      <button class="wl-arrow r" onclick="wlGo(1)" aria-label="Next">›</button>
+      <div class="wl-dots">${slides.map((_,i)=>`<i class="wl-dot${i===0?' on':''}"></i>`).join('')}</div>` : ''}
+      <div class="cm-dock" id="cm-dock"></div>
+    </div>`;
+  }else{
+    html += '<div id="cm-slot"></div>';
+  }
+
+  const pts = (a.highlights || []).filter(Boolean);
+  html += `<div class="ab-event">
+    <span class="ab-tag g">WHAT IS BLOOMS 2027?</span>
+    <h3>${escHTML(a.headline)}</h3>
+    <p>${nl(a.desc)}</p>
+    ${pts.length ? `<div class="ab-points">${pts.map((t,i)=>`<div class="ab-point"><span class="ab-pn c${i % 6}">${i+1}</span><p>${escHTML(t)}</p></div>`).join('')}</div>` : ''}
+  </div>`;
+
+  if(team.length){
+    html += `<div class="hfu-wrap">
+      <div class="hfu-head"><h2>Hello From Us</h2><p>The people behind BLOOMS 2027, cheering for you every step.</p></div>
+      <div class="hfu-slider" id="hfu-slider">
+        <div class="hfu-track" id="hfu-track">${team.map((m,i)=>`
+          <div class="hfu-card">
+            <div class="hfu-photo">${m.photo_url ? `<img src="${escHTML(m.photo_url)}" alt="${escHTML(m.name)}">` : personAvatar({ name:m.name, nim:'team'+i }, 'xl')}</div>
+            <div class="hfu-copy">
+              <p class="hfu-quote">“${escHTML(m.quote || '')}”</p>
+              <b class="hfu-name">${escHTML(m.name)}</b>
+              <small class="hfu-role">${escHTML(m.title || '')}</small>
+            </div>
+          </div>`).join('')}</div>
+        ${team.length > 1 ? `<button class="wl-arrow l" onclick="hfuGo(-1)" aria-label="Previous">‹</button>
+        <button class="wl-arrow r" onclick="hfuGo(1)" aria-label="Next">›</button>
+        <div class="wl-dots" id="hfu-dots">${team.map((_,i)=>`<i class="wl-dot${i===0?' on':''}"></i>`).join('')}</div>` : ''}
+      </div>
+    </div>`;
+  }
+
+  const cmc = $id('cm-card'), cms = $id('cm-stash');
+  if(cmc && cms) cms.appendChild(cmc);
+  box.innerHTML = html;
+
+  const sl = $id('wl-slider');
+  if(sl){
+    let x0 = null;
+    sl.addEventListener('touchstart', e=>{ x0 = e.touches[0].clientX; }, { passive:true });
+    sl.addEventListener('touchend', e=>{
+      if(x0 == null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if(Math.abs(dx) > 50) wlGo(dx < 0 ? 1 : -1);
+    });
+    wlApply();
+  }
+  const hs = $id('hfu-slider');
+  if(hs){
+    let hx0 = null;
+    hs.addEventListener('touchstart', e=>{ hx0 = e.touches[0].clientX; }, { passive:true });
+    hs.addEventListener('touchend', e=>{
+      if(hx0 == null) return;
+      const dx = e.changedTouches[0].clientX - hx0; hx0 = null;
+      if(Math.abs(dx) > 50) hfuGo(dx < 0 ? 1 : -1);
+    });
+    hfuApply();
+  }
+  placeComments();
+}
+
+/* ----- editor Hello From Us (panitia) ----- */
+let teamDraft = [];
+function setAbTab(t){
+  ['po','ch','ev','team'].forEach(k=>$id('ab-pane-' + k).classList.toggle('hidden', k !== t));
+  document.querySelectorAll('[data-abtab]').forEach(b=>b.classList.toggle('active', b.dataset.abtab === t));
+}
+async function loadAboutEditor(){
+  editorLoaded = true;
+  const a = await getAbout(), c = await getChairman();
+  const poUrls = (a.po_photos && a.po_photos.length) ? a.po_photos : (a.po_photo ? [a.po_photo] : []);
+  abPh.po = abEmpty(poUrls);
+  abPh.ch = abEmpty(c.photos);
+  $id('ab-po-name').value = a.po_name || '';
+  $id('ab-po-title').value = a.po_title || '';
+  $id('ab-greeting').value = a.greeting || '';
+  $id('ab-ch-name').value = c.name || '';
+  $id('ab-ch-title').value = c.title || CHAIR_TITLE;
+  $id('ab-ch-greeting').value = c.greeting || '';
+  $id('ab-headline').value = a.headline || '';
+  $id('ab-desc').value = a.desc || '';
+  $id('ab-high').value = (a.highlights || []).join('\n');
+  drawSlots('po'); drawSlots('ch');
+
+  const rows = await getCommitteeProfiles();
+  teamDraft = rows.map(r=>({ id:r.id, name:r.name||'', title:r.title||'', quote:r.quote||'', photo_url:r.photo_url||'', file:null, prev:r.photo_url||'' }));
+  drawTeamList();
+
+  loadModComments();
+}
+function drawTeamList(){
+  $id('team-list').innerHTML = teamDraft.map((m,i)=>`
+    <div class="sopedit-card">
+      <div style="display:flex;gap:14px;">
+        <div class="ab-photo" style="width:96px;height:96px;border-radius:50%;">
+          ${m.prev ? `<img src="${escHTML(m.prev)}" alt="">` : '<span>Photo</span>'}
+        </div>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;">
+          <input type="text" value="${escHTML(m.name)}" placeholder="Name" oninput="teamDraft[${i}].name=this.value">
+          <input type="text" value="${escHTML(m.title)}" placeholder="Role / Division" oninput="teamDraft[${i}].title=this.value">
+        </div>
+      </div>
+      <textarea rows="2" placeholder="One sentence from this person..." style="margin-top:10px;width:100%;padding:11px 14px;border-radius:12px;border:2px solid var(--line);font:600 13px 'Nunito',sans-serif;" oninput="teamDraft[${i}].quote=this.value">${escHTML(m.quote)}</textarea>
+      <div class="ab-btns" style="margin-top:8px;">
+        <label class="btn-mini blue" for="team-file-${i}">Choose Photo</label>
+        <button class="btn-mini" onclick="moveTeam(${i},-1)">↑</button>
+        <button class="btn-mini" onclick="moveTeam(${i},1)">↓</button>
+        <button class="btn-mini watermelon" onclick="delTeam(${i})">Delete</button>
+      </div>
+      <input type="file" id="team-file-${i}" accept="image/png,image/webp" class="hidden" onchange="pickTeamPhoto(${i},this.files[0])">
+    </div>`).join('') || '<div class="empty-state">No team members yet. Click + Add Member.</div>';
+}
+function addTeamMember(){ teamDraft.push({ id:null, name:'', title:'', quote:'', photo_url:'', file:null, prev:'' }); drawTeamList(); }
+function pickTeamPhoto(i,f){
+  if(!f) return;
+  if(!/^image\/(png|webp)$/.test(f.type)){ toast('Please use a PNG or WEBP with transparent background.', 'warn'); return; }
+  if(f.size > 5*1024*1024){ toast('That file is too large (max 5 MB).', 'warn'); return; }
+  teamDraft[i].file = f; teamDraft[i].prev = URL.createObjectURL(f); drawTeamList();
+}
+function moveTeam(i,d){ const j=i+d; if(j<0||j>=teamDraft.length) return; [teamDraft[i],teamDraft[j]]=[teamDraft[j],teamDraft[i]]; drawTeamList(); }
+function delTeam(i){
+  if(!confirm('Remove this team member from Hello From Us?')) return;
+  const m = teamDraft[i];
+  if(m.id) sb.from('committee_profiles').delete().eq('id', m.id).then(()=>{});
+  teamDraft.splice(i,1); drawTeamList();
+}
+async function saveTeam(){
+  const btn = $id('team-save-btn'); btn.disabled = true; btn.textContent = 'Saving...';
+  try{
+    for(let i=0;i<teamDraft.length;i++){
+      const m = teamDraft[i];
+      let photo = m.photo_url;
+      if(m.file){
+        const ext = m.file.type === 'image/webp' ? 'webp' : 'png';
+        const path = 'team_' + Date.now() + '_' + i + '.' + ext;
+        const { error } = await sb.storage.from('garden').upload(path, m.file, { contentType:m.file.type, upsert:true });
+        if(error) throw error;
+        photo = sb.storage.from('garden').getPublicUrl(path).data.publicUrl;
+      }
+      const payload = { name:m.name.trim(), title:m.title.trim(), quote:m.quote.trim(), photo_url:photo, order_index:i };
+      if(m.id){ await sb.from('committee_profiles').update(payload).eq('id', m.id); }
+      else{ const { data } = await sb.from('committee_profiles').insert(payload).select().maybeSingle(); if(data) m.id = data.id; }
+      m.file = null; m.photo_url = photo;
+    }
+    burstConfetti(); toast('Hello From Us published!', 'good');
+  }catch(e){ console.error(e); toast('Could not save the team list.', 'warn'); }
+  finally{ btn.disabled = false; btn.textContent = 'Save Team'; }
+}
+
+/* ========== (8)+(9) DRESS CODE & DATE/TIME/LOC ========== */
+const DEFAULT_DRESSCODE = { tagline:'Dress Code Inspo', text:'Dress neatly and comfortably in bright spring-garden colors. Here’s how fellow BAK Famz style their outfits — feel free to take inspiration!', photos:[] };
+const DEFAULT_DATETIMELOC = { date:'', time:'', location:'', maps_link:'', desc:'Please arrive on time so we can start the season together.' };
+async function getDresscode(){
+  try{ const v = await getSetting('dresscode_content'); if(v) return Object.assign({}, DEFAULT_DRESSCODE, JSON.parse(v)); }catch(e){ console.error(e); }
+  return Object.assign({}, DEFAULT_DRESSCODE);
+}
+async function getDateTimeLoc(){
+  try{ const v = await getSetting('datetime_loc_content'); if(v) return Object.assign({}, DEFAULT_DATETIMELOC, JSON.parse(v)); }catch(e){ console.error(e); }
+  return Object.assign({}, DEFAULT_DATETIMELOC);
+}
+let dcTick = 0;
+setInterval(function(){
+  dcTick++;
+  document.querySelectorAll('.dc-photo').forEach(w=>{
+    const im = w.querySelectorAll('img');
+    if(im.length < 2) return;
+    const k = dcTick % im.length;
+    im.forEach((x,i)=>x.classList.toggle('on', i===k));
+  });
+}, 2000);
+async function renderSopPage(){
+  const dc = await getDresscode();
+  const dtl = await getDateTimeLoc();
+  const data = await getSopData();
+  const list = document.querySelector('#participant-app [data-page="sop"] .sop-list');
+  if(!list) return;
+
+  const dcPhotos = (dc.photos||[]).filter(Boolean);
+  const dcMedia = dcPhotos.length
+    ? dcPhotos.map((u,i)=>`<img class="${i===0?'on':''}" src="${escHTML(u)}" alt="">`).join('')
+    : `<div class="dc-placeholder">👗</div>`;
+
+  const dateLine = [dtl.date, dtl.time].filter(Boolean).join(' • ');
+
+  let html = `
+    <details class="sop-item sop-special" open>
+      <summary><span class="sop-num">1</span>Dress Code Guide</summary>
+      <div class="sop-body sop-dc">
+        <div class="dc-grid">
+          <div class="dc-text">
+            <span class="dc-tag">${escHTML(dc.tagline || 'Dress Code Inspo')}</span>
+            <p>${escHTML(dc.text)}</p>
+          </div>
+          <div class="dc-photo">${dcMedia}</div>
+        </div>
+      </div>
+    </details>
+    <details class="sop-item sop-special">
+      <summary><span class="sop-num">2</span>Date, Time &amp; Location</summary>
+      <div class="sop-body sop-dtl">
+        ${dateLine ? `<div class="dtl-row"><div class="dtl-ico">${SVG_CLOCK}</div><div><small>WHEN</small><b>${escHTML(dateLine)}</b></div></div>` : ''}
+        <div class="dtl-row"><div class="dtl-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div><div><small>WHERE</small><b>${escHTML(dtl.location || '—')}</b></div></div>
+        ${dtl.desc ? `<p class="dtl-desc">${escHTML(dtl.desc)}</p>` : ''}
+        ${dtl.maps_link ? `<a class="dtl-maps-btn" href="${escHTML(dtl.maps_link)}" target="_blank" rel="noopener">📍 Open in Maps</a>` : ''}
+      </div>
+    </details>`;
+
+  html += data.map((s,i)=>`
+    <details class="sop-item">
+      <summary><span class="sop-num">${i+3}</span>${escHTML(s.title)}</summary>
+      <div class="sop-body"><ul>${(s.items||[]).map(x=>`<li>${escHTML(x)}</li>`).join('')}</ul></div>
+    </details>`).join('');
+
+  list.innerHTML = html;
+}
+let dcPh = [];
+async function loadSopEditor(){
+  editorLoaded = true;
+  const data = await getSopData();
+  sopDraft = data.map(s=>({ title:s.title, text:(s.items||[]).join('\n') }));
+  renderSopEditor();
+
+  const dc = await getDresscode();
+  $id('dc-tagline').value = dc.tagline || '';
+  $id('dc-text').value = dc.text || '';
+  dcPh = [0,1,2,3].map(i=>({ url:(dc.photos && dc.photos[i]) || '', file:null, prev:(dc.photos && dc.photos[i]) || '' }));
+  drawDcSlots();
+
+  const dtl = await getDateTimeLoc();
+  $id('dtl-date').value = dtl.date || '';
+  $id('dtl-time').value = dtl.time || '';
+  $id('dtl-loc').value = dtl.location || '';
+  $id('dtl-maps').value = dtl.maps_link || '';
+  $id('dtl-desc').value = dtl.desc || '';
+}
+function drawDcSlots(){
+  $id('dc-slots').innerHTML = dcPh.map((s,i)=>`
+    <div class="ab-slot">
+      <div class="ab-slot-img">${s.prev ? `<img src="${escHTML(s.prev)}" alt="">` : `<span>Photo ${i+1}</span>`}</div>
+      <div class="ab-slot-btns">
+        <label class="btn-mini blue" for="dcf-${i}">${s.prev ? 'Change' : 'Choose'}</label>
+        ${s.prev ? `<button class="btn-mini watermelon" onclick="dcClear(${i})">✕</button>` : ''}
+      </div>
+      <input type="file" id="dcf-${i}" accept="image/png,image/webp,image/jpeg" class="hidden" onchange="dcPick(${i},this.files[0])">
+    </div>`).join('');
+}
+function dcPick(i,f){
+  if(!f) return;
+  if(!/^image\/(png|webp|jpeg)$/.test(f.type)){ toast('Please choose a PNG, WEBP, or JPG file.', 'warn'); return; }
+  if(f.size > 5*1024*1024){ toast('That file is too large (max 5 MB).', 'warn'); return; }
+  dcPh[i].file = f; dcPh[i].prev = URL.createObjectURL(f); drawDcSlots();
+}
+function dcClear(i){ dcPh[i] = { url:'', file:null, prev:'' }; drawDcSlots(); }
+async function saveDresscode(){
+  const btn = $id('dc-save-btn'); btn.disabled = true; btn.textContent = 'Saving...';
+  try{
+    const photos = [];
+    for(let i=0;i<dcPh.length;i++){
+      const s = dcPh[i];
+      if(s.file){
+        const ext = s.file.type === 'image/webp' ? 'webp' : s.file.type === 'image/jpeg' ? 'jpg' : 'png';
+        const path = 'dresscode_' + Date.now() + '_' + i + '.' + ext;
+        const { error } = await sb.storage.from('garden').upload(path, s.file, { contentType:s.file.type, upsert:true });
+        if(error) throw error;
+        s.url = sb.storage.from('garden').getPublicUrl(path).data.publicUrl; s.prev = s.url; s.file = null;
+      }
+      if(s.url) photos.push(s.url);
+    }
+    await setSetting('dresscode_content', JSON.stringify({ tagline:$id('dc-tagline').value.trim(), text:$id('dc-text').value.trim(), photos }));
+    drawDcSlots();
+    toast('Dress Code Guide saved!', 'good');
+  }catch(e){ console.error(e); toast('Could not save. Check the "garden" storage bucket.', 'warn'); }
+  finally{ btn.disabled = false; btn.textContent = 'Save Dress Code'; }
+}
+async function saveDateTimeLoc(){
+  const btn = $id('dtl-save-btn'); btn.disabled = true; btn.textContent = 'Saving...';
+  try{
+    await setSetting('datetime_loc_content', JSON.stringify({
+      date: $id('dtl-date').value.trim(), time: $id('dtl-time').value.trim(),
+      location: $id('dtl-loc').value.trim(), maps_link: $id('dtl-maps').value.trim(),
+      desc: $id('dtl-desc').value.trim()
+    }));
+    toast('Date, Time & Location saved!', 'good');
+  }catch(e){ console.error(e); toast('Could not save.', 'warn'); }
+  finally{ btn.disabled = false; btn.textContent = 'Save Date, Time & Loc'; }
+}
 </script>
 </body>
 </html>
