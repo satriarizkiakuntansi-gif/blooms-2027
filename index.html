@@ -933,7 +933,7 @@ tr:hover td{background:#FBFCF4;}
 .ab-tag{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em; padding:5px 11px; border-radius:100px; background:rgba(255,255,255,.18); color:#fff;}
 .ab-tag.g{background:var(--green-soft); color:var(--green);}
 .ab-welcome{border-radius:28px; overflow:hidden; background:#fff; box-shadow:var(--shadow-lg);}
-.ab-wtop{position:relative; min-height:236px; padding:22px 20px; display:flex; align-items:flex-end; color:#fff; overflow:hidden; background:radial-gradient(circle at 85% 0%,#16a860,transparent 55%),linear-gradient(160deg,#007A3F,#005A2E);}
+.ab-wtop{position:relative; min-height:256px; padding:22px 20px; display:flex; align-items:flex-end; color:#fff; overflow:hidden; background:radial-gradient(circle at 85% 0%,#16a860,transparent 55%),linear-gradient(160deg,#007A3F,#005A2E);}
 .ab-flw{position:absolute; animation:spin 46s linear infinite;}
 .ab-flw svg{display:block; width:100%;}
 .ab-flw.f1{top:-30px; right:-26px; width:116px;} .ab-flw.f2{top:70px; left:-24px; width:58px; animation-direction:reverse;}
@@ -1198,6 +1198,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 /* (2) Bloom Dump */
 .dump-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; padding:6px 14px 100px;}
 #dump-grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;}
+.dump-admin-actions{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:16px;}
 .dump-card{position:relative; border-radius:14px; overflow:hidden; aspect-ratio:1; background:var(--cream); box-shadow:var(--shadow);}
 .dump-grid button.dump-card{display:block; width:100%; padding:0; border:0; color:inherit; text-align:left; cursor:zoom-in;}
 .dump-card img{width:100%; height:100%; object-fit:cover;}
@@ -1215,6 +1216,49 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 .dump-photo-modal{padding:48px 16px 16px; background:rgba(8,30,18,.9);}
 .dump-photo-modal img{display:block; max-width:94vw; max-height:82vh; object-fit:contain; border-radius:16px; box-shadow:var(--shadow-lg);}
 .dump-photo-close{position:absolute; top:calc(12px + env(safe-area-inset-top,0px)); right:16px; width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,.18); color:#fff; font-size:28px; line-height:1;}
+
+/* games participant page */
+.games-hero{position:relative; overflow:hidden; min-height:210px; margin:4px 16px 0; padding:22px 20px; border-radius:28px; color:#fff; background:radial-gradient(circle at 90% 10%,rgba(247,120,139,.75),transparent 38%),linear-gradient(145deg,#007A3F,#004D27); box-shadow:var(--shadow-lg);}
+.games-hero::before,.games-hero::after{content:''; position:absolute; border-radius:50%; pointer-events:none;}
+.games-hero::before{width:180px; height:180px; right:-76px; bottom:-110px; background:rgba(250,222,115,.2);}
+.games-hero::after{width:110px; height:110px; left:42%; top:-78px; background:rgba(255,255,255,.08);}
+.games-hero-copy{position:relative; z-index:1; max-width:64%;}
+.games-kicker{display:inline-block; padding:5px 10px; border-radius:100px; background:rgba(255,255,255,.16); font-size:9px; font-weight:900; letter-spacing:.1em;}
+.games-hero h2{margin-top:12px; font-family:'Fraunces',serif; font-size:30px; font-weight:800; line-height:1.02;}
+.games-hero h2 span{color:var(--yellow);}
+.games-hero p{margin-top:8px; font-size:12px; font-weight:700; line-height:1.45; color:rgba(255,255,255,.9);}
+.games-count{display:inline-flex; align-items:center; gap:7px; margin-top:12px; padding:6px 11px; border:1px solid rgba(255,255,255,.24); border-radius:13px; background:rgba(255,255,255,.12);}
+.games-count b{font-family:'Fraunces',serif; font-size:22px; line-height:1;}
+.games-count span{font-size:8px; font-weight:900; line-height:1.1; letter-spacing:.08em;}
+.games-art{position:absolute; top:34px; right:14px; width:132px; height:136px; z-index:1;}
+.games-art-pad{position:absolute; top:16px; right:10px; width:94px; height:94px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.55); border-radius:28px; background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(255,255,255,.1)); box-shadow:0 15px 28px -14px rgba(0,0,0,.5); font-size:54px; transform:rotate(8deg);}
+.games-art-spark{position:absolute; top:0; left:8px; color:var(--yellow); font-size:27px;}
+.games-art-dice{position:absolute; right:0; bottom:0; font-size:33px; transform:rotate(-12deg);}
+.games-art-flower{position:absolute; top:0; right:2px; color:#F9AAB6; font-size:28px;}
+.games-section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; padding:24px 20px 10px;}
+.games-section-head h3{font-size:18px; font-weight:900; color:var(--green-dk);}
+.games-section-head p{margin-top:3px; font-size:12px; font-weight:600; color:var(--ink-soft);}
+.games-section-head>span{padding:6px 10px; border-radius:100px; background:#FFF1E2; color:#A85C00; font-size:9px; font-weight:900; letter-spacing:.08em;}
+.games-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; padding:4px 20px 0;}
+.game-launch-card{position:relative; display:flex; min-width:0; min-height:164px; flex-direction:column; align-items:flex-start; padding:16px; border:1px solid rgba(0,77,39,.08); border-radius:22px; background:linear-gradient(155deg,#fff,#FBFCF4); color:var(--ink); text-decoration:none; box-shadow:var(--shadow); transition:transform .18s ease, box-shadow .18s ease;}
+.game-launch-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg);}
+.game-launch-top{display:flex; width:100%; align-items:flex-start; justify-content:space-between;}
+.game-launch-icon{width:54px; height:54px; display:flex; align-items:center; justify-content:center; border-radius:18px; background:linear-gradient(145deg,var(--c1),var(--c2)); box-shadow:0 10px 18px -10px var(--c2);}
+.game-launch-icon svg{width:28px; height:28px;}
+.game-launch-arrow{width:30px; height:30px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:var(--green-soft); color:var(--green); font-size:18px; font-weight:900;}
+.game-launch-copy{display:block; width:100%; margin-top:12px;}
+.game-launch-copy small{display:block; margin-bottom:3px; color:var(--ink-soft); font-size:9px; font-weight:900; letter-spacing:.1em;}
+.game-launch-copy b{display:block; overflow:hidden; color:var(--green-dk); font-size:15px; font-weight:900; text-overflow:ellipsis;}
+.game-launch-cta{margin-top:auto; padding-top:11px; color:var(--watermelon); font-size:10px; font-weight:900; letter-spacing:.08em;}
+.games-empty{grid-column:1/-1; padding:20px; border:1px dashed #D7E6D8; border-radius:20px; background:#fff; text-align:center;}
+.games-empty span{display:block; margin-bottom:7px; font-size:30px;}
+.games-empty b{display:block; color:var(--green-dk); font-family:'Fraunces',serif; font-size:18px;}
+.games-empty p{margin-top:4px; color:var(--ink-soft); font-size:12px; font-weight:600; line-height:1.5;}
+.games-note{display:flex; align-items:center; gap:12px; margin:16px 20px 100px; padding:14px 16px; border-radius:18px; background:linear-gradient(120deg,#FFF6C9,#FFF1E2); box-shadow:var(--shadow);}
+.games-note>span{width:40px; height:40px; flex-shrink:0; display:flex; align-items:center; justify-content:center; border-radius:14px; background:#fff; font-size:21px;}
+.games-note b{color:#7A5410; font-size:12px; font-weight:900;}
+.games-note p{margin-top:2px; color:#7A5410; font-size:11px; font-weight:600; line-height:1.4;}
+@media (max-width:360px){.games-art{right:4px; transform:scale(.88); transform-origin:top right;}.games-hero-copy{max-width:68%;}.games-grid{grid-template-columns:1fr;}}
 
 /* (5) komentar nempel di slider welcoming */
 .cm-dock{border-top:1px solid var(--line);}
@@ -1246,7 +1290,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
 /* (8)/(9) SOP khusus: Dress Code + Date/Time/Loc */
 .sop-dc, .sop-dtl{padding-left:18px !important;}
-.sop-dc{padding-top:8px !important; padding-bottom:20px !important;}
+.sop-dc{padding-top:2px !important; padding-bottom:20px !important;}
 .dc-grid{display:flex; gap:16px; align-items:center;}
 .dc-text{flex:1; min-width:0;}
 .dc-tag{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.1em; color:var(--watermelon); background:#FFE3E7; padding:5px 11px; border-radius:100px; margin-bottom:8px;}
@@ -1636,8 +1680,23 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
   <div class="p-page" data-page="games">
     <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
-    <div class="page-head"><h2>BLOOMS 2027</h2><p>Pick a game and have some fun with fellow BAK Famz!</p></div>
-    <div class="menu-grid" id="games-grid"><div class="live-empty">Loading…</div></div>
+    <section class="games-hero">
+      <div class="games-hero-copy">
+        <span class="games-kicker">🌼 BLOOMS GAME CORNER</span>
+        <h2>Ready, Set,<br><span>Bloom!</span></h2>
+        <p>Choose a game and have fun with your BAK Famz.</p>
+        <div class="games-count"><b id="games-count">0</b><span>GAMES<br>READY</span></div>
+      </div>
+      <div class="games-art" aria-hidden="true">
+        <span class="games-art-spark">✦</span>
+        <span class="games-art-pad">🎮</span>
+        <span class="games-art-dice">🎲</span>
+        <span class="games-art-flower">✿</span>
+      </div>
+    </section>
+    <div class="games-section-head"><div><h3>Pick Your Game</h3><p>Tap a game to jump in.</p></div><span>PLAY TIME!</span></div>
+    <div class="games-grid" id="games-grid"><div class="live-empty">Loading…</div></div>
+    <div class="games-note"><span>✨</span><div><b>Better together</b><p>Invite a friend, take turns, and make it a little friendly competition.</p></div></div>
   </div>
 
   <div class="p-page" data-page="profile">
@@ -2015,7 +2074,10 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
     <div class="c-page" data-cpage="dump">
       <div class="c-head"><h2>Bloom Dump</h2><p>See and share candid moments from today together with the participants.</p></div>
-      <button class="add-btn" onclick="openDumpUpload()" style="margin-bottom:16px;">📷 Upload Your Fav Moment</button>
+      <div class="dump-admin-actions">
+        <button class="add-btn" onclick="openDumpUpload()">📷 Upload Your Fav Moment</button>
+        <button class="btn-mini watermelon" id="dump-reset-btn" onclick="resetBloomDump()">⟲ Reset All Photos</button>
+      </div>
       <div class="dump-grid" id="cdump-grid" style="padding:0;"><div class="live-empty">Loading…</div></div>
     </div>
 
@@ -2031,6 +2093,11 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     <!-- ============ ABOUT EDITOR ============ -->
     <div class="c-page" data-cpage="about">
       <div class="c-head"><h2>About Editor</h2><p>Atur sambutan Project Officer dan Chairman (masing-masing 3 foto yang bergantian tiap 2 detik), serta penjelasan acara. Satu tombol Save &amp; Publish menyimpan semuanya.</p></div>
+
+      <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px;">
+        <div><b>What Is BLOOMS 2027?</b><p style="font-size:13px;color:var(--ink-soft);margin-top:4px;">Show or hide this section on the participant dashboard.</p></div>
+        <button class="btn-mini blue" id="about-event-visibility-btn" onclick="toggleAboutEventVisibility()" disabled>Loading...</button>
+      </div>
 
       <div class="tabs" style="margin-bottom:16px;">
         <button class="tab-btn active" data-abtab="po" onclick="setAbTab('po')">Project Officer</button>
@@ -4665,6 +4732,48 @@ async function renderDumpGrid(gridId){
       </div>
     ${gridId==='dump-grid' ? '</button>' : '</div>'}`).join('') : '<div class="empty-state" style="grid-column:1/-1;">No moments yet. Be the first to upload!</div>';
 }
+async function resetBloomDump(){
+  if(!confirm('Delete ALL Bloom Dump photos and posts for everyone? This cannot be undone.')) return;
+  const btn = $id('dump-reset-btn');
+  btn.disabled = true; btn.textContent = 'Deleting...';
+  try{
+    const rows = [];
+    for(let offset=0;;offset+=1000){
+      const { data, error } = await sb.from('bloom_dump')
+        .select('photo_url').order('created_at',{ascending:true}).range(offset,offset+999);
+      if(error) throw error;
+      const batch = data || [];
+      rows.push(...batch);
+      if(batch.length < 1000) break;
+    }
+
+    const storageOrigin = new URL(SUPABASE_URL).origin;
+    const storagePrefix = '/storage/v1/object/public/bloomdump/';
+    const paths = [...new Set(rows.filter(r=>r.photo_url).map(r=>{
+      const url = new URL(r.photo_url);
+      if(url.origin !== storageOrigin || !url.pathname.startsWith(storagePrefix)){
+        throw new Error('A Bloom Dump photo URL is outside the bloomdump storage bucket.');
+      }
+      return decodeURIComponent(url.pathname.slice(storagePrefix.length));
+    }))];
+    for(let i=0;i<paths.length;i+=100){
+      const { error } = await sb.storage.from('bloomdump').remove(paths.slice(i,i+100));
+      if(error) throw error;
+    }
+
+    if(rows.length){
+      const { error } = await sb.from('bloom_dump').delete().not('nim','is',null);
+      if(error) throw error;
+    }
+    await Promise.all([renderDumpPageC(), renderDumpPageP()]);
+    toast('All Bloom Dump photos and posts have been deleted.', 'good');
+  }catch(e){
+    console.error('Bloom Dump reset failed:', e);
+    toast('Could not fully reset Bloom Dump. Some photos or posts may remain; check storage and database permissions.', 'warn');
+  }finally{
+    btn.disabled = false; btn.textContent = '⟲ Reset All Photos';
+  }
+}
 function openDumpPhoto(card){
   const image = $id('dump-photo-full');
   image.src = card.dataset.photo;
@@ -4724,13 +4833,23 @@ const GAME_COLOR_CLASSES = ['mc-green','mc-pink','mc-orange','mc-blue','mc-olive
 async function renderGamesPage(){
   const grid = $id('games-grid'); if(!grid) return;
   const { data, error } = await sb.from('games').select('*').eq('status','on').order('order_index',{ascending:true});
-  if(error){ console.error(error); grid.innerHTML = '<div class="empty-state">Could not load games.</div>'; return; }
+  if(error){
+    console.error(error);
+    $id('games-count').textContent = '—';
+    grid.innerHTML = '<div class="games-empty"><span>🌱</span><b>Games are taking a breather</b><p>We could not load the games right now. Please try again later.</p></div>';
+    return;
+  }
   const rows = data || [];
+  $id('games-count').textContent = rows.length;
   grid.innerHTML = rows.length ? rows.map((g,i)=>`
-    <button class="menu-card ${GAME_COLOR_CLASSES[i % GAME_COLOR_CLASSES.length]}" onclick="window.open('${escHTML(g.link)}','_blank')">
-      <div class="menu-icon">${gameIconSVG(g.logo)}</div>
-      <span>${escHTML(g.title)}</span>
-    </button>`).join('') : '<div class="empty-state" style="grid-column:1/-1;">No games available right now. Check back later!</div>';
+    <a class="game-launch-card ${GAME_COLOR_CLASSES[i % GAME_COLOR_CLASSES.length]}" href="${escHTML(g.link)}" target="_blank" rel="noopener noreferrer" aria-label="Play ${escHTML(g.title)}">
+      <span class="game-launch-top">
+        <span class="game-launch-icon">${gameIconSVG(g.logo)}</span>
+        <span class="game-launch-arrow">↗</span>
+      </span>
+      <span class="game-launch-copy"><small>READY TO PLAY</small><b>${escHTML(g.title)}</b></span>
+      <span class="game-launch-cta">PLAY NOW&nbsp; →</span>
+    </a>`).join('') : '<div class="games-empty"><span>🌱</span><b>New games are blooming</b><p>There are no games ready just yet. Check back soon for something fun to play.</p></div>';
 }
 let gameDraft = [];
 async function loadGameEditor(){
@@ -4819,6 +4938,9 @@ function hfuGo(d){
 async function renderAbout(){
   const box = $id('about-wrap'); if(!box) return;
   const a = await getAbout(), c = await getChairman(), team = await getCommitteeProfiles();
+  let eventVisible = true;
+  try{ eventVisible = await getAboutEventVisibility(); }
+  catch(e){ console.error('Could not load About Event visibility:', e); }
   const nl = s => escHTML(s).replace(/\n/g, '<br>');
 
   const slide = (cls, tag, name, title, greeting, photos, seed) => {
@@ -4864,12 +4986,14 @@ async function renderAbout(){
   }
 
   const pts = (a.highlights || []).filter(Boolean);
-  html += `<div class="ab-event">
-    <span class="ab-tag g">WHAT IS BLOOMS 2027?</span>
-    <h3>${escHTML(a.headline)}</h3>
-    <p>${nl(a.desc)}</p>
-    ${pts.length ? `<div class="ab-points">${pts.map((t,i)=>`<div class="ab-point"><span class="ab-pn c${i % 6}">${i+1}</span><p>${escHTML(t)}</p></div>`).join('')}</div>` : ''}
-  </div>`;
+  if(eventVisible){
+    html += `<div class="ab-event">
+      <span class="ab-tag g">WHAT IS BLOOMS 2027?</span>
+      <h3>${escHTML(a.headline)}</h3>
+      <p>${nl(a.desc)}</p>
+      ${pts.length ? `<div class="ab-points">${pts.map((t,i)=>`<div class="ab-point"><span class="ab-pn c${i % 6}">${i+1}</span><p>${escHTML(t)}</p></div>`).join('')}</div>` : ''}
+    </div>`;
+  }
 
   if(team.length){
     html += `<div class="hfu-wrap">
@@ -4922,12 +5046,51 @@ async function renderAbout(){
 
 /* ----- editor Hello From Us (panitia) ----- */
 let teamDraft = [];
+async function getAboutEventVisibility(){
+  const { data, error } = await sb.from('settings').select('value').eq('key','about_event_visible').maybeSingle();
+  if(error) throw error;
+  return !data || data.value !== 'false';
+}
+function setAboutEventVisibilityButton(visible){
+  const btn = $id('about-event-visibility-btn');
+  if(!btn) return;
+  btn.textContent = visible ? 'Hide Section' : 'Show Section';
+  btn.setAttribute('aria-pressed', String(visible));
+  btn.disabled = false;
+}
+async function loadAboutEventVisibility(){
+  const btn = $id('about-event-visibility-btn');
+  try{ setAboutEventVisibilityButton(await getAboutEventVisibility()); }
+  catch(e){
+    console.error('Could not load About Event visibility:', e);
+    if(btn){ btn.textContent = 'Visibility unavailable'; btn.disabled = true; }
+    toast('Could not load the What Is BLOOMS 2027 visibility setting.', 'warn');
+  }
+}
+async function toggleAboutEventVisibility(){
+  const btn = $id('about-event-visibility-btn');
+  btn.disabled = true;
+  try{
+    const visible = await getAboutEventVisibility();
+    const nextVisible = !visible;
+    await setSetting('about_event_visible', String(nextVisible));
+    setAboutEventVisibilityButton(nextVisible);
+    toast(nextVisible ? 'What Is BLOOMS 2027 is now shown to participants.' : 'What Is BLOOMS 2027 is now hidden from participants.', 'good');
+  }catch(e){
+    console.error('Could not update About Event visibility:', e);
+    toast('Could not update the visibility setting. Please try again.', 'warn');
+    await loadAboutEventVisibility();
+  }finally{
+    if(btn.textContent === 'Loading...') btn.disabled = false;
+  }
+}
 function setAbTab(t){
   ['po','ch','ev','team'].forEach(k=>$id('ab-pane-' + k).classList.toggle('hidden', k !== t));
   document.querySelectorAll('[data-abtab]').forEach(b=>b.classList.toggle('active', b.dataset.abtab === t));
 }
 async function loadAboutEditor(){
   editorLoaded = true;
+  await loadAboutEventVisibility();
   const a = await getAbout(), c = await getChairman();
   const poUrls = (a.po_photos && a.po_photos.length) ? a.po_photos : (a.po_photo ? [a.po_photo] : []);
   abPh.po = abEmpty(poUrls);
