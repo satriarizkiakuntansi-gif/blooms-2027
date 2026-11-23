@@ -505,6 +505,34 @@ svg.fl,.flower{display:none;}
 .stat-box:nth-child(3)::before{background:var(--blue);}
 .stat-box .n{font-family:'Fraunces',serif; font-size:38px; font-weight:800; color:var(--green-dk); line-height:1.1;}
 .stat-box .l{font-size:12.5px; color:var(--ink-soft); font-weight:700; margin-top:4px;}
+.checkin-stat-row{gap:16px;}
+.checkin-stat-card{--stat-accent:#007A3F; --stat-tint:#EAF6EE; --stat-border:#D7EBDD; min-height:190px; padding:19px 20px; border:1px solid var(--stat-border); border-radius:24px; background:radial-gradient(circle at 100% 0%,var(--stat-tint),transparent 54%),linear-gradient(145deg,#fff,#FBFCF8); box-shadow:0 16px 30px -23px rgba(0,50,25,.42);}
+.checkin-stat-card::before{top:0; right:0; bottom:auto; left:0; width:100%; height:5px; background:var(--stat-accent);}
+.checkin-stat-card::after{content:''; position:absolute; top:42px; right:-34px; width:118px; height:118px; border:1px solid rgba(0,80,40,.12); border-radius:50%; box-shadow:0 0 0 14px rgba(0,80,40,.035);}
+.checkin-stat-present{--stat-accent:#07844A; --stat-tint:#E6F5EB; --stat-border:#D2EADB;}
+.checkin-stat-pending{--stat-accent:#E56855; --stat-tint:#FFF0E8; --stat-border:#F5DED3;}
+.checkin-stat-total{--stat-accent:#477EC5; --stat-tint:#EAF2FF; --stat-border:#D8E5F8;}
+.checkin-stat-top{position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between; gap:8px;}
+.checkin-stat-icon{display:grid; width:43px; height:43px; flex:none; place-items:center; border-radius:15px; background:var(--stat-tint); color:var(--stat-accent);}
+.checkin-stat-icon svg{width:23px; height:23px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;}
+.checkin-stat-chip{padding:5px 9px; border-radius:100px; background:var(--stat-tint); color:var(--stat-accent); font-size:9px; font-weight:900; letter-spacing:.08em;}
+.checkin-stat-card .n{position:relative; z-index:1; margin-top:15px; color:var(--stat-accent); font-size:40px; line-height:1;}
+.checkin-stat-card .l{position:relative; z-index:1; margin-top:6px; color:var(--green-dk); font-size:13px; font-weight:900;}
+.checkin-stat-note{position:relative; z-index:1; margin-top:4px; color:var(--ink-soft); font-size:11px; font-weight:700; line-height:1.35;}
+.checkin-stat-total::after{border-radius:28px; transform:rotate(35deg);}
+@media (max-width:640px){
+  .checkin-stat-row{grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px;}
+  .checkin-stat-card{min-height:160px; padding:14px;}
+  .checkin-stat-card .n{margin-top:11px; font-size:34px;}
+  .checkin-stat-card .l{font-size:12px;}
+  .checkin-stat-note{font-size:10px;}
+  .checkin-stat-total{display:grid; grid-column:span 2; min-height:100px; grid-template-columns:48px minmax(0,1fr) auto; grid-template-rows:auto auto; align-items:center; column-gap:12px; row-gap:0;}
+  .checkin-stat-total .checkin-stat-top{grid-column:1; grid-row:1 / 3; flex-direction:column; align-self:center;}
+  .checkin-stat-total .checkin-stat-chip{display:none;}
+  .checkin-stat-total .n{grid-column:2; grid-row:1 / 3; margin:0; align-self:center;}
+  .checkin-stat-total .l{grid-column:3; grid-row:1; margin:0; align-self:end; white-space:nowrap;}
+  .checkin-stat-total .checkin-stat-note{grid-column:3; grid-row:2; margin-top:3px; align-self:start; white-space:nowrap;}
+}
 .toolbar{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; align-items:center;}
 .toolbar input[type=text]{flex:1; min-width:200px; padding:12px 16px; border-radius:14px; border:2px solid transparent; font-size:14px; background:#fff; box-shadow:var(--shadow);}
 .toolbar select{background:#fff; box-shadow:var(--shadow); border:2px solid transparent !important;}
@@ -544,6 +572,58 @@ tr:hover td{background:#FBFCF4;}
 .toggle-status{font-weight:800; font-size:16px;}
 .toggle-status::before{content:''; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:9px; background:currentColor; animation:pulse 1.4s infinite;}
 .toggle-status.open{color:var(--green);} .toggle-status.paused{color:var(--orange);}
+.pb-serving-wrap{grid-template-columns:1.2fr .8fr; align-items:stretch;}
+.pb-serving-card{position:relative; isolation:isolate; overflow:hidden; min-height:310px; padding:26px; border:1px solid rgba(255,255,255,.2); background:radial-gradient(circle at 100% 0%,rgba(255,164,141,.5),transparent 40%),radial-gradient(circle at 8% 100%,rgba(255,222,127,.16),transparent 42%),linear-gradient(145deg,#8D2A50,#4D244F 78%); box-shadow:0 24px 44px -24px rgba(80,24,60,.72);}
+.pb-serving-card::before,.pb-serving-card::after{content:''; position:absolute; z-index:-1; border:1px solid rgba(255,255,255,.13); border-radius:50%; pointer-events:none;}
+.pb-serving-card::before{width:250px; height:250px; top:-130px; right:-72px; box-shadow:0 0 0 18px rgba(255,255,255,.035),0 0 0 40px rgba(255,255,255,.025);}
+.pb-serving-card::after{width:140px; height:140px; right:22%; bottom:-108px; box-shadow:0 0 0 14px rgba(255,255,255,.035);}
+.pb-serving-top{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.pb-serving-card .l{font-size:11px; letter-spacing:.13em;}
+.pb-studio-tag{display:inline-flex; align-items:center; gap:7px; padding:7px 10px; border:1px solid rgba(255,255,255,.23); border-radius:100px; background:rgba(255,255,255,.12); color:#fff; font-size:9px; font-weight:900; letter-spacing:.1em; white-space:nowrap;}
+.pb-studio-tag::before{content:''; width:7px; height:7px; border-radius:50%; background:#FFE18A;}
+.pb-ticket-panel{display:flex; align-items:baseline; gap:12px; margin:14px 0 8px; padding:5px 16px 9px; border-left:3px solid rgba(255,225,138,.75);}
+.pb-serving-card .num{margin:0; color:#FFE18A; font-size:68px; letter-spacing:.015em; text-shadow:0 8px 26px rgba(29,8,36,.28);}
+.pb-ticket-caption{color:rgba(255,255,255,.68); font-size:10px; font-weight:900; letter-spacing:.14em;}
+.pb-serving-card .name{min-height:44px; margin:0 0 18px; color:rgba(255,255,255,.9); font-size:14px; line-height:1.45;}
+.pb-serving-card .name .nm-cell{gap:12px;}
+.pb-serving-card .name .pav{border:3px solid rgba(255,255,255,.8); box-shadow:0 6px 16px rgba(26,12,35,.25);}
+.pb-serving-card .name .nm-cell b{font-size:15px;}
+.pb-serving-actions{gap:9px;}
+.pb-serving-actions button{min-height:44px; padding:10px 14px; border-radius:14px; font-size:12px;}
+.pb-serving-actions .btn-white{background:#FFF4D6; color:#633B35; box-shadow:0 10px 18px -12px rgba(0,0,0,.7);}
+.pb-serving-actions .btn-outline-w{background:rgba(255,255,255,.11); box-shadow:inset 0 0 0 1px rgba(255,255,255,.34);}
+.pb-queue-card{align-items:stretch; justify-content:flex-start; gap:13px; padding:24px; border:1px solid #E8DEEC; background:radial-gradient(circle at 100% 0%,#F9EAF1,transparent 48%),linear-gradient(150deg,#fff,#FBF8FC); box-shadow:0 18px 34px -24px rgba(61,31,69,.45);}
+.pb-queue-title{display:flex; align-items:center; gap:13px; text-align:left;}
+.pb-queue-icon{display:grid; width:48px; height:48px; flex:none; place-items:center; border-radius:16px; background:#F8E3EB; color:#9B365E;}
+.pb-queue-icon svg{width:25px; height:25px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;}
+.pb-queue-title small{display:block; margin-bottom:4px; color:#9B7184; font-size:9px; font-weight:900; letter-spacing:.14em;}
+.pb-queue-title .toggle-status{font-size:16px;}
+.pb-queue-title .toggle-status::before{width:9px; height:9px; margin-right:6px;}
+.pb-queue-desc{margin:-3px 0 1px; color:var(--ink-soft); font-size:12px; font-weight:700; line-height:1.45; text-align:left;}
+.pb-quick-stats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:2px 0 3px;}
+.pb-quick-stats>div{min-width:0; padding:10px 7px; border:1px solid #EEE6F0; border-radius:15px; background:rgba(255,255,255,.84); text-align:center;}
+.pb-quick-stats small{display:block; color:#8C7A8F; font-size:8px; font-weight:900; letter-spacing:.07em; line-height:1.3;}
+.pb-quick-stats b{display:block; overflow:hidden; margin-top:5px; color:#563454; font-family:'Fraunces',serif; font-size:21px; font-weight:800; line-height:1; text-overflow:ellipsis;}
+.pb-queue-card #pb-toggle-btn{width:100%; min-height:46px; border-radius:14px; font-size:13px;}
+.pb-queue-card .pb-reset-btn{width:100%; margin:0; padding:11px; border-radius:14px;}
+.pb-queue-hint{margin:0; color:#8C7A8F; font-size:10px; font-weight:700; line-height:1.4; text-align:center;}
+.pb-queue-heading{display:flex; align-items:end; justify-content:space-between; gap:12px; margin:8px 0 12px;}
+.pb-queue-heading h3{color:var(--green-dk); font-size:20px; font-weight:900;}
+.pb-queue-heading p{margin-top:3px; color:var(--ink-soft); font-size:12px; font-weight:700;}
+.pb-tabs{margin-bottom:14px; padding:5px; border-radius:100px; background:#F0EAF2; width:max-content; max-width:100%;}
+.pb-tabs .tab-btn{padding:9px 16px; border-radius:100px; background:transparent; box-shadow:none;}
+.pb-tabs .tab-btn.active{background:#762D52; color:#fff; box-shadow:0 8px 16px -10px rgba(76,29,60,.7);}
+.pb-table-wrap{overflow:hidden; border:1px solid #EAE4EA; border-radius:22px; background:#fff; box-shadow:0 14px 28px -24px rgba(61,31,69,.45);}
+@media (max-width:640px){
+  .pb-serving-wrap{grid-template-columns:1fr; gap:12px;}
+  .pb-serving-card{min-height:0; padding:21px;}
+  .pb-serving-card .num{font-size:58px;}
+  .pb-serving-card .name{min-height:38px;}
+  .pb-queue-card{padding:19px;}
+  .pb-queue-heading{align-items:flex-start; flex-direction:column; gap:2px;}
+  .pb-tabs{width:100%; display:flex;}
+  .pb-tabs .tab-btn{flex:1; padding-inline:10px;}
+}
 .satisfaction-wrap{max-width:540px;}
 .link-preview{margin-top:16px; padding:14px 16px; background:var(--green-soft); border-radius:14px; font-size:13px; word-break:break-all; color:var(--green-dk); font-weight:700;}
 .hamburger{display:none; width:42px; height:42px; border-radius:13px; background:var(--green); color:#fff; align-items:center; justify-content:center; font-size:18px;}
@@ -707,6 +787,87 @@ tr:hover td{background:#FBFCF4;}
 .sopedit-hint{font-size:11.5px; color:var(--ink-soft); font-weight:700; margin-top:6px;}
 .sopedit-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:16px; max-width:720px;}
 
+/* game editor */
+.game-admin-hero{position:relative; isolation:isolate; display:flex; align-items:center; justify-content:space-between; gap:18px; overflow:hidden; margin-bottom:18px; padding:24px; border-radius:26px; color:#fff; background:radial-gradient(circle at 100% 0%,rgba(247,120,139,.55),transparent 40%),linear-gradient(135deg,#075D3A,#35264E); box-shadow:var(--shadow-lg);}
+.game-admin-hero::after{content:'✦'; position:absolute; z-index:-1; right:22px; top:-35px; color:rgba(255,255,255,.1); font-size:150px; line-height:1;}
+.game-admin-copy{max-width:620px;}
+.game-admin-kicker{display:inline-flex; align-items:center; gap:7px; padding:6px 10px; border:1px solid rgba(255,255,255,.23); border-radius:100px; background:rgba(255,255,255,.12); color:#FFE79A; font-size:9px; font-weight:900; letter-spacing:.13em;}
+.game-admin-copy h3{margin-top:11px; font-family:'Fraunces',serif; font-size:28px; font-weight:800; line-height:1.1;}
+.game-admin-copy p{margin-top:6px; color:rgba(255,255,255,.8); font-size:12px; font-weight:700; line-height:1.5;}
+.game-admin-art{display:grid; width:100px; height:100px; flex:none; place-items:center; border:1px solid rgba(255,255,255,.3); border-radius:30px; background:rgba(255,255,255,.14); box-shadow:0 18px 30px -18px rgba(0,0,0,.7); font-size:54px; transform:rotate(8deg);}
+.game-admin-stats{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:22px;}
+.game-admin-stat{display:flex; align-items:center; gap:12px; min-width:0; padding:14px 16px; border:1px solid #E8ECDD; border-radius:20px; background:linear-gradient(145deg,#fff,#FBFCF5); box-shadow:var(--shadow);}
+.game-admin-stat-icon{display:grid; width:42px; height:42px; flex:none; place-items:center; border-radius:14px; background:#EEF6E8; font-size:20px;}
+.game-admin-stat b{display:block; color:var(--green-dk); font-family:'Fraunces',serif; font-size:23px; line-height:1;}
+.game-admin-stat span:last-child{display:block; margin-top:4px; color:var(--ink-soft); font-size:10px; font-weight:800; line-height:1.25;}
+.game-admin-list-head{display:flex; align-items:end; justify-content:space-between; gap:14px; margin-bottom:12px;}
+.game-admin-list-head h3{color:var(--green-dk); font-size:20px; font-weight:900;}
+.game-admin-list-head p{margin-top:3px; color:var(--ink-soft); font-size:12px; font-weight:700; line-height:1.4;}
+.game-admin-list-head>span{padding:7px 10px; border-radius:100px; background:#FFF4D6; color:#805C14; font-size:9px; font-weight:900; letter-spacing:.08em; white-space:nowrap;}
+.game-admin-list{display:flex; max-width:none; flex-direction:column; gap:14px;}
+.game-admin-card{position:relative; overflow:hidden; padding:17px; border:1px solid #E6EADD; border-radius:24px; background:radial-gradient(circle at 100% 0%,#F2F7E9,transparent 36%),linear-gradient(145deg,#fff,#FCFCF7); box-shadow:var(--shadow);}
+.game-admin-card::before{content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--green),var(--yellow),var(--watermelon));}
+.game-admin-card-head{display:flex; align-items:center; gap:13px; margin-bottom:14px;}
+.game-admin-card-icon{display:grid; width:54px; height:54px; flex:none; place-items:center; border-radius:18px; background:linear-gradient(145deg,var(--c1,#12a15a),var(--c2,#007A3F)); box-shadow:0 10px 18px -12px var(--c2,#007A3F);}
+.game-admin-card-icon svg{width:28px; height:28px; fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+.game-admin-title-wrap{flex:1; min-width:0;}
+.game-admin-order{display:block; margin-bottom:4px; color:var(--ink-soft); font-size:9px; font-weight:900; letter-spacing:.12em;}
+.game-admin-title-input{width:100%; min-width:0; padding:9px 11px; border:2px solid #E8ECDD; border-radius:12px; background:#fff; color:var(--green-dk); font-size:15px; font-weight:900;}
+.game-admin-title-input:focus,.game-admin-field input:focus,.game-admin-field select:focus{outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(0,122,63,.1);}
+.game-admin-actions{display:flex; flex:none; gap:5px;}
+.game-admin-actions .btn-mini{display:grid; width:36px; height:36px; place-items:center; padding:0; margin:0 !important; border-radius:12px; font-size:15px;}
+.game-admin-fields{display:grid; grid-template-columns:minmax(0,1.4fr) minmax(180px,.6fr); gap:12px; margin-bottom:13px;}
+.game-admin-field{min-width:0;}
+.game-admin-field label{display:block; margin:0 0 5px 2px; color:var(--ink-soft); font-size:10px; font-weight:900; letter-spacing:.06em;}
+.game-admin-field input,.game-admin-field select{width:100%; min-width:0; padding:10px 12px; border:2px solid #E8ECDD; border-radius:12px; background:#fff; color:var(--ink); font-size:12px; font-weight:700;}
+.game-admin-tools{display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-bottom:13px;}
+.game-admin-access{display:inline-flex; align-items:center; min-height:38px; gap:7px; padding:8px 12px; border:1px solid #DCE8DE; border-radius:12px; background:#F2F8F1; color:#147148; font-size:11px; font-weight:900;}
+.game-admin-access.off{border-color:#F0D8D8; background:#FFF1F1; color:#A74A4A;}
+.game-admin-access::before{content:''; width:8px; height:8px; border-radius:50%; background:currentColor;}
+.game-admin-preview{display:flex; align-items:center; gap:12px; min-width:0; padding:12px; border:1px dashed #DCE5D3; border-radius:17px; background:rgba(255,255,255,.76);}
+.game-admin-preview-icon{display:grid; width:44px; height:44px; flex:none; place-items:center; border-radius:14px; background:linear-gradient(145deg,var(--c1,#12a15a),var(--c2,#007A3F));}
+.game-admin-preview-icon svg{width:23px; height:23px; fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+.game-admin-preview-copy{flex:1; min-width:0;}
+.game-admin-preview-copy small{display:block; color:var(--ink-soft); font-size:8px; font-weight:900; letter-spacing:.11em;}
+.game-admin-preview-copy b{display:block; overflow:hidden; margin-top:2px; color:var(--green-dk); font-size:13px; font-weight:900; text-overflow:ellipsis; white-space:nowrap;}
+.game-admin-preview-copy span{display:block; overflow:hidden; margin-top:2px; color:var(--ink-soft); font-size:10px; font-weight:700; text-overflow:ellipsis; white-space:nowrap;}
+.game-admin-preview-state{flex:none; padding:6px 8px; border-radius:100px; background:#EAF5EC; color:#147148; font-size:8px; font-weight:900; letter-spacing:.05em;}
+.game-admin-preview-state.off{background:#FFF0F0; color:#A74A4A;}
+.game-admin-empty{padding:28px 20px; border:1px dashed #CBDCCB; border-radius:22px; background:linear-gradient(145deg,#F7FBF4,#fff); text-align:center;}
+.game-admin-empty>span{display:block; font-size:34px;}
+.game-admin-empty b{display:block; margin-top:7px; color:var(--green-dk); font-family:'Fraunces',serif; font-size:19px;}
+.game-admin-empty p{margin:4px auto 13px; max-width:390px; color:var(--ink-soft); font-size:12px; font-weight:700; line-height:1.5;}
+.game-admin-empty button{padding:10px 14px; border-radius:12px; background:var(--green); color:#fff; font-size:12px; font-weight:900;}
+.game-admin-footer{display:flex; align-items:center; gap:10px; margin-top:16px; padding:14px; border-radius:18px; background:#FFF7DC; color:#7A5410;}
+.game-admin-footer>span{font-size:22px;}
+.game-admin-footer p{font-size:11px; font-weight:700; line-height:1.45;}
+.game-admin-footer b{font-weight:900;}
+.game-admin-save-row{max-width:none; padding:12px; border:1px solid #E7EADC; border-radius:18px; background:#fff; box-shadow:var(--shadow);}
+.game-admin-save-row .btn-mini{min-height:44px; padding:11px 16px; border-radius:13px;}
+.game-admin-save-row .add-btn{min-height:44px; border-radius:13px;}
+@media (max-width:640px){
+  .game-admin-hero{padding:19px;}
+  .game-admin-copy h3{font-size:24px;}
+  .game-admin-art{width:72px; height:72px; border-radius:23px; font-size:39px;}
+  .game-admin-stats{grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px;}
+  .game-admin-stat{flex-direction:column; align-items:flex-start; gap:8px; padding:11px;}
+  .game-admin-stat-icon{width:34px; height:34px; border-radius:12px; font-size:17px;}
+  .game-admin-stat b{font-size:20px;}
+  .game-admin-stat span:last-child{font-size:9px;}
+  .game-admin-list-head{align-items:flex-start; flex-direction:column; gap:7px;}
+  .game-admin-card{padding:13px;}
+  .game-admin-card-head{gap:9px;}
+  .game-admin-card-icon{width:43px; height:43px; border-radius:14px;}
+  .game-admin-card-icon svg{width:23px; height:23px;}
+  .game-admin-title-input{font-size:13px;}
+  .game-admin-actions{gap:3px;}
+  .game-admin-actions .btn-mini{width:31px; height:32px;}
+  .game-admin-fields{grid-template-columns:1fr; gap:9px;}
+  .game-admin-preview-state{font-size:7px;}
+  .game-admin-save-row{align-items:stretch;}
+  .game-admin-save-row button{flex:1;}
+}
+
 /* manajemen kelompok */
 .gm-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:16px; align-items:start;}
 .gcard{background:#fff; border-radius:22px; box-shadow:var(--shadow); padding:18px; border:2px solid transparent; transition:border-color .2s, transform .2s var(--ease);}
@@ -753,9 +914,85 @@ tr:hover td{background:#FBFCF4;}
 .gl-drop b{color:var(--green-dk); font-size:15px;}
 .gl-actions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; align-items:center;}
 .gl-meta{font-size:12px; color:var(--ink-soft); font-weight:700; margin-top:8px; word-break:break-all;}
+.gl-admin-hero{display:flex; align-items:center; gap:14px; margin-bottom:18px; padding:18px 20px; border:1px solid #DDE9D9; border-radius:22px; background:radial-gradient(circle at 100% 0%,#F9E3EA,transparent 38%),linear-gradient(130deg,#F0F8EC,#fff); box-shadow:var(--shadow);}
+.gl-admin-hero>span{display:grid; width:52px; height:52px; flex:none; place-items:center; border-radius:17px; background:linear-gradient(145deg,#6DBBEF,#3A94D6); font-size:27px; box-shadow:0 12px 20px -12px #3A94D6;}
+.gl-admin-hero b{display:block; color:var(--green-dk); font-family:'Fraunces',serif; font-size:18px; font-weight:800;}
+.gl-admin-hero small{display:block; margin-top:3px; color:var(--ink-soft); font-size:11.5px; font-weight:700; line-height:1.45;}
+.gl-admin-map-card{grid-column:1/-1; overflow:hidden; border:1px solid #E5EBDD; background:linear-gradient(145deg,#fff,#FBFCF8);}
+.gl-card-heading{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
+.gl-card-heading .gl-label{margin-bottom:3px;}
+.gl-card-heading p{color:var(--ink-soft); font-size:11px; font-weight:700; line-height:1.4;}
+.gl-live-pill{padding:7px 10px; border-radius:100px; background:#F0F2EC; color:#777F72; font-size:8px; font-weight:900; letter-spacing:.08em; white-space:nowrap;}
+.gl-live-pill.ready{background:#E8F5EC; color:#117446;}
+.gl-map-stage{position:relative; width:max-content; max-width:100%; margin:auto; line-height:0; transition:transform .25s var(--ease);}
+.gl-map-stage>img{display:block; width:auto; height:auto; max-width:100%; max-height:420px; object-fit:contain; background:#fff; cursor:default;}
+.gl-map-stage.placing{cursor:crosshair;}
+.gl-map-stage.placing>img{cursor:crosshair;}
+.garden-map-pins{position:absolute; inset:0; pointer-events:none; line-height:normal;}
+.garden-map-pin{position:absolute; display:grid; width:32px; height:32px; padding:0; place-items:center; transform:translate(-50%,-50%); border:2px solid #fff; border-radius:50% 50% 50% 8px; background:linear-gradient(145deg,#F7788B,#D9435D); color:#fff; font-size:11px; font-weight:900; box-shadow:0 5px 12px rgba(90,28,44,.4); pointer-events:auto; cursor:pointer;}
+.garden-map-pin:hover,.garden-map-pin.selected{z-index:3; transform:translate(-50%,-50%) scale(1.18); background:linear-gradient(145deg,#F7B15A,#EE8F1F);}
+.gl-pin-toolbar{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:13px;}
+.gl-pin-toolbar .add-btn,.gl-pin-toolbar .btn-mini{min-height:40px; padding:9px 13px; border-radius:12px;}
+.gl-pin-toolbar button:disabled{opacity:.45; cursor:not-allowed; filter:grayscale(.4);}
+.gl-pin-toolbar .active{background:#7A2850; color:#fff;}
+.gl-pin-toolbar>span{margin-left:auto; color:var(--ink-soft); font-size:11px; font-weight:800;}
+.gl-pin-list-head{display:flex; flex-direction:column; gap:3px; margin:18px 0 10px; padding-top:14px; border-top:1px solid #E8ECDD;}
+.gl-pin-list-head b{color:var(--green-dk); font-size:14px; font-weight:900;}
+.gl-pin-list-head small{color:var(--ink-soft); font-size:10px; font-weight:700;}
+.gl-pin-editor{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;}
+.gl-pin-row{min-width:0; padding:12px; border:1px solid #E7EBDD; border-radius:17px; background:#fff;}
+.gl-pin-row-head{display:flex; align-items:center; gap:8px; margin-bottom:9px;}
+.gl-pin-number{display:grid; width:27px; height:27px; flex:none; place-items:center; border-radius:9px; background:#FBE8ED; color:#A43659; font-size:10px; font-weight:900;}
+.gl-pin-row-head b{flex:1; min-width:0; overflow:hidden; color:var(--green-dk); font-size:11px; font-weight:900; text-overflow:ellipsis; white-space:nowrap;}
+.gl-pin-delete{width:28px; height:28px; flex:none; border-radius:9px; background:#FFF0F0; color:#B34747; font-size:16px; font-weight:900;}
+.gl-pin-field{display:block; margin-top:7px; color:var(--ink-soft); font-size:9px; font-weight:900; letter-spacing:.05em;}
+.gl-pin-field input,.gl-pin-field textarea{display:block; width:100%; margin-top:4px; padding:8px 10px; border:1px solid #E5EBDD; border-radius:10px; background:#FBFCF8; color:var(--ink); font:700 11px/1.4 'Nunito',sans-serif;}
+.gl-pin-field textarea{min-height:54px; resize:vertical;}
+.gl-pin-empty{grid-column:1/-1; padding:16px; border:1px dashed #D8E4D2; border-radius:15px; background:#FAFCF7; color:var(--ink-soft); font-size:11px; font-weight:700; line-height:1.5;}
+.gl-upload-tip{display:flex; gap:10px; margin-top:16px; padding:12px; border-radius:15px; background:#FFF7DC; color:#7A5410;}
+.gl-upload-tip>span{font-size:19px;}
+.gl-upload-tip p{font-size:10px; font-weight:700; line-height:1.45;}
+.garden-map-panel{margin:18px 20px 14px; overflow:hidden; border:1px solid #E4EBDD; border-radius:26px; background:#fff; box-shadow:var(--shadow);}
+.garden-map-toolbar{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:13px 15px; background:linear-gradient(115deg,#F0F8ED,#FFF7E9);}
+.garden-map-toolbar>span{display:inline-flex; align-items:center; gap:8px; color:var(--green-dk); font-size:10px; font-weight:900; letter-spacing:.12em;}
+.garden-map-toolbar i{width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 4px rgba(0,122,63,.12);}
+.garden-map-toolbar button{padding:8px 11px; border-radius:11px; background:#fff; color:var(--green); font-size:10px; font-weight:900; box-shadow:var(--shadow);}
+.garden-wrap.garden-scroll{margin:0; max-height:70vh; padding:10px; border:0; border-radius:0; background:#F5F7F1; box-shadow:none;}
+.garden-map-stage.zoomed{transform:scale(1.55); transform-origin:center; cursor:zoom-out;}
+.garden-map-stage.zoomed>img{cursor:zoom-out;}
+.garden-guide-card{margin:0 20px 110px; padding:17px; border:1px solid #E5EBDD; border-radius:24px; background:linear-gradient(145deg,#fff,#FBFCF7); box-shadow:var(--shadow);}
+.garden-guide-heading{display:flex; align-items:center; gap:11px;}
+.garden-guide-icon{display:grid; width:42px; height:42px; flex:none; place-items:center; border-radius:14px; background:#FFF1E2; font-size:21px;}
+.garden-guide-heading>div{flex:1; min-width:0;}
+.garden-guide-heading h3{color:var(--green-dk); font-size:16px; font-weight:900;}
+.garden-guide-heading p{margin-top:2px; color:var(--ink-soft); font-size:10px; font-weight:700; line-height:1.4;}
+.garden-guide-heading>b{padding:6px 8px; border-radius:100px; background:#EFF5E8; color:var(--green); font-size:8px; font-weight:900; white-space:nowrap;}
+.garden-pin-detail{margin:13px 0 10px; padding:11px 13px; border-left:3px solid var(--orange); border-radius:0 13px 13px 0; background:#FFF8E8;}
+.garden-pin-detail b{display:block; color:#76511A; font-size:12px; font-weight:900;}
+.garden-pin-detail span{display:block; margin-top:3px; color:#806646; font-size:10px; font-weight:700; line-height:1.45;}
+.garden-guide-list{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px;}
+.garden-guide-item{display:flex; align-items:flex-start; gap:9px; width:100%; min-width:0; padding:10px; border:1px solid #E9EDE3; border-radius:15px; background:#fff; text-align:left; transition:border-color .18s,background .18s;}
+.garden-guide-item:hover,.garden-guide-item.selected{border-color:#D7A64B; background:#FFFBEE;}
+.garden-guide-item>span:first-child{display:grid; width:25px; height:25px; flex:none; place-items:center; border-radius:9px; background:#FBE8ED; color:#A43659; font-size:9px; font-weight:900;}
+.garden-guide-item b{display:block; color:var(--green-dk); font-size:11px; font-weight:900; line-height:1.3;}
+.garden-guide-item small{display:block; margin-top:2px; color:var(--ink-soft); font-size:9px; font-weight:700; line-height:1.4;}
+.garden-guide-empty{grid-column:1/-1; padding:12px; border:1px dashed #D8E4D2; border-radius:14px; color:var(--ink-soft); font-size:10px; font-weight:700; text-align:center;}
 @media (max-width:880px){
   .gl-wrap{grid-template-columns:1fr;}
   .gm-grid{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  .gl-admin-hero{align-items:flex-start; padding:14px;}
+  .gl-admin-hero>span{width:44px; height:44px; border-radius:14px; font-size:23px;}
+  .gl-admin-hero b{font-size:16px;}
+  .gl-card-heading{align-items:flex-start; flex-direction:column; gap:8px;}
+  .gl-pin-editor{grid-template-columns:1fr;}
+  .gl-pin-toolbar>span{margin-left:auto;}
+  .garden-map-panel{margin:14px 16px 12px;}
+  .garden-guide-card{margin:0 16px 110px; padding:14px;}
+  .garden-guide-list{grid-template-columns:1fr;}
+  .garden-guide-heading{align-items:flex-start;}
+  .garden-guide-heading>b{margin-left:auto;}
 }
 
 /* ---------- live queue (peserta) ---------- */
@@ -980,6 +1217,27 @@ tr:hover td{background:#FBFCF4;}
 .c-menu .menu-card:last-child{grid-column:auto; flex-direction:column; justify-content:flex-start; gap:11px; padding:16px 6px 14px; text-align:center;}
 .c-menu .menu-card:last-child span{min-height:2.6em; flex:none;}
 .c-menu .menu-card:last-child .menu-icon{width:64px; height:64px;}
+.c-event-day{position:relative; overflow:hidden; padding:20px; border:1px solid #F1D581; border-radius:28px; background:radial-gradient(circle at 100% 0%,rgba(255,255,255,.9),transparent 38%),linear-gradient(135deg,#FFF7DB,#FFF0F1); box-shadow:0 16px 34px -24px rgba(120,72,16,.55);}
+.c-event-day .c-cat-title{margin-bottom:5px; color:#724313;}
+.c-event-day .c-cat-title::before{width:11px; height:11px; background:#F19D3A; box-shadow:0 0 0 5px rgba(241,157,58,.15);}
+.c-event-day .c-cat-title::after{background:linear-gradient(90deg,rgba(241,157,58,.4),transparent);}
+.c-event-day-note{margin:0 0 16px 20px; color:#806646; font-size:13px; font-weight:700; line-height:1.45;}
+.c-event-day .c-menu{grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px;}
+.c-event-day .event-day-card{position:relative; isolation:isolate; display:flex; min-height:222px; flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:12px; overflow:hidden; padding:20px; border:2px solid rgba(255,255,255,.32); border-radius:24px; color:#fff; text-align:left; box-shadow:0 18px 28px -17px rgba(20,50,30,.6); transition:transform .2s var(--ease),box-shadow .2s var(--ease);}
+.c-event-day .c-menu .event-day-card{flex-direction:column; justify-content:flex-start; gap:12px; padding:20px; text-align:left;}
+.c-event-day .event-day-card::before{content:''; position:absolute; z-index:-1; width:190px; height:190px; right:-54px; top:-76px; border:1px solid rgba(255,255,255,.18); border-radius:50%; box-shadow:0 0 0 18px rgba(255,255,255,.06),0 0 0 38px rgba(255,255,255,.04);}
+.c-event-day .event-day-card::after{content:'↗'; position:absolute; right:18px; bottom:16px; display:grid; width:34px; height:34px; place-items:center; border-radius:50%; background:rgba(255,255,255,.2); color:#fff; font-size:20px; font-weight:900; transition:transform .2s var(--ease);}
+.c-event-day .event-day-card:hover{transform:translateY(-4px); box-shadow:0 24px 34px -18px rgba(20,50,30,.65);}
+.c-event-day .event-day-card:hover::after{transform:translate(2px,-2px);}
+.c-event-day .event-checkin{background:radial-gradient(circle at 100% 0%,#39B978,transparent 52%),linear-gradient(145deg,#087C45,#064D32);}
+.c-event-day .event-photobooth{background:radial-gradient(circle at 100% 0%,#FF9B80,transparent 52%),linear-gradient(145deg,#D9435D,#8B2346);}
+.c-event-day .event-day-card .event-day-icon{display:grid; width:62px; height:62px; flex:none; place-items:center; border:1px solid rgba(255,255,255,.42); border-radius:20px; background:rgba(255,255,255,.16); box-shadow:0 12px 20px -14px rgba(0,0,0,.5);}
+.c-event-day .event-day-icon svg{width:32px; height:32px; fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;}
+.c-event-day .event-day-copy{position:relative; z-index:1; display:block; min-height:0; max-width:100%; padding-right:22px; color:#fff; text-align:left;}
+.c-event-day .c-menu .event-day-copy{min-height:0; text-align:left;}
+.c-event-day .event-day-copy small{display:inline-flex; margin-bottom:7px; padding:5px 9px; border:1px solid rgba(255,255,255,.34); border-radius:100px; background:rgba(0,0,0,.14); color:#fff4c2; font-size:9px; font-weight:900; letter-spacing:.1em;}
+.c-event-day .event-day-copy b{display:block; font-size:19px; font-weight:900; line-height:1.15;}
+.c-event-day .event-day-copy em{display:block; margin-top:5px; color:rgba(255,255,255,.82); font-size:12px; font-style:normal; font-weight:700; line-height:1.4;}
 #committee-app .empty-state::before{content:''; display:block; width:46px; height:46px; margin:0 auto 10px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23F4808D'%3E%3Cellipse cx='50' cy='27' rx='14' ry='24'/%3E%3Cellipse cx='50' cy='27' rx='14' ry='24' transform='rotate(72 50 50)'/%3E%3Cellipse cx='50' cy='27' rx='14' ry='24' transform='rotate(144 50 50)'/%3E%3Cellipse cx='50' cy='27' rx='14' ry='24' transform='rotate(216 50 50)'/%3E%3Cellipse cx='50' cy='27' rx='14' ry='24' transform='rotate(288 50 50)'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='11' fill='%23FADE73'/%3E%3C/svg%3E") center/contain no-repeat;}
 .gl-drop .ico{font-size:0; width:56px; height:56px; border-radius:19px; background:linear-gradient(145deg,#6DBBEF,#3A94D6) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 4.5 3.5 6.5v13L9 17.5l6 2 5.5-2v-13L15 6.5z'/%3E%3Cpath d='M9 4.5v13M15 6.5v13'/%3E%3C/svg%3E") center/28px no-repeat; box-shadow:0 12px 20px -10px #3A94D6;}
 
@@ -1038,6 +1296,13 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 }
 @media (max-width:560px){
   .c-menu{grid-template-columns:repeat(2,1fr);}
+  .c-event-day{padding:16px;}
+  .c-event-day .c-menu{grid-template-columns:1fr; gap:10px;}
+  .c-event-day .c-menu .event-day-card{min-height:0; flex-direction:row; align-items:center; gap:14px; padding:14px;}
+  .c-event-day .event-day-card .event-day-icon{width:54px; height:54px; border-radius:17px;}
+  .c-event-day .event-day-icon svg{width:28px; height:28px;}
+  .c-event-day .event-day-copy b{font-size:17px;}
+  .c-event-day .event-day-card::after{right:13px; bottom:13px;}
 }
 /* ================= REVISI v3 ================= */
 .btn-mini.outline{background:#fff; color:var(--watermelon); box-shadow:inset 0 0 0 2px #FBD3D9;}
@@ -1197,7 +1462,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
 /* (2) Bloom Dump */
 .dump-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; padding:6px 14px 100px;}
-#dump-grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px;}
+#dump-grid{grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; padding:8px 0 108px;}
 .dump-admin-actions{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:16px;}
 .dump-card{position:relative; min-width:0; padding:7px; border:1px solid #E8E4D9; border-radius:12px 12px 5px 5px; overflow:hidden; background:#FFFEFA; box-shadow:0 7px 16px rgba(34,54,39,.14); transform:rotate(-1deg);}
 .dump-card:nth-child(4n+2){transform:rotate(1.2deg);}
@@ -1213,10 +1478,72 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 .dump-fade .dump-cap{height:25px; display:-webkit-box; overflow:hidden; color:#58705D; font-family:'Fraunces',serif; font-size:10px; font-style:italic; font-weight:600; line-height:1.25; text-overflow:ellipsis; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
 .dump-fade b{display:block; margin-top:4px; overflow:hidden; color:#243B2C; font-size:10px; font-weight:800; line-height:1.2; text-overflow:ellipsis; white-space:nowrap;}
 .dump-fade small{display:block; margin-top:3px; color:#829084; font-size:8px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.dump-hero{position:relative; isolation:isolate; overflow:hidden; min-height:194px; margin:4px 16px 0; padding:21px 19px; border:1px solid rgba(255,255,255,.62); border-radius:28px; color:#fff; background:radial-gradient(circle at 88% 12%,rgba(247,120,139,.78),transparent 38%),linear-gradient(145deg,#007A3F,#004D27); box-shadow:var(--shadow-lg);}
+.dump-hero::before,.dump-hero::after{position:absolute; z-index:-1; border:1px solid rgba(255,255,255,.18); border-radius:50%; content:''; pointer-events:none;}
+.dump-hero::before{width:205px; height:205px; right:-83px; bottom:-130px; background:rgba(250,222,115,.14);}
+.dump-hero::after{width:102px; height:102px; right:91px; top:-70px; background:rgba(255,255,255,.07);}
+.dump-hero-copy{position:relative; z-index:1; max-width:70%;}
+.dump-kicker{display:inline-flex; align-items:center; gap:6px; padding:5px 9px; border:1px solid rgba(255,255,255,.22); border-radius:100px; background:rgba(255,255,255,.13); font-size:8px; font-weight:900; letter-spacing:.1em;}
+.dump-hero h2{margin-top:12px; font-family:'Fraunces',serif; font-size:27px; font-weight:800; line-height:1.04;}
+.dump-hero h2 span{color:var(--yellow);}
+.dump-hero p{margin-top:7px; color:rgba(255,255,255,.88); font-size:11px; font-weight:700; line-height:1.45;}
+.dump-hero-stats{display:flex; gap:8px; margin-top:13px;}
+.dump-hero-stat{display:flex; align-items:center; gap:7px; min-width:94px; padding:7px 9px; border:1px solid rgba(255,255,255,.22); border-radius:13px; background:rgba(255,255,255,.11);}
+.dump-hero-stat b{font-family:'Fraunces',serif; font-size:20px; line-height:1;}
+.dump-hero-stat span{font-size:7px; font-weight:900; line-height:1.15; letter-spacing:.08em;}
+.dump-hero-art{position:absolute; top:42px; right:15px; width:95px; height:104px; display:grid; place-items:center; transform:rotate(8deg);}
+.dump-hero-polaroid{width:72px; height:82px; display:grid; place-items:center; padding-bottom:12px; border:4px solid rgba(255,255,255,.93); border-bottom-width:15px; border-radius:9px; background:linear-gradient(145deg,#F9DDA0,#F5A8AD); box-shadow:0 14px 25px -13px rgba(0,0,0,.65); font-size:32px;}
+.dump-hero-spark{position:absolute; top:-13px; left:0; color:var(--yellow); font-size:25px;}
+.dump-hero-flower{position:absolute; right:-5px; bottom:0; font-size:26px; transform:rotate(-15deg);}
+.dump-feature-section{margin:19px 16px 0;}
+.dump-section-heading{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;}
+.dump-section-heading h3{color:var(--green-dk); font-size:15px; font-weight:900;}
+.dump-section-heading p{margin-top:2px; color:var(--ink-soft); font-size:10px; font-weight:600;}
+.dump-section-badge{flex-shrink:0; padding:6px 9px; border-radius:100px; background:#FFF1E2; color:#A85C00; font-size:8px; font-weight:900; letter-spacing:.08em;}
+.dump-feature-card{display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); min-height:136px; overflow:hidden; padding:7px; border:1px solid #E7E8D8; border-radius:21px; background:linear-gradient(145deg,#fff,#FBFCF5); box-shadow:var(--shadow);}
+.dump-feature-photo{position:relative; display:block; min-width:0; min-height:132px; overflow:hidden; padding:0; border-radius:15px; background:#EFF3E7; cursor:zoom-in;}
+.dump-feature-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .25s ease;}
+.dump-feature-photo:hover img{transform:scale(1.05);}
+.dump-feature-copy{display:flex; min-width:0; flex-direction:column; justify-content:center; padding:10px 11px;}
+.dump-feature-copy small{color:var(--watermelon); font-size:8px; font-weight:900; letter-spacing:.1em;}
+.dump-feature-copy blockquote{display:-webkit-box; overflow:hidden; margin-top:6px; color:var(--green-dk); font-family:'Fraunces',serif; font-size:15px; font-weight:700; line-height:1.2; text-overflow:ellipsis; -webkit-line-clamp:3; -webkit-box-orient:vertical;}
+.dump-feature-copy b{margin-top:8px; overflow:hidden; color:#3F5946; font-size:10px; font-weight:900; text-overflow:ellipsis; white-space:nowrap;}
+.dump-feature-copy span{margin-top:3px; overflow:hidden; color:#869186; font-size:8px; font-weight:800; letter-spacing:.06em; text-overflow:ellipsis; text-transform:uppercase; white-space:nowrap;}
+.dump-feature-empty{display:flex; min-height:112px; align-items:center; gap:12px; padding:17px; border:1px dashed #D9E5D6; border-radius:20px; background:linear-gradient(120deg,#fff,#F6FAF1);}
+.dump-feature-empty>span{display:grid; width:48px; height:48px; flex-shrink:0; place-items:center; border-radius:16px; background:#EAF4E7; font-size:25px;}
+.dump-feature-empty b{color:var(--green-dk); font-family:'Fraunces',serif; font-size:15px;}
+.dump-feature-empty p{margin-top:3px; color:var(--ink-soft); font-size:10px; font-weight:600; line-height:1.4;}
+.dump-gallery{margin:21px 16px 0;}
+.dump-gallery-heading{display:flex; align-items:flex-end; justify-content:space-between; gap:9px; margin-bottom:11px;}
+.dump-gallery-heading h3{color:var(--green-dk); font-size:17px; font-weight:900;}
+.dump-gallery-heading p{margin-top:2px; color:var(--ink-soft); font-size:10px; font-weight:600;}
+.dump-gallery-heading>span{flex-shrink:0; padding:6px 9px; border-radius:100px; background:#EAF4E7; color:var(--green-dk); font-size:8px; font-weight:900; letter-spacing:.06em;}
+.dump-search{display:flex; height:42px; align-items:center; gap:9px; margin-bottom:10px; padding:0 12px; border:1px solid #E3E9DF; border-radius:14px; background:#fff; box-shadow:0 4px 12px rgba(28,67,38,.05);}
+.dump-search>span{color:var(--green); font-size:19px; line-height:1;}
+.dump-search input{width:100%; min-width:0; border:0; outline:0; background:transparent; color:var(--ink); font:700 11px 'Nunito',sans-serif;}
+.dump-search input::placeholder{color:#95A195;}
+.dump-filters{display:flex; gap:7px; overflow-x:auto; padding:1px 2px 6px; scrollbar-width:none;}
+.dump-filters::-webkit-scrollbar{display:none;}
+.dump-filter{flex-shrink:0; padding:8px 12px; border:1px solid #E2E9DF; border-radius:100px; background:#fff; color:#718174; font-size:9px; font-weight:900; transition:background .18s ease,color .18s ease,border-color .18s ease;}
+.dump-filter.active{border-color:var(--green); background:var(--green); color:#fff; box-shadow:0 5px 12px -8px rgba(0,90,46,.8);}
+.dump-filter:focus-visible,.dump-search:focus-within{outline:2px solid rgba(0,122,63,.34); outline-offset:2px;}
+.dump-gallery-empty{grid-column:1/-1; padding:21px 16px; border:1px dashed #D9E5D6; border-radius:20px; background:#fff; text-align:center;}
+.dump-gallery-empty>span{display:block; margin-bottom:5px; font-size:27px;}
+.dump-gallery-empty b{color:var(--green-dk); font-family:'Fraunces',serif; font-size:15px;}
+.dump-gallery-empty p{margin-top:3px; color:var(--ink-soft); font-size:10px; font-weight:600; line-height:1.4;}
 .dump-fab{position:fixed; left:50%; transform:translateX(-50%); bottom:92px; z-index:55; display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#F7788B,#F15E73); color:#fff; font-weight:800; font-size:13px; padding:13px 22px; border-radius:100px; box-shadow:0 16px 26px -12px rgba(241,94,115,.85); white-space:nowrap;}
 @media (max-width:340px){
   .dump-grid{grid-template-columns:repeat(3,1fr);}
   #dump-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .dump-hero{padding:19px 15px;}
+  .dump-hero-copy{max-width:73%;}
+  .dump-hero h2{font-size:24px;}
+  .dump-hero-art{right:7px; transform:scale(.86) rotate(8deg); transform-origin:top right;}
+  .dump-hero-stat{min-width:82px; padding:6px 7px;}
+  .dump-feature-copy{padding:8px;}
+}
+@media (min-width:560px){
+  #dump-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
 }
 .dump-photo-modal{padding:48px 16px 16px; background:rgba(8,30,18,.9);}
 .dump-photo-modal img{display:block; max-width:94vw; max-height:82vh; object-fit:contain; border-radius:16px; box-shadow:var(--shadow-lg);}
@@ -1449,7 +1776,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
       <p>Selamat menikmati perjalanan baru untuk bertumbuh, bersemi, dan bermekaran bersama BAK FEB Undip 2026/2027.</p>
       <div class="p-banner-links">
         <div class="p-group-chip">KELOMPOK&nbsp;:&nbsp;<b id="p-group">—</b></div>
-        <button class="p-garden-link" onclick="goTo('garden')">🗺️ Peta Lokasi ›</button>
+        <button class="p-garden-link" onclick="goTo('garden')">🗺️ Layout Lokasi ›</button>
       </div>
     </div>
 
@@ -1485,7 +1812,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <div class="menu-icon">
           <svg viewBox="0 0 24 24"><path d="M4 8.5h3L8.6 6h6.8L17 8.5h3V19H4z"/><circle cx="12" cy="13.3" r="3.4"/><path d="M17.3 11.2h.01"/></svg>
         </div>
-        <span>Antrean Fotobooth</span>
+        <span>Antrean PHOTOBOOTH</span>
       </button>
       <button class="menu-card mc-orange" onclick="openSurvey()">
         <div class="menu-icon">
@@ -1513,13 +1840,13 @@ label.btn-mini{display:inline-block; cursor:pointer;}
       </button>
     </div>
 
-    <div class="p-section"><h2>Tentang BLOOMS 2027</h2></div>
+    <div class="p-section"><h2>ABOUT BLOOMS 2027</h2></div>
     <div class="about-wrap" id="about-wrap"><div class="live-empty">Memuat...</div></div>
   </div>
 
   <div id="cm-stash" class="hidden">
     <div class="cm-card" id="cm-card">
-      <div class="cm-head"><h3>Yuk say hi to BAK Famz! 💬</h3><span class="live-badge">LANGSUNG</span></div>
+      <div class="cm-head"><h3>Kirim sapaanmu di sini! 💬</h3><span class="live-badge">LIVE</span></div>
       <p class="cm-sub" id="cm-sub">Memuat komentar…</p>
       <div class="cm-list" id="cm-list"></div>
       <div class="cm-form">
@@ -1586,10 +1913,10 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         </ul></div>
       </details>
       <details class="sop-item">
-        <summary><span class="sop-num">4</span>Antrean Fotobooth</summary>
+        <summary><span class="sop-num">4</span>Antrean PHOTOBOOTH</summary>
         <div class="sop-body"><ul>
-          <li>Ambil nomor antrean melalui menu Antrean Fotobooth.</li>
-          <li>Datanglah ke area fotobooth saat antreanmu tinggal dua nomor lagi.</li>
+          <li>Ambil nomor antrean melalui menu Antrean PHOTOBOOTH.</li>
+          <li>Datanglah ke area PHOTOBOOTH saat antreanmu tinggal dua nomor lagi.</li>
           <li>Jika melewatkan giliran, panitia dapat memanggil peserta berikutnya.</li>
         </ul></div>
       </details>
@@ -1705,7 +2032,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
   <div class="p-page" data-page="queue">
     <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
     <div class="page-head">
-      <h2>Antrean Fotobooth</h2>
+      <h2>Antrean PHOTOBOOTH</h2>
       <p>Ambil nomor antrean dan abadikan momen seru tanpa menunggu terlalu lama.</p>
     </div>
 
@@ -1737,7 +2064,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
           <button class="tk-ic" onclick="if(confirm('Keluar dari antrean?'))leaveQueue()" aria-label="Keluar dari antrean" title="Keluar dari antrean"><svg viewBox="0 0 24 24"><path d="M9.5 4.5H6.5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/><path d="M14 8l4 4-4 4M18 12H9.5"/></svg></button>
         </div>
       </div>
-      <p class="ticket-note">Sambil menunggu, nikmati acaranya! Pantau layar ini dan menuju fotobooth saat antreanmu tinggal dua nomor lagi.</p>
+      <p class="ticket-note">Sambil menunggu, nikmati acaranya! Pantau layar ini dan menuju PHOTOBOOTH saat antreanmu tinggal dua nomor lagi.</p>
       <div class="ticket-actions">
         <button class="btn-sec" onclick="refreshQueue()">Perbarui Status</button>
         <button class="btn-ghost" onclick="leaveQueue()">Keluar dari Antrean</button>
@@ -1748,7 +2075,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
   <div class="p-page" data-page="garden">
     <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
-    <div class="page-head"><h2>Peta Lokasi</h2><p>Ketuk peta untuk memperbesar dan melihat area acara.</p></div>
+    <div class="page-head"><h2>Layout Lokasi</h2><p>Ketuk peta untuk memperbesar dan melihat area acara.</p></div>
     <div class="gl-banner" id="gl-banner">
       <div class="glb-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
       <div class="glb-text">
@@ -1757,18 +2084,49 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <span id="glb-hint">Cari nama kelompokmu pada peta di bawah.</span>
       </div>
     </div>
-    <div class="garden-wrap garden-scroll">
-      <img id="garden-img" src="https://placehold.co/900x1200/FCF6C4/007A3F?font=raleway&text=BLOOMS+2027%0AVenue+Layout" onclick="this.classList.toggle('zoomed')">
+    <div class="garden-map-panel">
+      <div class="garden-map-toolbar"><span><i></i> PETA ACARA</span><button type="button" id="garden-zoom-btn" onclick="toggleGardenZoom()">Perbesar Peta</button></div>
+      <div class="garden-wrap garden-scroll">
+        <div class="garden-map-stage" id="garden-map-stage" onclick="toggleGardenZoom(event)">
+          <img id="garden-img" src="https://placehold.co/900x1200/FCF6C4/007A3F?font=raleway&text=BLOOMS+2027%0AVenue+Layout" alt="Peta Layout Lokasi BLOOMS 2027">
+          <div class="garden-map-pins" id="garden-map-pins"></div>
+        </div>
+      </div>
     </div>
+    <section class="garden-guide-card">
+      <div class="garden-guide-heading"><span class="garden-guide-icon">📍</span><div><h3>Titik Penting</h3><p>Ketuk penanda di peta atau pilih area di bawah untuk melihat keterangannya.</p></div><b id="garden-point-count">0 AREA</b></div>
+      <div class="garden-pin-detail" id="garden-pin-detail"><b id="garden-detail-title">Jelajahi area acara</b><span id="garden-detail-note">Panitia belum menambahkan titik penting pada peta.</span></div>
+      <div class="garden-guide-list" id="garden-guide-list"><div class="garden-guide-empty">Memuat panduan lokasi...</div></div>
+    </section>
   </div>
 
   <div class="p-page" data-page="dump">
     <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
-    <div class="page-head">
-      <h2>Blooms Dump</h2>
-      <p>Setiap tawa, obrolan singkat, dan momen seru hari ini adalah bagian dari cerita kita. Unggah foto favoritmu dan lihat keseruan teman-teman BAK lainnya!</p>
-    </div>
-    <div class="dump-grid" id="dump-grid"><div class="live-empty">Memuat...</div></div>
+    <section class="dump-hero">
+      <div class="dump-hero-copy">
+        <span class="dump-kicker">🌼 ALBUM KENANGAN BLOOMS</span>
+        <h2>Momen yang <span>tumbuh</span> bersama</h2>
+        <p>Satu foto, banyak cerita. Yuk, intip keseruan teman-teman dan bagikan momen versimu!</p>
+        <div class="dump-hero-stats">
+          <div class="dump-hero-stat"><b id="dump-moment-count">—</b><span>MOMEN<br>TERBARU</span></div>
+          <div class="dump-hero-stat"><b id="dump-creator-count">—</b><span>TEMAN<br>BERBAGI</span></div>
+        </div>
+      </div>
+      <div class="dump-hero-art" aria-hidden="true"><span class="dump-hero-spark">✦</span><div class="dump-hero-polaroid">🌷</div><span class="dump-hero-flower">✨</span></div>
+    </section>
+    <section class="dump-feature-section">
+      <div class="dump-section-heading"><div><h3>Sorotan terbaru</h3><p>Momen paling baru di album bersama.</p></div><span class="dump-section-badge">✨ MOMEN TERBARU</span></div>
+      <div id="dump-featured"><div class="dump-feature-empty"><span>🌱</span><div><b>Menyiapkan album...</b><p>Sebentar ya, momen-momen seru sedang dikumpulkan.</p></div></div></div>
+    </section>
+    <section class="dump-gallery">
+      <div class="dump-gallery-heading"><div><h3>Jejak momen</h3><p>Telusuri foto dan cerita dari teman-teman.</p></div><span id="dump-result-count">0 FOTO</span></div>
+      <label class="dump-search"><span aria-hidden="true">⌕</span><input id="dump-search-input" type="search" placeholder="Cari nama, kelompok, atau cerita..." oninput="setDumpSearch(this.value)" aria-label="Cari foto Bloom Dump"></label>
+      <div class="dump-filters" role="group" aria-label="Filter foto">
+        <button type="button" class="dump-filter active" data-dump-filter="all" aria-pressed="true" onclick="setDumpFilter('all')">Semua momen</button>
+        <button type="button" class="dump-filter" data-dump-filter="group" aria-pressed="false" id="dump-group-filter" hidden onclick="setDumpFilter('group')">Kelompokku</button>
+      </div>
+      <div class="dump-grid" id="dump-grid"><div class="live-empty">Memuat...</div></div>
+    </section>
     <button class="dump-fab" onclick="openDumpUpload()">📷 Unggah Momen Favorit</button>
   </div>
 
@@ -1776,7 +2134,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     <div class="back-row"><button class="back-btn" onclick="goTo('dashboard')">‹</button></div>
     <section class="games-hero">
       <div class="games-hero-copy">
-        <span class="games-kicker">🌼 SUDUT Game BLOOMS</span>
+        <span class="games-kicker">🌼 GAME CORNER</span>
         <h2>Siap, Mulai,<br><span>Bersenang-senang!</span></h2>
         <p>Pilih Game dan seru-seruan bersama teman-teman BAK.</p>
         <div class="games-count"><b id="games-count">0</b><span>Game<br>SIAP</span></div>
@@ -1905,7 +2263,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
           </div>
         </div>
         <div class="dash-group dash-pb">
-          <div class="dash-group-title">📸 FOTOBOOTH</div>
+          <div class="dash-group-title">📸 PHOTOBOOTH</div>
           <div class="dash-group-row">
             <div class="dash-mini"><b id="dash-pb-wait">0</b><small>Belum</small></div>
             <div class="dash-mini"><b id="dash-pb-done">0</b><small>Selesai</small></div>
@@ -1919,7 +2277,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         <div class="c-menu">
           <button class="menu-card mc-sky" onclick="cGoTo('garden')">
             <div class="menu-icon"><svg viewBox="0 0 24 24"><path d="M9 4.5 3.5 6.5v13L9 17.5l6 2 5.5-2v-13L15 6.5z"/><path d="M9 4.5v13M15 6.5v13"/></svg></div>
-            <span>Peta Lokasi</span>
+            <span>Layout Lokasi</span>
           </button>
           <button class="menu-card mc-orange" onclick="cGoTo('satisfaction')">
             <div class="menu-icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6L12 15.4 7 18.2l1.2-5.6L4 8.8l5.6-.6L12 3z"/></svg></div>
@@ -1954,16 +2312,17 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         </div>
       </div>
 
-      <div class="c-cat" style="--cc:#F15E73;">
-        <div class="c-cat-title">ACARA UTAMA</div>
+      <div class="c-cat c-event-day">
+        <div class="c-cat-title">OPERASIONAL HARI H</div>
+        <p class="c-event-day-note">Akses cepat untuk kebutuhan utama saat acara berlangsung.</p>
         <div class="c-menu">
-          <button class="menu-card mc-green" onclick="cGoTo('checkin')">
-            <div class="menu-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><path d="M9 10l2.2 2.2L15 8.5"/></svg></div>
-            <span>Presensi</span>
+          <button class="menu-card event-day-card event-checkin" onclick="cGoTo('checkin')">
+            <div class="event-day-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><path d="M9 10l2.2 2.2L15 8.5"/></svg></div>
+            <span class="event-day-copy"><small>AKSES CEPAT • HARI H</small><b>Presensi Peserta</b><em>Pantau kehadiran dan verifikasi foto peserta.</em></span>
           </button>
-          <button class="menu-card mc-pink" onclick="cGoTo('photobooth')">
-            <div class="menu-icon"><svg viewBox="0 0 24 24"><path d="M4 8.5h3L8.6 6h6.8L17 8.5h3V19H4z"/><circle cx="12" cy="13.3" r="3.4"/><path d="M17.3 11.2h.01"/></svg></div>
-            <span>Fotobooth</span>
+          <button class="menu-card event-day-card event-photobooth" onclick="cGoTo('photobooth')">
+            <div class="event-day-icon"><svg viewBox="0 0 24 24"><path d="M4 8.5h3L8.6 6h6.8L17 8.5h3V19H4z"/><circle cx="12" cy="13.3" r="3.4"/><path d="M17.3 11.2h.01"/></svg></div>
+            <span class="event-day-copy"><small>AKSES CEPAT • HARI H</small><b>Photobooth</b><em>Kelola antrean dan panggil peserta berikutnya.</em></span>
           </button>
         </div>
       </div>
@@ -1988,10 +2347,19 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
     <div class="c-page" data-cpage="checkin">
       <div class="c-head"><h2>Pantauan Kehadiran</h2><p>Pantau peserta yang datang dan periksa swafoto bukti presensi mereka.</p></div>
-      <div class="stat-row">
-        <div class="stat-box"><div class="n" id="ck-stat-checked">0</div><div class="l">Sudah Hadir</div></div>
-        <div class="stat-box"><div class="n" id="ck-stat-pending">0</div><div class="l">Belum Hadir</div></div>
-        <div class="stat-box"><div class="n" id="ck-stat-total">0</div><div class="l">Total Peserta</div></div>
+      <div class="stat-row checkin-stat-row">
+        <div class="stat-box checkin-stat-card checkin-stat-present">
+          <div class="checkin-stat-top"><span class="checkin-stat-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="checkin-stat-chip">TERVERIFIKASI</span></div>
+          <div class="n" id="ck-stat-checked">0</div><div class="l">Sudah Hadir</div><small class="checkin-stat-note">Peserta yang sudah presensi</small>
+        </div>
+        <div class="stat-box checkin-stat-card checkin-stat-pending">
+          <div class="checkin-stat-top"><span class="checkin-stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><span class="checkin-stat-chip">MENUNGGU</span></div>
+          <div class="n" id="ck-stat-pending">0</div><div class="l">Belum Hadir</div><small class="checkin-stat-note">Peserta yang belum presensi</small>
+        </div>
+        <div class="stat-box checkin-stat-card checkin-stat-total">
+          <div class="checkin-stat-top"><span class="checkin-stat-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3.4 2.9-5 5.5-5s4.9 1.6 5.5 5"/><path d="M16 11a2.5 2.5 0 1 0 0-5M16 14c2.4 0 4.3 1.4 4.8 4"/></svg></span><span class="checkin-stat-chip">KESELURUHAN</span></div>
+          <div class="n" id="ck-stat-total">0</div><div class="l">Total Peserta</div><small class="checkin-stat-note">Jumlah peserta terdaftar</small>
+        </div>
       </div>
       <div class="toolbar">
         <button class="btn-mini blue" onclick="openGallery()">🖼 Lihat Galeri</button>
@@ -2011,33 +2379,47 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     </div>
 
     <div class="c-page" data-cpage="photobooth">
-      <div class="c-head"><h2>Pengelolaan Fotobooth</h2><p>Atur antrean, panggil peserta berikutnya, dan pantau sesi yang sudah selesai.</p></div>
-      <div class="serving-wrap">
-        <div class="serving-card">
-          <div class="l">SEDANG DILAYANI</div>
-          <div class="num" id="pb-now">—</div>
+      <div class="c-head"><h2>Pengelolaan PHOTOBOOTH</h2><p>Atur antrean, panggil peserta berikutnya, dan pantau sesi yang sudah selesai.</p></div>
+      <div class="serving-wrap pb-serving-wrap">
+        <div class="serving-card pb-serving-card">
+          <div class="pb-serving-top">
+            <div class="l">SESI SEDANG DILAYANI</div>
+            <span class="pb-studio-tag">PHOTOBOOTH</span>
+          </div>
+          <div class="pb-ticket-panel"><div class="num" id="pb-now">—</div><small class="pb-ticket-caption">NOMOR ANTREAN</small></div>
           <div class="name" id="pb-now-name">Belum ada sesi aktif. Menunggu peserta bergabung ke antrean.</div>
-          <div class="serving-actions">
+          <div class="serving-actions pb-serving-actions">
             <button class="btn-white" onclick="completeAndNext()">Selesaikan &amp; Panggil Berikutnya</button>
             <button class="btn-outline-w" onclick="skipCurrent()">Lewati</button>
             <button class="btn-outline-w" onclick="pingTurn()">Ingatkan Giliran</button>
           </div>
         </div>
-        <div class="toggle-card">
-          <div class="toggle-status open" id="pb-status-label">Status Antrean: BUKA</div>
+        <div class="toggle-card pb-queue-card">
+          <div class="pb-queue-title">
+            <span class="pb-queue-icon"><svg viewBox="0 0 24 24"><path d="M4 8.5h3L8.6 6h6.8L17 8.5h3V19H4z"/><circle cx="12" cy="13.3" r="3.4"/><path d="M17.3 11.2h.01"/></svg></span>
+            <span><small>KONTROL STUDIO</small><span class="toggle-status open" id="pb-status-label">Status Antrean: BUKA</span></span>
+          </div>
+          <p class="pb-queue-desc">Pantau giliran dan atur akses peserta ke antrean PHOTOBOOTH.</p>
+          <div class="pb-quick-stats">
+            <div><small>MENUNGGU</small><b id="pb-stat-waiting">0</b></div>
+            <div><small>SELESAI</small><b id="pb-stat-done">0</b></div>
+            <div><small>BERIKUTNYA</small><b id="pb-stat-next">—</b></div>
+          </div>
           <button class="btn-mini watermelon" id="pb-toggle-btn" onclick="toggleQueueStatus()">Jeda Antrean</button>
-          <button class="btn-mini outline" onclick="resetQueueAll()">⟲ Reset Antrean</button>
+          <button class="btn-mini outline pb-reset-btn" onclick="resetQueueAll()">⟲ Reset Antrean</button>
+          <p class="pb-queue-hint">Gunakan tombol reset hanya jika ingin mengosongkan semua tiket.</p>
         </div>
       </div>
-      <div class="tabs" style="margin-bottom:14px;">
+      <div class="pb-queue-heading"><div><h3>Daftar Antrean</h3><p>Peserta yang menunggu dan sesi yang sudah selesai.</p></div></div>
+      <div class="tabs pb-tabs">
         <button class="tab-btn active" data-pbtab="upnext" onclick="setPbTab('upnext')" id="pbtab-upnext">Berikutnya</button>
         <button class="tab-btn" data-pbtab="completed" onclick="setPbTab('completed')" id="pbtab-completed">Selesai</button>
       </div>
-      <div class="table-wrap" id="pb-upnext-wrap">
+      <div class="table-wrap pb-table-wrap" id="pb-upnext-wrap">
         <table><thead><tr><th>#</th><th>NAMA</th><th>NIM</th><th>STATUS</th></tr></thead><tbody id="pb-upnext-tbody"></tbody></table>
         <div id="pb-upnext-empty" class="empty-state hidden">Belum ada peserta dalam antrean.</div>
       </div>
-      <div class="table-wrap hidden" id="pb-completed-wrap">
+      <div class="table-wrap pb-table-wrap hidden" id="pb-completed-wrap">
         <table><thead><tr><th>#</th><th>NAMA</th><th>NIM</th><th>WAKTU FOTO</th></tr></thead><tbody id="pb-completed-tbody"></tbody></table>
         <div id="pb-completed-empty" class="empty-state hidden">Belum ada sesi foto yang selesai.</div>
       </div>
@@ -2114,31 +2496,43 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     </div>
 
     <div class="c-page" data-cpage="garden">
-      <div class="c-head"><h2>Peta Lokasi</h2><p>Unggah peta lokasi acara dalam format PNG. Peserta dapat langsung melihatnya di halaman Peta Lokasi.</p></div>
+      <div class="c-head"><h2>Studio Layout Lokasi</h2><p>Unggah peta acara, tandai titik penting, dan tambahkan keterangan agar peserta lebih mudah menemukan area.</p></div>
+      <div class="gl-admin-hero"><span>🗺️</span><div><b>Petakan pengalaman BLOOMS</b><small>Penanda yang kamu letakkan akan tampil interaktif di halaman peserta.</small></div></div>
       <div class="gl-wrap">
-        <div class="card">
-          <div class="gl-label">PETA YANG SEDANG DITAMPILKAN</div>
+        <div class="card gl-admin-map-card">
+          <div class="gl-card-heading"><div><div class="gl-label">PETA YANG SEDANG DITAMPILKAN</div><p>Aktifkan mode penanda, lalu klik posisi area pada peta.</p></div><span class="gl-live-pill" id="gl-map-status">BELUM ADA PETA</span></div>
           <div class="gl-preview">
-            <img id="gl-img" class="hidden" alt="Garden Layout saat ini">
+            <div class="gl-map-stage" id="gl-admin-map-stage">
+              <img id="gl-img" class="hidden" alt="Peta Layout Lokasi saat ini">
+              <div class="garden-map-pins" id="gl-admin-pins"></div>
+            </div>
             <div id="gl-none" class="empty-state">Belum ada peta. Peserta akan melihat gambar pengganti.</div>
           </div>
           <div class="gl-actions"><button class="btn-mini watermelon hidden" id="gl-remove" onclick="removeGarden()">Hapus Peta</button></div>
+          <div class="gl-pin-toolbar">
+            <button type="button" class="btn-mini blue" id="gl-pin-mode-btn" onclick="toggleGardenPinMode()" disabled>＋ Tambahkan Penanda</button>
+            <button type="button" class="add-btn" id="gl-pin-save-btn" onclick="saveGardenPins()" disabled>Simpan Penanda</button>
+            <span id="gl-pin-count">0 titik</span>
+          </div>
+          <div class="gl-pin-list-head"><b>Legenda &amp; keterangan area</b><small>Nama dan catatan ini akan dibaca peserta.</small></div>
+          <div class="gl-pin-editor" id="gl-pin-editor"><div class="gl-pin-empty">Unggah peta, lalu tambahkan titik penting seperti registrasi, panggung, atau area istirahat.</div></div>
         </div>
         <div class="card">
-          <div class="gl-label">UNGGAH PETA BARU</div>
+          <div class="gl-label">GANTI / UNGGAH PETA</div>
           <label class="gl-drop" id="gl-drop" for="gl-file">
             <span class="ico">🗺️</span><b>Klik atau letakkan file PNG di sini</b><span>Hanya PNG, maksimal 8 MB</span>
           </label>
           <input type="file" id="gl-file" accept="image/png" class="hidden">
           <div id="gl-new" class="hidden">
             <div class="gl-label" style="margin-top:16px;">PRATINJAU</div>
-            <div class="gl-preview"><img id="gl-new-img" alt="Pratinjau peta lokasi baru"></div>
+            <div class="gl-preview"><img id="gl-new-img" alt="Pratinjau Layout Lokasi baru"></div>
             <p class="gl-meta" id="gl-new-name"></p>
           </div>
           <div class="gl-actions">
             <button class="add-btn" id="gl-up-btn" onclick="uploadGarden()" disabled>⬆ Unggah &amp; Tampilkan</button>
             <button class="btn-mini hidden" id="gl-cancel" onclick="resetGardenPick()">Batal</button>
           </div>
+          <div class="gl-upload-tip"><span>💡</span><p>Gunakan peta yang tulisannya cukup besar dan mudah dibaca di layar ponsel. Penanda area bisa ditambahkan setelah peta ditampilkan.</p></div>
         </div>
       </div>
     </div>
@@ -2177,11 +2571,30 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 
     <div class="c-page" data-cpage="games">
       <div class="c-head"><h2>Kelola Game</h2><p>Tambahkan tautan Game untuk peserta. Pilih logo dan buka akses saat Game siap.</p></div>
-      <div class="sopedit-list" id="game-editor"></div>
-      <div class="sopedit-actions">
-        <button class="btn-mini blue" onclick="addGame()">+ Tambah Game</button>
-        <button class="add-btn" id="game-save-btn" onclick="saveGames()" style="margin-left:auto;">Simpan Game</button>
+      <div class="game-admin-hero">
+        <div class="game-admin-copy">
+          <span class="game-admin-kicker">✦ GAME CONTROL ROOM</span>
+          <h3>Ruang main BLOOMS</h3>
+          <p>Atur koleksi permainan, susun urutannya, dan pilih Game yang siap dibuka untuk peserta.</p>
+        </div>
+        <div class="game-admin-art" aria-hidden="true">🎮</div>
       </div>
+      <div class="game-admin-stats">
+        <div class="game-admin-stat"><span class="game-admin-stat-icon">🎲</span><div><b id="game-admin-total">0</b><span>Total Game</span></div></div>
+        <div class="game-admin-stat"><span class="game-admin-stat-icon">🌟</span><div><b id="game-admin-active">0</b><span>Siap Ditampilkan</span></div></div>
+        <div class="game-admin-stat"><span class="game-admin-stat-icon">🌙</span><div><b id="game-admin-hidden">0</b><span>Disembunyikan</span></div></div>
+        <div class="game-admin-stat"><span class="game-admin-stat-icon">🛠️</span><div><b id="game-admin-incomplete">0</b><span>Perlu Dilengkapi</span></div></div>
+      </div>
+      <div class="game-admin-list-head">
+        <div><h3>Koleksi Game</h3><p>Lengkapi judul dan tautan, lalu atur ikon, urutan, serta akses peserta.</p></div>
+        <span>PRATINJAU LANGSUNG</span>
+      </div>
+      <div class="sopedit-list game-admin-list" id="game-editor"></div>
+      <div class="sopedit-actions game-admin-save-row">
+        <button class="btn-mini blue" onclick="addGame()">+ Tambah Game</button>
+        <button class="add-btn" id="game-save-btn" onclick="saveGames()" style="margin-left:auto;">Simpan Perubahan</button>
+      </div>
+      <div class="game-admin-footer"><span>💡</span><p><b>Tips:</b> gunakan tombol panah untuk mengatur urutan kartu Game yang dilihat peserta. Game berstatus nonaktif tetap tersimpan dan bisa diaktifkan lagi kapan saja.</p></div>
     </div>
 
     <!-- ============ ABOUT EDITOR ============ -->
@@ -2189,7 +2602,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
       <div class="c-head"><h2>Editor Sambutan &amp; Tentang Acara</h2><p>Atur sambutan Ketua Pelaksana dan Ketua BAK, termasuk foto yang bergantian, serta informasi acara. Tekan Simpan &amp; Tampilkan untuk menerapkan perubahan.</p></div>
 
       <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px;">
-        <div><b>Tentang BLOOMS 2027</b><p style="font-size:13px;color:var(--ink-soft);margin-top:4px;">Atur apakah bagian ini ditampilkan di beranda peserta.</p></div>
+        <div><b>ABOUT BLOOMS 2027</b><p style="font-size:13px;color:var(--ink-soft);margin-top:4px;">Atur apakah bagian ini ditampilkan di beranda peserta.</p></div>
         <button class="btn-mini blue" id="about-event-visibility-btn" onclick="toggleAboutEventVisibility()" disabled>Memuat…</button>
       </div>
 
@@ -2206,7 +2619,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
           <div class="ab-slots" id="ab-slots-po"></div>
           <div class="field"><label>Nama</label><input type="text" id="ab-po-name" placeholder="Nama Ketua Pelaksana"></div>
           <div class="field"><label>Jabatan</label><input type="text" id="ab-po-title" placeholder="Ketua Pelaksana"></div>
-          <div class="field"><label>Sekapur Sirih</label><textarea id="ab-greeting" rows="8" placeholder="Tulis Sekapur Sirih Ketua Pelaksana..."></textarea></div>
+          <div class="field"><label>Sapaan Hangat</label><textarea id="ab-greeting" rows="8" placeholder="Tulis Sapaan Hangat Ketua Pelaksana..."></textarea></div>
         </div>
       </div>
 
@@ -2216,7 +2629,7 @@ label.btn-mini{display:inline-block; cursor:pointer;}
           <div class="ab-slots" id="ab-slots-ch"></div>
           <div class="field"><label>Nama</label><input type="text" id="ab-ch-name" placeholder="Nama Ketua BAK"></div>
           <div class="field"><label>Jabatan</label><input type="text" id="ab-ch-title" placeholder="Ketua BAK FEB Undip 2026/2027"></div>
-          <div class="field"><label>Sekapur Sirih</label><textarea id="ab-ch-greeting" rows="8" placeholder="Tulis Sekapur Sirih Ketua BAK..."></textarea></div>
+          <div class="field"><label>Sapaan Hangat</label><textarea id="ab-ch-greeting" rows="8" placeholder="Tulis Sapaan Hangat Ketua BAK..."></textarea></div>
         </div>
       </div>
 
@@ -2917,10 +3330,10 @@ async function renderQueuePage(){
     if(mine.status==='serving'){
       alertBox.className='msg-banner msg-good';
       if(!window.__served){ window.__served = true; burstConfetti(); if(navigator.vibrate) navigator.vibrate([200,100,200]); }
-      alertBox.innerHTML = '<div><b>Giliranmu!</b><br>Silakan menuju fotobooth dan bersiap untuk berfoto!</div>';
+      alertBox.innerHTML = '<div><b>Giliranmu!</b><br>Silakan menuju PHOTOBOOTH dan bersiap untuk berfoto!</div>';
     }else if(ahead<=2){
       alertBox.className='msg-banner msg-warn';
-      alertBox.innerHTML = '<div><b>Bersiap, ya!</b><br>Giliranmu sebentar lagi. Silakan mendekat ke area fotobooth.</div>';
+      alertBox.innerHTML = '<div><b>Bersiap, ya!</b><br>Giliranmu sebentar lagi. Silakan mendekat ke area PHOTOBOOTH.</div>';
     }else{
       alertBox.className='msg-banner msg-info';
       alertBox.innerHTML = '<div>Nikmati acaranya sambil menunggu giliranmu!</div>';
@@ -2940,7 +3353,7 @@ async function renderQueuePage(){
 
 async function joinQueue(){
   const { data: statusRow } = await sb.from('settings').select('value').eq('key','queue_status').maybeSingle();
-  if(statusRow && statusRow.value==='paused'){ alert('Antrean fotobooth sedang dijeda. Silakan tunggu sebentar.'); return; }
+  if(statusRow && statusRow.value==='paused'){ alert('Antrean PHOTOBOOTH sedang dijeda. Silakan tunggu sebentar.'); return; }
 
   const btn = document.getElementById('join-queue-btn');
   btn.disabled = true; btn.textContent = 'Memasukkan...';
@@ -3005,7 +3418,7 @@ function drawLiveQueue(q){
   if(serving){
     html += `<div class="live-item serving${serving.nim===CURRENT?' me':''}">
       <span class="live-no">${num(serving)}</span>
-      <div class="live-info"><b>${escHTML(serving.name)}${tag(serving)}</b><small>Sedang di fotobooth 📸</small></div>
+      <div class="live-info"><b>${escHTML(serving.name)}${tag(serving)}</b><small>Sedang di PHOTOBOOTH 📸</small></div>
       <div class="live-eta"><b>KINI</b>dilayani</div>
     </div>`;
   }
@@ -3194,7 +3607,7 @@ async function downloadTicket(){
   }
   ctx.fillRect(876,1462,4,76);
   txt(code,540,1576,'700 24px "Courier New", monospace',GDK,'center','6px');
-  txt('Tunjukkan tiket ini kepada panitia di fotobooth  •  Selamat menikmati acara!',540,1614,'700 21px '+F2,'#5A6B61','center');
+  txt('Tunjukkan tiket ini kepada panitia di PHOTOBOOTH  •  Selamat menikmati acara!',540,1614,'700 21px '+F2,'#5A6B61','center');
   ctx.restore();
 
   c.toBlob(function(blob){
@@ -3592,7 +4005,7 @@ const DEFAULT_SOP = [
   {title:'Kedatangan & Presensi', items:['Datanglah ke lokasi setidaknya 30 menit sebelum acara dimulai.','Isi presensi melalui aplikasi ini dan unggah swafoto yang jelas.','Setiap peserta cukup mengisi presensi satu kali. Hubungi panitia jika mengalami kendala.']},
   {title:'Panduan Pakaian', items:['Kenakan pakaian yang rapi dan sopan.','Warna cerah bernuansa musim semi sangat dianjurkan. Mari buat suasana makin meriah!','Bawa kartu peserta atau kartu mahasiswa.']},
   {title:'Sikap & Saling Menghargai', items:['Hormati panitia, pembicara, dan sesama peserta.','Atur ponsel ke mode senyap selama sesi berlangsung.','Jaga kebersihan area acara dan buang sampah pada tempatnya.']},
-  {title:'Antrean Fotobooth', items:['Ambil nomor antrean melalui menu Antrean Fotobooth.','Datanglah ke area fotobooth saat antreanmu tinggal dua nomor lagi.','Jika melewatkan giliran, panitia dapat memanggil peserta berikutnya.']},
+  {title:'Antrean PHOTOBOOTH', items:['Ambil nomor antrean melalui menu Antrean PHOTOBOOTH.','Datanglah ke area PHOTOBOOTH saat antreanmu tinggal dua nomor lagi.','Jika melewatkan giliran, panitia dapat memanggil peserta berikutnya.']},
   {title:'Kegiatan Kelompok', items:['Tetap bersama kelompokmu selama kegiatan berlangsung.','Buka menu Daftar Kelompok untuk melihat anggota kelompokmu.','Ikuti arahan pendamping kelompok.']},
   {title:'Keamanan & Barang Bawaan', items:['Jaga barang berhargamu dan jangan meninggalkannya tanpa pengawasan.','Segera laporkan masalah atau keadaan darurat kepada panitia terdekat.','Ikuti arahan evakuasi jika disampaikan.']}
 ];
@@ -3618,12 +4031,85 @@ async function renderSopPage(){
 
 /* ----- Garden layout (sisi peserta) ----- */
 const GARDEN_PLACEHOLDER = 'https://placehold.co/900x1200/FCF6C4/007A3F?font=raleway&text=BLOOMS+2027%0AVenue+Layout';
+let gardenPins = [];
+let gardenPinMode = false;
+let gardenPinsDirty = false;
+let selectedGardenPin = -1;
+function parseGardenPins(value){
+  if(!value) return [];
+  const parsed = JSON.parse(value);
+  if(!Array.isArray(parsed)) throw new Error('Data penanda lokasi bukan daftar yang valid.');
+  return parsed.map(pin=>{
+    const x = Number(pin.x), y = Number(pin.y);
+    if(!Number.isFinite(x) || !Number.isFinite(y)) throw new Error('Posisi penanda lokasi tidak valid.');
+    return {
+      x:Math.max(4,Math.min(96,x)),
+      y:Math.max(4,Math.min(96,y)),
+      name:String(pin.name || '').slice(0,60),
+      note:String(pin.note || '').slice(0,180)
+    };
+  });
+}
+function gardenPinName(pin,index){
+  return (pin.name || '').trim() || 'Area ' + String(index+1).padStart(2,'0');
+}
+function renderGardenMapPins(containerId, admin){
+  const layer = $id(containerId);
+  if(!layer) return;
+  layer.innerHTML = gardenPins.map((pin,i)=>`
+    <button type="button" class="garden-map-pin${!admin && i===selectedGardenPin?' selected':''}" style="left:${pin.x}%;top:${pin.y}%;" aria-label="${escHTML(gardenPinName(pin,i))}" title="${escHTML(gardenPinName(pin,i))}" onclick="${admin?`focusGardenPin(${i},event)`:`selectGardenPin(${i},event)`}">${i+1}</button>`).join('');
+}
+function renderParticipantGardenPins(){
+  renderGardenMapPins('garden-map-pins',false);
+  const list = $id('garden-guide-list');
+  if(!list) return;
+  $id('garden-point-count').textContent = gardenPins.length + ' TITIK';
+  if(!gardenPins.length){
+    list.innerHTML = '<div class="garden-guide-empty">Belum ada titik penting pada peta. Panitia akan menambahkan panduan area acara.</div>';
+    selectedGardenPin = -1;
+    $id('garden-detail-title').textContent = 'Jelajahi area acara';
+    $id('garden-detail-note').textContent = 'Panitia belum menambahkan titik penting pada peta.';
+    return;
+  }
+  list.innerHTML = gardenPins.map((pin,i)=>`
+    <button type="button" class="garden-guide-item${i===selectedGardenPin?' selected':''}" onclick="selectGardenPin(${i},event)">
+      <span>${i+1}</span><span><b>${escHTML(gardenPinName(pin,i))}</b><small>${escHTML(pin.note || 'Ketuk untuk melihat posisi area ini di peta.')}</small></span>
+    </button>`).join('');
+  if(selectedGardenPin<0 || selectedGardenPin>=gardenPins.length) selectedGardenPin = 0;
+  selectGardenPin(selectedGardenPin);
+}
+function selectGardenPin(index,event){
+  if(event) event.stopPropagation();
+  if(index<0 || index>=gardenPins.length) return;
+  selectedGardenPin = index;
+  const pin = gardenPins[index];
+  $id('garden-detail-title').textContent = gardenPinName(pin,index);
+  $id('garden-detail-note').textContent = pin.note || 'Belum ada catatan untuk area ini.';
+  document.querySelectorAll('.garden-guide-item').forEach((item,i)=>item.classList.toggle('selected',i===index));
+  document.querySelectorAll('#garden-map-pins .garden-map-pin').forEach((item,i)=>item.classList.toggle('selected',i===index));
+}
+function toggleGardenZoom(event){
+  if(event && event.target.closest('.garden-map-pin')) return;
+  const stage = $id('garden-map-stage');
+  const zoomed = stage.classList.toggle('zoomed');
+  $id('garden-zoom-btn').textContent = zoomed ? 'Kembalikan Ukuran' : 'Perbesar Peta';
+}
 async function loadGardenLayout(){
-  const img = $id('garden-img');
-  img.classList.remove('zoomed');
+  const img = $id('garden-img'), stage = $id('garden-map-stage');
+  stage.classList.remove('zoomed');
+  $id('garden-zoom-btn').textContent = 'Perbesar Peta';
   updateGardenBanner();
-  try{ const url = await getSetting('garden_layout_url'); img.src = url || GARDEN_PLACEHOLDER; }
-  catch(e){ console.error(e); }
+  try{
+    const [url,pins] = await Promise.all([getSetting('garden_layout_url'),getSetting('garden_layout_pins')]);
+    img.src = url || GARDEN_PLACEHOLDER;
+    gardenPins = parseGardenPins(pins);
+    selectedGardenPin = gardenPins.length ? 0 : -1;
+    renderParticipantGardenPins();
+  }catch(e){
+    console.error('Panduan layout lokasi tidak dapat dimuat:', e);
+    gardenPins = [];
+    renderParticipantGardenPins();
+  }
 }
 
 /* ----- SOP editor (panitia) ----- */
@@ -3855,10 +4341,111 @@ async function loadGardenAdmin(){
   editorLoaded = true;
   resetGardenPick();
   let url = null;
-  try{ url = await getSetting('garden_layout_url'); }catch(e){ console.error(e); }
+  try{ url = await getSetting('garden_layout_url'); }
+  catch(e){ console.error(e); toast('Peta lokasi tidak dapat dimuat.', 'warn'); }
+  try{ gardenPins = parseGardenPins(await getSetting('garden_layout_pins')); }
+  catch(e){ console.error('Penanda lokasi tidak dapat dimuat:', e); gardenPins = []; toast('Penanda lokasi tidak dapat dimuat.', 'warn'); }
+  gardenPinMode = false;
+  gardenPinsDirty = false;
   const img = $id('gl-img'), none = $id('gl-none'), rm = $id('gl-remove');
-  if(url){ img.src = url; img.classList.remove('hidden'); none.classList.add('hidden'); rm.classList.remove('hidden'); }
-  else{ img.classList.add('hidden'); none.classList.remove('hidden'); rm.classList.add('hidden'); }
+  const stage = $id('gl-admin-map-stage'), modeBtn = $id('gl-pin-mode-btn');
+  if(url){
+    img.src = url; img.classList.remove('hidden'); none.classList.add('hidden'); rm.classList.remove('hidden');
+    $id('gl-map-status').textContent = 'PETA AKTIF'; $id('gl-map-status').classList.add('ready');
+    modeBtn.disabled = false;
+  }else{
+    img.classList.add('hidden'); none.classList.remove('hidden'); rm.classList.add('hidden');
+    $id('gl-map-status').textContent = 'BELUM ADA PETA'; $id('gl-map-status').classList.remove('ready');
+    modeBtn.disabled = true;
+  }
+  stage.classList.remove('placing');
+  $id('gl-pin-save-btn').disabled = true;
+  renderAdminGardenPins();
+  renderGardenPinEditor();
+}
+function toggleGardenPinMode(){
+  const img = $id('gl-img');
+  if(img.classList.contains('hidden') || !img.naturalWidth){
+    toast('Tampilkan peta terlebih dahulu sebelum menambahkan penanda.', 'info');
+    return;
+  }
+  gardenPinMode = !gardenPinMode;
+  const stage = $id('gl-admin-map-stage'), btn = $id('gl-pin-mode-btn');
+  stage.classList.toggle('placing',gardenPinMode);
+  btn.classList.toggle('active',gardenPinMode);
+  btn.textContent = gardenPinMode ? 'Selesai Menempatkan' : '＋ Tambahkan Penanda';
+}
+function handleGardenMapClick(event){
+  if(!gardenPinMode || event.target.closest('.garden-map-pin')) return;
+  const img = $id('gl-img'), rect = img.getBoundingClientRect();
+  if(!rect.width || !rect.height) return;
+  const x = Math.max(4,Math.min(96,(event.clientX-rect.left)/rect.width*100));
+  const y = Math.max(4,Math.min(96,(event.clientY-rect.top)/rect.height*100));
+  gardenPins.push({ x, y, name:'', note:'' });
+  gardenPinsDirty = true;
+  renderAdminGardenPins();
+  renderGardenPinEditor();
+  const row = $id(`gl-pin-row-${gardenPins.length-1}`);
+  if(row) row.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function renderAdminGardenPins(){
+  const layer = $id('gl-admin-pins');
+  if(!layer) return;
+  layer.innerHTML = gardenPins.map((pin,i)=>`
+    <button type="button" class="garden-map-pin" style="left:${pin.x}%;top:${pin.y}%;" aria-label="Pilih ${escHTML(gardenPinName(pin,i))}" title="${escHTML(gardenPinName(pin,i))}" onclick="focusGardenPin(${i},event)">${i+1}</button>`).join('');
+}
+function renderGardenPinEditor(){
+  const editor = $id('gl-pin-editor');
+  if(!editor) return;
+  $id('gl-pin-count').textContent = gardenPins.length + ' TITIK';
+  editor.innerHTML = gardenPins.map((pin,i)=>`
+    <article class="gl-pin-row" id="gl-pin-row-${i}">
+      <div class="gl-pin-row-head"><span class="gl-pin-number">${i+1}</span><b>${escHTML(gardenPinName(pin,i))}</b><button type="button" class="gl-pin-delete" aria-label="Hapus penanda ${i+1}" onclick="removeGardenPin(${i})">×</button></div>
+      <label class="gl-pin-field">NAMA AREA<input type="text" maxlength="60" value="${escHTML(pin.name)}" placeholder="Contoh: Registrasi" oninput="updateGardenPin(${i},'name',this.value)"></label>
+      <label class="gl-pin-field">CATATAN<input type="text" maxlength="180" value="${escHTML(pin.note)}" placeholder="Contoh: Tunjukkan tiket kepada panitia" oninput="updateGardenPin(${i},'note',this.value)"></label>
+    </article>`).join('') || '<div class="gl-pin-empty">Aktifkan mode penanda, lalu klik posisi area pada peta. Tambahkan nama dan catatan agar peserta tahu fungsi tiap titik.</div>';
+  $id('gl-pin-save-btn').disabled = !gardenPinsDirty;
+}
+function updateGardenPin(index,field,value){
+  if(!gardenPins[index]) return;
+  gardenPins[index][field] = value;
+  gardenPinsDirty = true;
+  const row = $id(`gl-pin-row-${index}`);
+  if(row && field==='name'){
+    const name = gardenPinName(gardenPins[index],index);
+    row.querySelector('.gl-pin-row-head b').textContent = name;
+    const marker = document.querySelectorAll('#gl-admin-pins .garden-map-pin')[index];
+    if(marker){ marker.title = name; marker.setAttribute('aria-label','Pilih ' + name); }
+  }
+  $id('gl-pin-save-btn').disabled = false;
+}
+function removeGardenPin(index){
+  if(index<0 || index>=gardenPins.length) return;
+  gardenPins.splice(index,1);
+  gardenPinsDirty = true;
+  renderAdminGardenPins();
+  renderGardenPinEditor();
+}
+function focusGardenPin(index,event){
+  if(event) event.stopPropagation();
+  const row = $id(`gl-pin-row-${index}`);
+  if(row) row.scrollIntoView({behavior:'smooth',block:'center'});
+}
+async function saveGardenPins(){
+  const btn = $id('gl-pin-save-btn');
+  if(!gardenPinsDirty) return;
+  btn.disabled = true; btn.textContent = 'Menyimpan...';
+  try{
+    await setSetting('garden_layout_pins',JSON.stringify(gardenPins));
+    gardenPinsDirty = false;
+    toast('Penanda lokasi berhasil disimpan dan ditampilkan ke peserta.', 'good');
+  }catch(e){
+    console.error('Penanda lokasi tidak dapat disimpan:',e);
+    toast('Penanda lokasi tidak dapat disimpan.', 'warn');
+  }finally{
+    btn.textContent = 'Simpan Penanda';
+    btn.disabled = !gardenPinsDirty;
+  }
 }
 function pickGardenFile(f){
   if(!f) return;
@@ -3898,7 +4485,12 @@ async function uploadGarden(){
 }
 async function removeGarden(){
   if(!confirm('Hapus peta yang sedang ditampilkan? Peserta akan melihat gambar pengganti.')) return;
-  try{ await setSetting('garden_layout_url', ''); toast('Peta berhasil dihapus.', 'info'); await loadGardenAdmin(); }
+  try{
+    await setSetting('garden_layout_url', '');
+    await setSetting('garden_layout_pins','[]');
+    toast('Peta dan semua penandanya berhasil dihapus.', 'info');
+    await loadGardenAdmin();
+  }
   catch(e){ console.error(e); toast('Peta tidak dapat dihapus.', 'warn'); }
 }
 (function initGardenDrop(){
@@ -3907,6 +4499,7 @@ async function removeGarden(){
   ['dragleave','drop'].forEach(ev=>d.addEventListener(ev, e=>{ e.preventDefault(); d.classList.remove('drag'); }));
   d.addEventListener('drop', e=>{ pickGardenFile(e.dataTransfer.files[0]); });
   f.addEventListener('change', e=>pickGardenFile(e.target.files[0]));
+  $id('gl-admin-map-stage').addEventListener('click',handleGardenMapClick);
 })();
 ['gm-total','gm-assigned','gm-unassigned'].forEach(id=>watchCounter($id(id)));
 
@@ -4103,7 +4696,7 @@ async function renderAbout(){
         <span class="ab-flw f1">${flowerSVG('#F4808D','#FADE73')}</span>
         <span class="ab-flw f2">${flowerSVG('#99CFF5','#FADE73')}</span>
         <div class="ab-wid">
-          <span class="ab-tag">Sekapur Sirih</span>
+          <span class="ab-tag">Sapaan Hangat</span>
           <b class="ab-poname">${escHTML(a.po_name)}</b>
           <small>${escHTML(a.po_title || 'Ketua Pelaksana')}</small>
         </div>
@@ -4115,7 +4708,7 @@ async function renderAbout(){
   html += '<div id="cm-slot"></div>';
   const pts = (a.highlights || []).filter(Boolean);
   html += `<div class="ab-event">
-    <span class="ab-tag g">TENTANG BLOOMS 2027</span>
+    <span class="ab-tag g">ABOUT BLOOMS 2027</span>
     <h3>${escHTML(a.headline)}</h3>
     <p>${nl(a.desc)}</p>
     ${pts.length ? `<div class="ab-points">${pts.map((t,i)=>`<div class="ab-point"><span class="ab-pn c${i % 6}">${i+1}</span><p>${escHTML(t)}</p></div>`).join('')}</div>` : ''}
@@ -4426,11 +5019,11 @@ async function openGallery(){
 
 /* (3) reset antrian photobooth */
 async function resetQueueAll(){
-  if(!confirm('Atur ulang seluruh antrean fotobooth? Semua tiket akan dihapus.')) return;
+  if(!confirm('Atur ulang seluruh antrean PHOTOBOOTH? Semua tiket akan dihapus.')) return;
   const { error } = await sb.from('queue').delete().gte('ticket', 0);
   if(error){ console.error(error); toast('Antrean tidak dapat diatur ulang.', 'warn'); return; }
   window.__served = false;
-  toast('Antrean fotobooth berhasil diatur ulang.', 'good'); renderPhotobooth(); renderDashboardStats();
+  toast('Antrean PHOTOBOOTH berhasil diatur ulang.', 'good'); renderPhotobooth(); renderDashboardStats();
 }
 
 /* (4) reset foto profil (data peserta tetap) */
@@ -4469,6 +5062,8 @@ async function renderPhotobooth(){
   else $id('pb-now-name').textContent = 'Belum ada sesi aktif. Menunggu peserta bergabung ke antrean.';
 
   const waiting = q.filter(t=>t.status==='waiting');
+  $id('pb-stat-waiting').textContent = waiting.length;
+  $id('pb-stat-next').textContent = waiting.length ? '#' + pad3(waiting[0].ticket) : '—';
   const tb1 = $id('pb-upnext-tbody'); tb1.innerHTML = '';
   $id('pbtab-upnext').textContent = `Berikutnya (${waiting.length})`;
   $id('pb-upnext-empty').classList.toggle('hidden', waiting.length > 0);
@@ -4480,6 +5075,7 @@ async function renderPhotobooth(){
   });
 
   const done = q.filter(t=>t.status==='done');
+  $id('pb-stat-done').textContent = done.length;
   $id('pbtab-completed').textContent = `Selesai (${done.length})`;
   const tb2 = $id('pb-completed-tbody'); tb2.innerHTML = '';
   $id('pb-completed-empty').classList.toggle('hidden', done.length > 0);
@@ -4543,7 +5139,7 @@ async function updateCheckinAlert(){
     $id('ci-alert-title').textContent = 'Kamu belum mengisi presensi!';
     $id('ci-alert-sub').textContent = 'Tersisa ' + Math.ceil(left/60000) + ' menit. Silakan presensi sebelum pukul ' + hhmm + '.';
   }else{
-    $id('ci-alert-title').textContent = 'Batas waktu presensi sudah lewat';
+    $id('ci-alert-title').textContent = 'Batas waktu presensi terlewat';
     $id('ci-alert-sub').textContent = 'Kamu tetap dapat mengisi presensi.';
   }
   box.classList.remove('hidden');
@@ -4618,7 +5214,7 @@ async function renderAbout(){
   const slides = [];
   if(a.saved && (a.po_name || a.greeting)){
     const poPh = (a.po_photos && a.po_photos.length) ? a.po_photos : (a.po_photo ? [a.po_photo] : []);
-    slides.push(slide('', 'Sekapur Sirih', a.po_name, a.po_title || 'Ketua Pelaksana', a.greeting, poPh, 'po'));
+    slides.push(slide('', 'Sapaan Hangat', a.po_name, a.po_title || 'Ketua Pelaksana', a.greeting, poPh, 'po'));
   }
   if(c.saved && (c.name || c.greeting)){
     slides.push(slide('chair', 'Sambutan Ketua Umum', c.name, c.title || CHAIR_TITLE, c.greeting, c.photos || [], 'chairman'));
@@ -4637,7 +5233,7 @@ async function renderAbout(){
   html += '<div id="cm-slot"></div>';
   const pts = (a.highlights || []).filter(Boolean);
   html += `<div class="ab-event">
-    <span class="ab-tag g">TENTANG BLOOMS 2027</span>
+    <span class="ab-tag g">ABOUT BLOOMS 2027</span>
     <h3>${escHTML(a.headline)}</h3>
     <p>${nl(a.desc)}</p>
     ${pts.length ? `<div class="ab-points">${pts.map((t,i)=>`<div class="ab-point"><span class="ab-pn c${i % 6}">${i+1}</span><p>${escHTML(t)}</p></div>`).join('')}</div>` : ''}
@@ -4797,11 +5393,11 @@ async function openGallery(){
 
 /* (3) reset antrian photobooth */
 async function resetQueueAll(){
-  if(!confirm('Atur ulang seluruh antrean fotobooth? Semua tiket akan dihapus.')) return;
+  if(!confirm('Atur ulang seluruh antrean PHOTOBOOTH? Semua tiket akan dihapus.')) return;
   const { error } = await sb.from('queue').delete().gte('ticket', 0);
   if(error){ console.error(error); toast('Antrean tidak dapat diatur ulang.', 'warn'); return; }
   window.__served = false;
-  toast('Antrean fotobooth berhasil diatur ulang.', 'good'); renderPhotobooth(); renderDashboardStats();
+  toast('Antrean PHOTOBOOTH berhasil diatur ulang.', 'good'); renderPhotobooth(); renderDashboardStats();
 }
 
 /* (4) reset foto profil (data peserta tetap) */
@@ -4840,6 +5436,8 @@ async function renderPhotobooth(){
   else $id('pb-now-name').textContent = 'Belum ada sesi aktif. Menunggu peserta bergabung ke antrean.';
 
   const waiting = q.filter(t=>t.status==='waiting');
+  $id('pb-stat-waiting').textContent = waiting.length;
+  $id('pb-stat-next').textContent = waiting.length ? '#' + pad3(waiting[0].ticket) : '—';
   const tb1 = $id('pb-upnext-tbody'); tb1.innerHTML = '';
   $id('pbtab-upnext').textContent = `Berikutnya (${waiting.length})`;
   $id('pb-upnext-empty').classList.toggle('hidden', waiting.length > 0);
@@ -4851,6 +5449,7 @@ async function renderPhotobooth(){
   });
 
   const done = q.filter(t=>t.status==='done');
+  $id('pb-stat-done').textContent = done.length;
   $id('pbtab-completed').textContent = `Selesai (${done.length})`;
   const tb2 = $id('pb-completed-tbody'); tb2.innerHTML = '';
   $id('pb-completed-empty').classList.toggle('hidden', done.length > 0);
@@ -4914,8 +5513,8 @@ async function updateCheckinAlert(){
     $id('ci-alert-title').textContent = 'Kamu belum mengisi presensi!';
     $id('ci-alert-sub').textContent = 'Tersisa ' + Math.ceil(left/60000) + ' menit. Silakan presensi sebelum pukul ' + hhmm + '.';
   }else{
-    $id('ci-alert-title').textContent = 'Batas waktu presensi sudah lewat';
-    $id('ci-alert-sub').textContent = 'Kamu tetap dapat mengisi presensi, tetapi akan ditandai terlambat.';
+    $id('ci-alert-title').textContent = 'Batas waktu presensi terlewat';
+    $id('ci-alert-sub').textContent = 'Kamu tetap dapat mengisi presensi, Famz!';
   }
   box.classList.remove('hidden');
 }
@@ -5003,25 +5602,106 @@ async function renderDashboardStats(){
 ['dash-checked','dash-pending','dash-total','dash-pb-wait','dash-pb-done'].forEach(id=>watchCounter(document.getElementById(id)));
 
 /* ========== (2) BLOOM DUMP ========== */
+let participantDumpRows = [];
+let dumpFilter = 'all';
+let dumpSearch = '';
 async function renderDumpPageP(){ renderDumpGrid('dump-grid'); }
 async function renderDumpPageC(){ renderDumpGrid('cdump-grid'); }
 async function renderDumpGrid(gridId){
   const grid = $id(gridId); if(!grid) return;
   grid.innerHTML = '<div class="live-empty">Memuat...</div>';
   const { data, error } = await sb.from('bloom_dump').select('*').order('created_at',{ascending:false}).limit(120);
-  if(error){ console.error(error); grid.innerHTML = '<div class="empty-state">Bloom Dump tidak dapat dimuat.</div>'; return; }
+  if(error){
+    console.error(error);
+    if(gridId==='dump-grid'){
+      $id('dump-moment-count').textContent = '—';
+      $id('dump-creator-count').textContent = '—';
+      $id('dump-featured').innerHTML = '<div class="dump-feature-empty"><span>🌧️</span><div><b>Album belum bisa dibuka</b><p>Coba muat ulang halaman beberapa saat lagi.</p></div></div>';
+      grid.innerHTML = '<div class="dump-gallery-empty"><span>⚠️</span><b>Foto belum dapat dimuat</b><p>Periksa koneksi internetmu, lalu coba lagi.</p></div>';
+    }else grid.innerHTML = '<div class="empty-state">Bloom Dump tidak dapat dimuat.</div>';
+    return;
+  }
   const rows = data || [];
+  if(gridId==='dump-grid'){
+    renderParticipantDump(rows);
+    return;
+  }
   grid.innerHTML = rows.length ? rows.map(r=>`
-    ${gridId==='dump-grid'
-      ? `<button type="button" class="dump-card" data-photo="${escHTML(r.photo_url)}" data-name="${escHTML(r.name)}" aria-label="Lihat foto dari ${escHTML(r.name)}" onclick="openDumpPhoto(this)">`
-      : '<div class="dump-card">'}
+    <div class="dump-card">
       <div class="dump-card-photo"><img src="${escHTML(r.photo_url)}" loading="lazy" alt=""></div>
       <div class="dump-fade">
         <span class="dump-cap">${escHTML(r.caption || 'Kenangan kecil di BLOOMS')}</span>
         <b>${escHTML(r.name)}</b>
         <small>${escHTML(r.group || 'BLOOMS 2027')}</small>
       </div>
-    ${gridId==='dump-grid' ? '</button>' : '</div>'}`).join('') : '<div class="empty-state" style="grid-column:1/-1;">Belum ada momen. Jadilah yang pertama mengunggah!</div>';
+    </div>`).join('') : '<div class="empty-state" style="grid-column:1/-1;">Belum ada momen. Jadilah yang pertama mengunggah!</div>';
+}
+function renderParticipantDump(rows){
+  participantDumpRows = rows;
+  const creators = new Set(rows.map(row=>row.name).filter(Boolean));
+  $id('dump-moment-count').textContent = rows.length;
+  $id('dump-creator-count').textContent = creators.size;
+  const groupButton = $id('dump-group-filter');
+  const hasGroup = !!(currentUser && currentUser.group);
+  groupButton.hidden = !hasGroup;
+  if(!hasGroup && dumpFilter==='group') dumpFilter = 'all';
+  document.querySelectorAll('.dump-filter').forEach(button=>{
+    const active = button.dataset.dumpFilter===dumpFilter;
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+  });
+  renderParticipantDumpView();
+}
+function setDumpFilter(filter){
+  dumpFilter = filter==='group' && currentUser && currentUser.group ? 'group' : 'all';
+  document.querySelectorAll('.dump-filter').forEach(button=>{
+    const active = button.dataset.dumpFilter===dumpFilter;
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+  });
+  renderParticipantDumpView();
+}
+function setDumpSearch(value){
+  dumpSearch = value;
+  renderParticipantDumpView();
+}
+function renderParticipantDumpView(){
+  const grid = $id('dump-grid');
+  const query = dumpSearch.trim().toLocaleLowerCase();
+  const group = currentUser && currentUser.group;
+  const rows = participantDumpRows.filter(row=>{
+    if(dumpFilter==='group' && (!group || row.group!==group)) return false;
+    if(!query) return true;
+    return [row.name,row.group,row.caption].some(value=>(value||'').toLocaleLowerCase().includes(query));
+  });
+  $id('dump-result-count').textContent = rows.length + ' FOTO';
+  const featured = rows[0];
+  $id('dump-featured').innerHTML = featured ? `
+    <article class="dump-feature-card">
+      <button type="button" class="dump-feature-photo" data-photo="${escHTML(featured.photo_url)}" data-name="${escHTML(featured.name)}" aria-label="Perbesar foto terbaru dari ${escHTML(featured.name)}" onclick="openDumpPhoto(this)">
+        <img src="${escHTML(featured.photo_url)}" alt="Momen terbaru dari ${escHTML(featured.name)}">
+      </button>
+      <div class="dump-feature-copy">
+        <small>BARU SAJA DI ALBUM</small>
+        <blockquote>${escHTML(featured.caption || 'Satu momen kecil, jadi kenangan besar.')}</blockquote>
+        <b>${escHTML(featured.name || 'Teman BLOOMS')}</b>
+        <span>${escHTML(featured.group || 'BLOOMS 2027')}</span>
+      </div>
+    </article>` : `<div class="dump-feature-empty"><span>${participantDumpRows.length?'🔎':'🌷'}</span><div><b>${participantDumpRows.length?'Belum ada yang cocok':'Album menunggu cerita pertamamu'}</b><p>${participantDumpRows.length?'Coba kata kunci atau filter lain.':'Jadilah yang pertama membagikan momen seru di sini!'}</p></div></div>`;
+  const remaining = rows.slice(1);
+  grid.innerHTML = remaining.length ? remaining.map(row=>`
+    <button type="button" class="dump-card" data-photo="${escHTML(row.photo_url)}" data-name="${escHTML(row.name)}" aria-label="Lihat foto dari ${escHTML(row.name)}" onclick="openDumpPhoto(this)">
+      <div class="dump-card-photo"><img src="${escHTML(row.photo_url)}" loading="lazy" alt=""></div>
+      <div class="dump-fade">
+        <span class="dump-cap">${escHTML(row.caption || 'Kenangan kecil di BLOOMS')}</span>
+        <b>${escHTML(row.name)}</b>
+        <small>${escHTML(row.group || 'BLOOMS 2027')}</small>
+      </div>
+    </button>`).join('') : participantDumpRows.length && !rows.length
+      ? '<div class="dump-gallery-empty"><span>🔎</span><b>Belum ketemu momennya</b><p>Coba kata kunci lain atau tampilkan semua momen.</p></div>'
+      : rows.length
+        ? '<div class="dump-gallery-empty"><span>✨</span><b>Itu dia semua momennya!</b><p>Bagikan foto lain supaya album kita makin ramai.</p></div>'
+        : '<div class="dump-gallery-empty"><span>📸</span><b>Album masih kosong</b><p>Tekan tombol “Unggah Momen Favorit” untuk memulai cerita bersama.</p></div>';
 }
 async function resetBloomDump(){
   if(!confirm('Hapus SEMUA foto dan unggahan Bloom Dump untuk semua orang? Tindakan ini tidak dapat dibatalkan.')) return;
@@ -5151,28 +5831,78 @@ async function loadGameEditor(){
   drawGameEditor();
 }
 const GAME_LOGO_KEYS = Object.keys(GAME_ICONS);
+function updateGameAdminSummary(){
+  $id('game-admin-total').textContent = gameDraft.length;
+  $id('game-admin-active').textContent = gameDraft.filter(g=>g.status==='on' && (g.title||'').trim() && (g.link||'').trim()).length;
+  $id('game-admin-hidden').textContent = gameDraft.filter(g=>g.status!=='on').length;
+  $id('game-admin-incomplete').textContent = gameDraft.filter(g=>!(g.title||'').trim() || !(g.link||'').trim()).length;
+}
+function updateGameTitle(i,value){
+  gameDraft[i].title = value;
+  updateGameAdminSummary();
+  const preview = $id(`game-admin-preview-title-${i}`);
+  if(preview) preview.textContent = value.trim() || 'Nama Game';
+}
+function updateGameLink(i,value){
+  gameDraft[i].link = value;
+  updateGameAdminSummary();
+  const preview = $id(`game-admin-preview-link-${i}`);
+  if(preview) preview.textContent = value.trim() || 'Tautan belum diisi';
+}
+function updateGameLogo(i,value){
+  gameDraft[i].logo = value;
+  const icon = gameIconSVG(value);
+  [`game-admin-icon-${i}`,`game-admin-preview-icon-${i}`].forEach(id=>{
+    const el = $id(id);
+    if(el) el.innerHTML = icon;
+  });
+}
+function toggleGameAccess(i){
+  gameDraft[i].status = gameDraft[i].status==='on' ? 'off' : 'on';
+  drawGameEditor();
+}
 function drawGameEditor(){
-  $id('game-editor').innerHTML = gameDraft.map((g,i)=>`
-    <div class="sopedit-card">
-      <div class="sopedit-top">
-        <span class="sop-num" style="background:${SOP_COLORS[i % SOP_COLORS.length]};">${gameIconSVG(g.logo)}</span>
-        <input type="text" value="${escHTML(g.title)}" placeholder="Judul Game" oninput="gameDraft[${i}].title=this.value">
-        <div class="sopedit-btns">
-          <button class="btn-mini" onclick="moveGame(${i},-1)">↑</button>
-          <button class="btn-mini" onclick="moveGame(${i},1)">↓</button>
-          <button class="btn-mini watermelon" onclick="delGame(${i})">✕</button>
+  updateGameAdminSummary();
+  $id('game-editor').innerHTML = gameDraft.map((g,i)=>{
+    const colorClass = GAME_COLOR_CLASSES[i % GAME_COLOR_CLASSES.length];
+    const active = g.status==='on';
+    const title = escHTML(g.title);
+    const link = escHTML(g.link);
+    const icon = gameIconSVG(g.logo);
+    return `<article class="game-admin-card ${colorClass}">
+      <div class="game-admin-card-head">
+        <span class="game-admin-card-icon" id="game-admin-icon-${i}">${icon}</span>
+        <div class="game-admin-title-wrap">
+          <small class="game-admin-order">GAME ${String(i+1).padStart(2,'0')} • ${active?'AKTIF':'NONAKTIF'}</small>
+          <input class="game-admin-title-input" type="text" value="${title}" placeholder="Nama Game" aria-label="Nama Game ${i+1}" oninput="updateGameTitle(${i},this.value)">
+        </div>
+        <div class="game-admin-actions">
+          <button type="button" class="btn-mini" aria-label="Pindahkan Game ke atas" title="Pindah ke atas" ${i===0?'disabled':''} onclick="moveGame(${i},-1)">↑</button>
+          <button type="button" class="btn-mini" aria-label="Pindahkan Game ke bawah" title="Pindah ke bawah" ${i===gameDraft.length-1?'disabled':''} onclick="moveGame(${i},1)">↓</button>
+          <button type="button" class="btn-mini watermelon" aria-label="Hapus Game" title="Hapus Game" onclick="delGame(${i})">×</button>
         </div>
       </div>
-      <input type="text" value="${escHTML(g.link)}" placeholder="https://..." style="width:100%;padding:11px 14px;border-radius:12px;border:2px solid var(--line);font-size:13.5px;margin-bottom:10px;" oninput="gameDraft[${i}].link=this.value">
-      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-        <select onchange="gameDraft[${i}].logo=this.value; drawGameEditor();" style="padding:9px 12px;border-radius:11px;border:2px solid var(--line);font-weight:700;font-size:13px;">
-          ${GAME_LOGO_KEYS.map(k=>`<option value="${k}"${k===g.logo?' selected':''}>${GAME_ICON_LABELS[k] || k}</option>`).join('')}
-        </select>
-        <button class="btn-mini ${g.status==='on'?'':'watermelon'}" onclick="gameDraft[${i}].status = gameDraft[${i}].status==='on'?'off':'on'; drawGameEditor();">${g.status==='on' ? 'Akses: Aktif' : 'Akses: Nonaktif'}</button>
+      <div class="game-admin-fields">
+        <div class="game-admin-field"><label for="game-link-${i}">TAUTAN GAME</label><input id="game-link-${i}" type="text" value="${link}" placeholder="https://..." oninput="updateGameLink(${i},this.value)"></div>
+        <div class="game-admin-field"><label for="game-logo-${i}">IKON KARTU</label><select id="game-logo-${i}" onchange="updateGameLogo(${i},this.value)">${GAME_LOGO_KEYS.map(k=>`<option value="${k}"${k===g.logo?' selected':''}>${GAME_ICON_LABELS[k] || k}</option>`).join('')}</select></div>
       </div>
-    </div>`).join('') || '<div class="empty-state">Belum ada Game. Klik + Tambah Game.</div>';
+      <div class="game-admin-tools">
+        <button type="button" class="game-admin-access${active?'':' off'}" aria-pressed="${active}" onclick="toggleGameAccess(${i})">${active?'Akses peserta: Aktif':'Akses peserta: Nonaktif'}</button>
+      </div>
+      <div class="game-admin-preview">
+        <span class="game-admin-preview-icon" id="game-admin-preview-icon-${i}">${icon}</span>
+        <span class="game-admin-preview-copy"><small>PRATINJAU KARTU PESERTA • ${String(i+1).padStart(2,'0')}</small><b id="game-admin-preview-title-${i}">${title || 'Nama Game'}</b><span id="game-admin-preview-link-${i}">${link || 'Tautan belum diisi'}</span></span>
+        <span class="game-admin-preview-state${active?'':' off'}">${active?'SIAP TAMPIL':'DISEMBUNYIKAN'}</span>
+      </div>
+    </article>`;
+  }).join('') || '<div class="game-admin-empty"><span>🎲</span><b>Studio Game masih kosong</b><p>Tambahkan Game pertama, pilih ikon, lalu aktifkan saat siap ditampilkan ke peserta.</p><button type="button" onclick="addGame()">+ Tambah Game Pertama</button></div>';
 }
-function addGame(){ gameDraft.push({ id:null, title:'', link:'', logo:'puzzle', status:'on' }); drawGameEditor(); }
+function addGame(){
+  gameDraft.push({ id:null, title:'', link:'', logo:'puzzle', status:'on' });
+  drawGameEditor();
+  const input = $id(`game-editor`).querySelector('.game-admin-card:last-child .game-admin-title-input');
+  if(input) input.focus();
+}
 function moveGame(i,d){ const j=i+d; if(j<0||j>=gameDraft.length) return; [gameDraft[i],gameDraft[j]]=[gameDraft[j],gameDraft[i]]; drawGameEditor(); }
 function delGame(i){
   if(!confirm('Hapus Game ini?')) return;
@@ -5192,7 +5922,7 @@ async function saveGames(){
     }
     toast('Game berhasil disimpan!', 'good');
   }catch(e){ console.error(e); toast('Game tidak dapat disimpan.', 'warn'); }
-  finally{ btn.disabled = false; btn.textContent = 'Simpan Game'; }
+  finally{ btn.disabled = false; btn.textContent = 'Simpan Perubahan'; }
 }
 
 /* ========== (5)+(6) KOMENTAR NEMPEL + HELLO FROM US ========== */
@@ -5257,7 +5987,7 @@ async function renderAbout(){
   const slides = [];
   if(a.saved && (a.po_name || a.greeting)){
     const poPh = (a.po_photos && a.po_photos.length) ? a.po_photos : (a.po_photo ? [a.po_photo] : []);
-    slides.push(slide('', 'Sekapur Sirih', a.po_name, a.po_title || 'Ketua Pelaksana', a.greeting, poPh, 'po'));
+    slides.push(slide('', 'Sapaan Hangat', a.po_name, a.po_title || 'Ketua Pelaksana', a.greeting, poPh, 'po'));
   }
   if(c.saved && (c.name || c.greeting)){
     slides.push(slide('chair', 'Sambutan Ketua Umum', c.name, c.title || CHAIR_TITLE, c.greeting, c.photos || [], 'chairman'));
@@ -5280,7 +6010,7 @@ async function renderAbout(){
   const pts = (a.highlights || []).filter(Boolean);
   if(eventVisible){
     html += `<div class="ab-event">
-      <span class="ab-tag g">TENTANG BLOOMS 2027</span>
+      <span class="ab-tag g">ABOUT BLOOMS 2027</span>
       <h3>${escHTML(a.headline)}</h3>
       <p>${nl(a.desc)}</p>
       ${pts.length ? `<div class="ab-points">${pts.map((t,i)=>`<div class="ab-point"><span class="ab-pn c${i % 6}">${i+1}</span><p>${escHTML(t)}</p></div>`).join('')}</div>` : ''}
@@ -5356,7 +6086,7 @@ async function loadAboutEventVisibility(){
   catch(e){
     console.error('Could not load About Event visibility:', e);
     if(btn){ btn.textContent = 'Pengaturan tampilan tidak tersedia'; btn.disabled = true; }
-    toast('Pengaturan tampilan bagian Tentang BLOOMS 2027 tidak dapat dimuat.', 'warn');
+    toast('Pengaturan tampilan bagian ABOUT BLOOMS 2027 tidak dapat dimuat.', 'warn');
   }
 }
 async function toggleAboutEventVisibility(){
@@ -5367,7 +6097,7 @@ async function toggleAboutEventVisibility(){
     const nextVisible = !visible;
     await setSetting('about_event_visible', String(nextVisible));
     setAboutEventVisibilityButton(nextVisible);
-    toast(nextVisible ? 'Bagian Tentang BLOOMS 2027 kini ditampilkan kepada peserta.' : 'Bagian Tentang BLOOMS 2027 kini disembunyikan dari peserta.', 'good');
+    toast(nextVisible ? 'Bagian ABOUT BLOOMS 2027 kini ditampilkan kepada peserta.' : 'Bagian ABOUT BLOOMS 2027 kini disembunyikan dari peserta.', 'good');
   }catch(e){
     console.error('Could not update About Event visibility:', e);
     toast('Pengaturan tampilan tidak dapat diperbarui. Silakan coba lagi.', 'warn');
