@@ -958,8 +958,10 @@ tr:hover td{background:#FBFCF4;}
 .garden-map-toolbar i{width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 4px rgba(0,122,63,.12);}
 .garden-map-toolbar button{padding:8px 11px; border-radius:11px; background:#fff; color:var(--green); font-size:10px; font-weight:900; box-shadow:var(--shadow);}
 .garden-wrap.garden-scroll{margin:0; max-height:70vh; padding:10px; border:0; border-radius:0; background:#F5F7F1; box-shadow:none;}
-.garden-map-stage.zoomed{transform:scale(1.55); transform-origin:center; cursor:zoom-out;}
-.garden-map-stage.zoomed>img{cursor:zoom-out;}
+#participant-app .garden-map-stage{display:block; width:100%; max-width:none; margin:0; transition:width .25s var(--ease);}
+#participant-app .garden-map-stage>img{display:block; width:100%; height:auto; max-width:none; max-height:none;}
+#participant-app .garden-map-stage.zoomed{width:155%; transform:none; cursor:zoom-out;}
+#participant-app .garden-map-stage.zoomed>img{cursor:zoom-out;}
 .garden-guide-card{margin:0 20px 110px; padding:17px; border:1px solid #E5EBDD; border-radius:24px; background:linear-gradient(145deg,#fff,#FBFCF7); box-shadow:var(--shadow);}
 .garden-guide-heading{display:flex; align-items:center; gap:11px;}
 .garden-guide-icon{display:grid; width:42px; height:42px; flex:none; place-items:center; border-radius:14px; background:#FFF1E2; font-size:21px;}
@@ -1728,6 +1730,38 @@ label.btn-mini{display:inline-block; cursor:pointer;}
   .ci-camera-dialog{padding:13px;}
   .ci-viewfinder{max-height:48vh;}
 }
+
+/* Sambutan peserta */
+.about-wrap{gap:18px; padding-top:14px;}
+.wl-slider{border:1px solid rgba(0,77,39,.08); border-radius:28px; background:#fff; box-shadow:0 20px 42px -26px rgba(0,54,30,.46);}
+.ab-welcome{background:#fff;}
+.ab-wtop{min-height:250px; padding:24px 22px; background:radial-gradient(circle at 78% 12%,rgba(250,222,115,.28),transparent 28%),radial-gradient(circle at 90% 0%,#16a860,transparent 58%),linear-gradient(155deg,#087B46,#034D32);}
+.ab-welcome.chair .ab-wtop{background:radial-gradient(circle at 78% 12%,rgba(250,222,115,.25),transparent 28%),radial-gradient(circle at 90% 0%,#6A91DE,transparent 58%),linear-gradient(155deg,#356AC7,#203E78);}
+.ab-flw{opacity:.68;}
+.ab-flw.f1{top:-24px; right:-20px; width:126px;}
+.ab-flw.f2{top:84px; left:-23px; width:54px;}
+.ab-wid{max-width:58%; margin-bottom:9px;}
+.ab-welcome .ab-tag{padding:6px 11px; border:1px solid rgba(255,255,255,.24); background:rgba(255,255,255,.14); backdrop-filter:blur(8px); font-size:9px; letter-spacing:.11em;}
+.ab-poname{margin-top:12px; font-size:27px; line-height:1.08; letter-spacing:-.02em; text-wrap:balance;}
+.ab-wid small{font-size:12px; line-height:1.4;}
+.ab-wphoto{right:0; height:calc(100% + 50px); max-width:55%; filter:drop-shadow(0 8px 18px rgba(0,30,20,.32));}
+.ab-wav{right:20px; bottom:22px;}
+.ab-wbody{padding:22px 22px 20px; background:radial-gradient(circle at 100% 0%,rgba(250,222,115,.12),transparent 32%),linear-gradient(145deg,#fff,#FBFCF7);}
+.ab-wbody::before{position:absolute; top:0; left:22px; width:42px; height:3px; border-radius:0 0 4px 4px; background:linear-gradient(90deg,var(--watermelon),var(--yellow)); content:'';}
+.ab-qmark{top:7px; left:auto; right:18px; font-size:82px; opacity:.13;}
+.ab-wbody p{padding:5px 0 0; font-size:14px; line-height:1.8; font-weight:700; color:#34443A;}
+.ab-welcome.chair .ab-wbody::before{background:linear-gradient(90deg,var(--blue),#99CFF5);}
+.ab-welcome.chair .ab-qmark{color:var(--blue);}
+.wl-slider .wl-arrow{top:90px; width:38px; height:38px; border:1px solid rgba(255,255,255,.75); backdrop-filter:blur(8px);}
+.wl-slider .wl-arrow:hover{transform:scale(1.05); background:#fff;}
+.wl-slider .wl-dots{top:17px;}
+@media (max-width:380px){
+  .ab-wtop{min-height:230px; padding:20px 18px;}
+  .ab-wid{max-width:60%;}
+  .ab-poname{font-size:24px;}
+  .ab-wbody{padding:20px 18px 18px;}
+  .ab-wbody::before{left:18px;}
+}
 </style>
 </head>
 <body>
@@ -1746,11 +1780,11 @@ label.btn-mini{display:inline-block; cursor:pointer;}
     <form id="login-form">
       <div class="field">
         <label>NIM</label>
-        <input type="text" id="login-nim" placeholder="misalnya 123" autocomplete="off" required>
+        <input type="text" id="login-nim" placeholder="1203012xxxxxxx" autocomplete="off" required>
       </div>
       <div class="field">
         <label>Angkatan</label>
-        <input type="password" id="login-pass" placeholder="••••••" autocomplete="off" required>
+        <input type="password" id="login-pass" placeholder="202x" autocomplete="off" required>
       </div>
       <button type="submit" class="btn-primary" id="login-btn">Masuk</button>
       <p class="login-error" id="login-error">NIM atau kata sandi salah. Silakan coba lagi.</p>
@@ -2842,9 +2876,9 @@ label.btn-mini{display:inline-block; cursor:pointer;}
 <div class="modal-overlay" id="edit-profile-modal">
   <div class="modal-box">
     <h3>Ubah Profil</h3>
-    <p class="sub">Perbarui nama, kelompok, jurusan, dan emailmu.</p>
+    <p class="sub">Perbarui nama, jurusan, dan emailmu. Kelompok diatur oleh panitia.</p>
     <div class="field"><label>Nama</label><input type="text" id="ep-name" style="width:100%;padding:12px 14px;border-radius:11px;border:2px solid var(--line);"></div>
-    <div class="field"><label>Kelompok</label><input type="text" id="ep-group" style="width:100%;padding:12px 14px;border-radius:11px;border:2px solid var(--line);"></div>
+    <div class="field"><label>Kelompok</label><input type="text" id="ep-group" readonly aria-readonly="true" title="Kelompok hanya dapat diubah oleh panitia" style="width:100%;padding:12px 14px;border-radius:11px;border:2px solid var(--line);"></div>
     <div class="field"><label>Jurusan</label><input type="text" id="ep-jurusan" style="width:100%;padding:12px 14px;border-radius:11px;border:2px solid var(--line);"></div>
     <div class="field"><label>Email</label><input type="email" id="ep-email" style="width:100%;padding:12px 14px;border-radius:11px;border:2px solid var(--line);"></div>
     <div class="modal-actions">
@@ -3639,10 +3673,9 @@ function editProfile(){
 }
 async function saveProfileEdit(){
   const name = document.getElementById('ep-name').value.trim() || currentUser.name;
-  const group = document.getElementById('ep-group').value.trim();
   const jurusan = document.getElementById('ep-jurusan').value.trim() || null;
   const email = document.getElementById('ep-email').value.trim() || null;
-  await sb.from('participants').update({ name, group, jurusan, email }).eq('nim', currentUser.nim);
+  await sb.from('participants').update({ name, jurusan, email }).eq('nim', currentUser.nim);
   closeModal('edit-profile-modal');
   renderProfilePage();
   renderParticipantDashboard();
@@ -5980,7 +6013,7 @@ async function renderAbout(){
         </div>
         ${media}
       </div>
-      <div class="ab-wbody"><span class="ab-qmark">“</span><p>${nl(greeting)}</p></div>
+      <div class="ab-wbody"><span class="ab-qmark">“</span><p>${nl(greeting || '')}</p></div>
     </div>`;
   };
 
