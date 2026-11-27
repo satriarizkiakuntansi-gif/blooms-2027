@@ -1249,6 +1249,54 @@ tr:hover td{background:#FBFCF4;}
 .c-menu .menu-card:last-child{grid-column:auto; flex-direction:column; justify-content:flex-start; gap:11px; padding:16px 6px 14px; text-align:center;}
 .c-menu .menu-card:last-child span{min-height:2.6em; flex:none;}
 .c-menu .menu-card:last-child .menu-icon{width:64px; height:64px;}
+.rundown-table{min-width:880px;}
+.rundown-section-row td{padding:12px 14px; background:#F0F7F1; color:var(--green-dk); font-size:11px; font-weight:900; letter-spacing:.12em;}
+.rundown-activity-name{color:var(--ink); font-weight:900;}
+.rundown-description{display:block; margin-top:4px; color:var(--ink-soft); font-size:11px; font-weight:600; line-height:1.4;}
+#rundown-status{color:var(--ink-soft); font-size:12px; font-weight:800;}
+#rundown-status.error{color:#B52D45;}
+.timekeeper-live-overlay{position:fixed; inset:0; z-index:260; display:none; align-items:stretch; justify-content:stretch; padding:0; background:#063820;}
+.timekeeper-live-overlay.show{display:flex;}
+.timekeeper-live-panel{position:relative; display:flex; width:100%; height:100vh; height:100dvh; min-height:100vh; min-height:100dvh; flex-direction:column; justify-content:space-between; overflow-y:auto; padding:clamp(14px,2.4vw,32px); background:linear-gradient(145deg,#064325,#032819); color:#fff;}
+.timekeeper-live-top{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+.timekeeper-live-brand{display:flex; align-items:center; gap:12px;}
+.timekeeper-live-brand-icon{display:grid; width:32px; height:32px; place-items:center; color:#FADE73; font-size:26px;}
+.timekeeper-live-brand small,.timekeeper-live-brand b{display:block;}
+.timekeeper-live-brand small{color:#A8D5B8; font-size:10px; font-weight:900; letter-spacing:.18em;}
+.timekeeper-live-brand b{margin-top:2px; font-size:13px; font-weight:900; letter-spacing:.04em;}
+.timekeeper-live-close{display:grid; width:40px; height:40px; flex:none; place-items:center; border:1px solid rgba(255,255,255,.2); border-radius:50%; background:transparent; color:#fff; font-size:25px; line-height:1;}
+.timekeeper-live-close:hover{background:rgba(255,255,255,.1);}
+.timekeeper-event-head{margin:clamp(16px,3vh,32px) 0 0; text-align:center;}
+.timekeeper-event-count{color:#B8D7C2; font-size:10px; font-weight:900; letter-spacing:.16em; text-transform:uppercase;}
+.timekeeper-event-name{max-width:1000px; margin:7px auto 0; color:#fff; font-size:clamp(18px,2.2vw,27px); font-weight:800; line-height:1.2; text-wrap:balance;}
+.timekeeper-stage{display:grid; grid-template-columns:clamp(42px,5vw,64px) minmax(0,1fr) clamp(42px,5vw,64px); align-items:center; gap:clamp(4px,1vw,12px); margin:auto 0; padding:clamp(10px,2vh,22px) 0;}
+.timekeeper-stage-arrow{display:grid; width:clamp(40px,4.5vw,58px); height:clamp(40px,4.5vw,58px); place-items:center; border:1px solid rgba(255,255,255,.18); border-radius:50%; background:rgba(255,255,255,.05); color:#EAF3EC; font-size:clamp(25px,3vw,34px); transition:background .2s;}
+.timekeeper-stage-arrow:hover:not(:disabled){background:rgba(255,255,255,.13);}
+.timekeeper-stage-arrow:disabled{opacity:.25; cursor:not-allowed;}
+.timekeeper-clock-wrap{text-align:center;}
+.timekeeper-clock-label{color:#BDD9C6; font-size:10px; font-weight:900; letter-spacing:.2em;}
+.timekeeper-clock{margin:5px 0 2px; color:#fff; font-family:'Nunito',sans-serif; font-size:clamp(110px,22vw,300px); font-weight:900; font-variant-numeric:tabular-nums; letter-spacing:-.08em; line-height:.95; white-space:nowrap;}
+.timekeeper-clock.is-overtime{color:#FF6479;}
+.timekeeper-clock-state{min-height:18px; color:#A8D5B8; font-size:10px; font-weight:900; letter-spacing:.15em;}
+.timekeeper-live-overlay.is-overtime .timekeeper-clock-state{color:#FF8492;}
+.timekeeper-live-controls{display:flex; flex-direction:column; align-items:center; gap:9px; padding-bottom:4px;}
+.timekeeper-start-button{min-width:min(320px,100%); min-height:54px; padding:12px 24px; border:1px solid #E8CF70; border-radius:14px; background:#F4D96B; color:#26351F; font-size:14px; font-weight:1000; letter-spacing:.07em; transition:filter .2s;}
+.timekeeper-start-button:hover{filter:brightness(1.05);}
+.timekeeper-start-button.pause{border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.08); color:#fff;}
+.timekeeper-start-button:disabled{opacity:.45; cursor:not-allowed; transform:none;}
+.timekeeper-extra-time{display:flex; flex-wrap:wrap; justify-content:center; gap:6px;}
+.timekeeper-extra-time button{min-width:88px; padding:8px 12px; border:1px solid rgba(255,255,255,.2); border-radius:12px; background:rgba(255,255,255,.06); color:#E9F5EC; font-size:11px; font-weight:900; transition:background .2s;}
+.timekeeper-extra-time button:hover{background:rgba(255,255,255,.14);}
+.timekeeper-live-foot{margin-top:8px; color:rgba(224,243,229,.45); font-size:9px; font-weight:800; letter-spacing:.1em; text-align:center;}
+@media (max-width:600px){
+  .timekeeper-live-panel{padding:calc(14px + env(safe-area-inset-top,0px)) 14px calc(12px + env(safe-area-inset-bottom,0px));}
+  .timekeeper-event-head{margin-top:4vh;}
+  .timekeeper-stage{grid-template-columns:38px minmax(0,1fr) 38px; gap:2px;}
+  .timekeeper-stage-arrow{width:36px;height:36px;font-size:23px;}
+  .timekeeper-clock{font-size:clamp(70px,21vw,124px); letter-spacing:-.08em;}
+  .timekeeper-clock-label{letter-spacing:.16em;}
+  .timekeeper-start-button{min-height:50px;}
+}
 .c-event-day{position:relative; overflow:hidden; padding:20px; border:1px solid #F1D581; border-radius:28px; background:radial-gradient(circle at 100% 0%,rgba(255,255,255,.9),transparent 38%),linear-gradient(135deg,#FFF7DB,#FFF0F1); box-shadow:0 16px 34px -24px rgba(120,72,16,.55);}
 .c-event-day .c-cat-title{margin-bottom:5px; color:#724313;}
 .c-event-day .c-cat-title::before{width:11px; height:11px; background:#F19D3A; box-shadow:0 0 0 5px rgba(241,157,58,.15);}
@@ -2375,6 +2423,10 @@ label.btn-mini{display:inline-block; cursor:pointer;}
             <div class="menu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div>
             <span>Pengaturan Acara</span>
           </button>
+          <button class="menu-card mc-orange" onclick="cGoTo('timekeeper')">
+            <div class="menu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/><path d="M8 3.8 6.5 5M16 3.8 17.5 5"/></svg></div>
+            <span>Time Keeper</span>
+          </button>
         </div>
       </div>
 
@@ -2739,6 +2791,79 @@ label.btn-mini{display:inline-block; cursor:pointer;}
         </div>
         <div class="link-preview" id="ev-info">Belum ada batas waktu. Tidak ada peserta yang akan ditandai terlambat.</div>
       </div>
+    </div>
+
+    <div class="c-page" data-cpage="timekeeper">
+      <div class="c-head"><h2>Time Keeper</h2><p>Menu Time Keeper untuk mengelola rundown kegiatan BLOOMS 2027.</p></div>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="gl-admin-hero" style="margin:0;">
+          <span>⏱️</span>
+          <div><b>Rundown BLOOMS 2027</b><small>Jadwal kegiatan dan durasi setiap sesi.</small></div>
+        </div>
+        <div class="toolbar" style="margin:16px 0 0;">
+          <button type="button" class="add-btn" id="timekeeper-open-btn" onclick="openTimekeeper()" disabled>⏱ BUKA TIME KEEPER</button>
+          <button type="button" class="add-btn" onclick="openRundownEditor()">+ Tambah Kegiatan</button>
+          <button type="button" class="btn-mini outline" onclick="loadRundown()">↻ Muat Ulang</button>
+          <span id="rundown-status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="rundown-table">
+          <thead><tr><th>NO.</th><th>WAKTU MULAI</th><th>DURASI</th><th>WAKTU SELESAI</th><th>KEGIATAN</th><th>PIC</th><th>AKSI</th></tr></thead>
+          <tbody id="rundown-tbody"></tbody>
+        </table>
+        <div id="rundown-empty" class="empty-state hidden">Rundown belum tersedia.</div>
+      </div>
+    </div>
+    <div class="modal-overlay" id="rundown-editor-modal" onclick="if(event.target===this)closeRundownEditor()">
+      <section class="modal-box" role="dialog" aria-modal="true" aria-labelledby="rundown-editor-title">
+        <h3 id="rundown-editor-title">Tambah Kegiatan</h3>
+        <p class="sub">Lengkapi detail kegiatan rundown.</p>
+        <div class="field"><label>Nama Kegiatan</label><input type="text" id="rundown-activity-name" maxlength="160" required placeholder="Contoh: Pembukaan"></div>
+        <div class="field"><label>Waktu Mulai</label><input type="time" id="rundown-start-time" oninput="updateRundownDuration()"></div>
+        <div class="field"><label>Waktu Selesai</label><input type="time" id="rundown-end-time" oninput="updateRundownDuration()"></div>
+        <div class="field"><label>Durasi</label><input type="text" id="rundown-duration" readonly placeholder="Otomatis dari waktu mulai dan selesai"></div>
+        <div class="field"><label>PIC</label><input type="text" id="rundown-pic" maxlength="160" placeholder="Penanggung jawab (opsional)"></div>
+        <div class="field"><label>Deskripsi</label><textarea id="rundown-description" rows="3" maxlength="1000" placeholder="Catatan kegiatan (opsional)"></textarea></div>
+        <p class="login-error" id="rundown-editor-error" style="display:none;"></p>
+        <div class="modal-actions">
+          <button type="button" class="btn-mini watermelon" id="rundown-save-btn" onclick="saveRundownActivity()">Simpan</button>
+          <button type="button" class="btn-mini" onclick="closeRundownEditor()">Batal</button>
+        </div>
+      </section>
+    </div>
+    <div class="timekeeper-live-overlay" id="timekeeper-live" onclick="if(event.target===this)closeTimekeeper()" aria-hidden="true">
+      <section class="timekeeper-live-panel" role="dialog" aria-modal="true" aria-labelledby="timekeeper-live-title">
+        <header class="timekeeper-live-top">
+          <div class="timekeeper-live-brand">
+            <span class="timekeeper-live-brand-icon" aria-hidden="true">✿</span>
+            <span><small>BLOOMS 2027</small><b>TIME KEEPER</b></span>
+          </div>
+          <button type="button" class="timekeeper-live-close" onclick="closeTimekeeper()" aria-label="Tutup Time Keeper">×</button>
+        </header>
+        <div class="timekeeper-event-head">
+          <div class="timekeeper-event-count" id="timekeeper-event-count">KEGIATAN 01 / 18</div>
+          <h2 class="timekeeper-event-name" id="timekeeper-live-title">Kedatangan Panitia</h2>
+        </div>
+        <div class="timekeeper-stage">
+          <button type="button" class="timekeeper-stage-arrow" id="timekeeper-prev" onclick="navigateTimekeeper(-1)" aria-label="Kegiatan sebelumnya">‹</button>
+          <div class="timekeeper-clock-wrap">
+            <div class="timekeeper-clock-label">WAKTU TERSISA</div>
+            <div class="timekeeper-clock" id="timekeeper-clock" role="timer" aria-live="off">30:00</div>
+            <div class="timekeeper-clock-state" id="timekeeper-clock-state">SIAP DIMULAI</div>
+          </div>
+          <button type="button" class="timekeeper-stage-arrow" id="timekeeper-next" onclick="navigateTimekeeper(1)" aria-label="Kegiatan berikutnya">›</button>
+        </div>
+        <div class="timekeeper-live-controls">
+          <button type="button" class="timekeeper-start-button" id="timekeeper-start" onclick="toggleTimekeeper()">START BLOOMS 2027</button>
+          <div class="timekeeper-extra-time" aria-label="Tambah waktu">
+            <button type="button" onclick="addTimekeeperMinutes(1)">+1 Menit</button>
+            <button type="button" onclick="addTimekeeperMinutes(3)">+3 Menit</button>
+            <button type="button" onclick="addTimekeeperMinutes(5)">+5 Menit</button>
+          </div>
+        </div>
+        <footer class="timekeeper-live-foot">PANAH KIRI/KANAN UNTUK BERPINDAH KEGIATAN</footer>
+      </section>
     </div>
 
     <!-- ============ PROFIL PANITIA ============ -->
@@ -3134,6 +3259,7 @@ function enterApp(user){
 
 function logout(){
   closeCheckinCamera();
+  stopTimekeeper();
   CURRENT = null; currentUser = null;
   clearInterval(queuePollTimer);
   sessionStorage.removeItem('blooms_group_modal_draft');
@@ -5843,6 +5969,346 @@ function goTo(page){
   window.scrollTo(0,0);
 }
 
+/* ----- Time Keeper ----- */
+const DEFAULT_RUNDOWN_ROWS = [
+  { activity_name:'Kedatangan Panitia', start_time:'14:00', end_time:'14:30', duration_minutes:30 },
+  { activity_name:'Persiapan dan Finalisasi Dekorasi', start_time:'14:30', end_time:'15:00', duration_minutes:30 },
+  { activity_name:'Kedatangan Peserta', start_time:'15:00', end_time:'15:45', duration_minutes:45 },
+  { activity_name:'Pembukaan', start_time:'15:45', end_time:'15:55', duration_minutes:10 },
+  { activity_name:'Sambutan 1 - Project Officer', start_time:'15:55', end_time:'16:00', duration_minutes:5 },
+  { activity_name:'Sambutan 2 - Ketua Umum BAK 2026/2027', start_time:'16:00', end_time:'16:15', duration_minutes:15 },
+  { activity_name:'Blooms Talk', start_time:'16:15', end_time:'16:45', duration_minutes:30 },
+  { activity_name:'Fun Session - Ice Breaking', start_time:'16:45', end_time:'17:05', duration_minutes:20 },
+  { activity_name:'Ishoma', start_time:'17:05', end_time:'18:05', duration_minutes:60 },
+  { activity_name:'Fun Session - Craft Your Wish', start_time:'18:05', end_time:'18:20', duration_minutes:15 },
+  { activity_name:'Reveal Divisi', start_time:'18:20', end_time:'19:10', duration_minutes:50 },
+  { activity_name:'Reveal Kabinet BAK 2026/2027', start_time:'19:10', end_time:'19:20', duration_minutes:10 },
+  { activity_name:'Sesi Divisi', start_time:'19:20', end_time:'20:20', duration_minutes:60 },
+  { activity_name:'Sesi Awarding', start_time:'20:20', end_time:'20:30', duration_minutes:10 },
+  { activity_name:'Kesan dan Pesan', start_time:'20:30', end_time:'20:35', duration_minutes:5 },
+  { activity_name:'Penutupan', start_time:'20:35', end_time:'20:37', duration_minutes:2 },
+  { activity_name:'Dokumentasi', start_time:'20:37', end_time:'20:45', duration_minutes:8 },
+  { activity_name:'Clear Area', start_time:'20:45', end_time:'21:45', duration_minutes:60 }
+].map((row, order_index)=>({ ...row, description:null, pic:null, order_index }));
+
+let rundownRows = [];
+let editingRundownId = null;
+
+function setRundownStatus(message, isError){
+  const status = $id('rundown-status');
+  status.textContent = message;
+  status.classList.toggle('error', !!isError);
+}
+function formatRundownTime(value){
+  if(!value) return '—';
+  const time = String(value).trim();
+  return time.length === 5 ? time + ':00' : time;
+}
+function formatRundownDuration(minutes){
+  if(minutes == null || !Number.isFinite(Number(minutes))) return '—';
+  const total = Math.max(0, Math.floor(Number(minutes)));
+  return `${String(Math.floor(total/60)).padStart(2,'0')}:${String(total%60).padStart(2,'0')}:00`;
+}
+function rundownTimeMinutes(value){
+  if(!value) return null;
+  const match = String(value).match(/^([01]\d|2[0-3]):([0-5]\d)(?::[0-5]\d(?:\.\d+)?)?$/);
+  return match ? Number(match[1])*60 + Number(match[2]) : null;
+}
+function renderRundown(){
+  const tbody = $id('rundown-tbody');
+  const empty = $id('rundown-empty');
+  tbody.innerHTML = '';
+  empty.classList.toggle('hidden', rundownRows.length > 0);
+  $id('timekeeper-open-btn').disabled = rundownRows.length === 0;
+  if(!rundownRows.length) return;
+
+  const preEvent = rundownRows.filter(row=>Number(row.order_index) < 3);
+  const mainEvent = rundownRows.filter(row=>Number(row.order_index) >= 3);
+  const appendSection = (title, rows) => {
+    if(!rows.length) return;
+    const heading = document.createElement('tr');
+    heading.className = 'rundown-section-row';
+    heading.innerHTML = `<td colspan="7">${title}</td>`;
+    tbody.appendChild(heading);
+    rows.forEach(row=>{
+      const tr = document.createElement('tr');
+      const rowNumber = rundownRows.indexOf(row) + 1;
+      tr.innerHTML = `<td>${rowNumber}</td>
+        <td>${escHTML(formatRundownTime(row.start_time))}</td>
+        <td>${escHTML(formatRundownDuration(row.duration_minutes))}</td>
+        <td>${escHTML(formatRundownTime(row.end_time))}</td>
+        <td><span class="rundown-activity-name">${escHTML(row.activity_name)}</span>${row.description ? `<small class="rundown-description">${escHTML(row.description)}</small>` : ''}</td>
+        <td>${escHTML(row.pic || '—')}</td>
+        <td><div style="display:flex;gap:6px;"><button type="button" class="btn-mini blue rundown-edit">Ubah</button><button type="button" class="btn-mini watermelon rundown-delete">Hapus</button></div></td>`;
+      tr.querySelector('.rundown-edit').addEventListener('click', ()=>openRundownEditor(row.id));
+      tr.querySelector('.rundown-delete').addEventListener('click', ()=>deleteRundownActivity(row.id));
+      tbody.appendChild(tr);
+    });
+  };
+  appendSection('PRE-EVENT', preEvent);
+  appendSection('MAIN EVENT', mainEvent);
+}
+async function loadRundown(){
+  setRundownStatus('Memuat rundown...', false);
+  const columns = 'id,activity_name,description,start_time,end_time,duration_minutes,pic,order_index,created_at';
+  const { data, error } = await sb.from('rundown').select(columns).order('order_index', { ascending:true }).order('created_at', { ascending:true });
+  if(error){
+    rundownRows = [];
+    renderRundown();
+    console.error('Rundown tidak dapat dimuat:', error);
+    setRundownStatus('Rundown gagal dimuat. Periksa tabel rundown dan izin SELECT.', true);
+    return;
+  }
+  if(data && data.length){
+    rundownRows = data;
+    renderRundown();
+    setRundownStatus(`${data.length} kegiatan dimuat.`, false);
+    return;
+  }
+
+  const { data: seededRows, error: seedError } = await sb.from('rundown').insert(DEFAULT_RUNDOWN_ROWS).select(columns);
+  if(seedError || !seededRows || seededRows.length !== DEFAULT_RUNDOWN_ROWS.length){
+    rundownRows = [];
+    renderRundown();
+    console.error('Rundown awal tidak dapat disimpan:', seedError || 'Data rundown awal tidak dikembalikan lengkap setelah disimpan.');
+    setRundownStatus('Rundown masih kosong dan data awal gagal disimpan. Periksa izin INSERT tabel rundown.', true);
+    return;
+  }
+  rundownRows = seededRows;
+  renderRundown();
+  setRundownStatus(`${rundownRows.length} kegiatan awal berhasil dimuat.`, false);
+}
+function openRundownEditor(id){
+  const row = id ? rundownRows.find(item=>String(item.id)===String(id)) : null;
+  editingRundownId = row ? row.id : null;
+  $id('rundown-editor-title').textContent = row ? 'Ubah Kegiatan' : 'Tambah Kegiatan';
+  $id('rundown-activity-name').value = row ? row.activity_name : '';
+  $id('rundown-start-time').value = row && row.start_time ? String(row.start_time).slice(0,5) : '';
+  $id('rundown-end-time').value = row && row.end_time ? String(row.end_time).slice(0,5) : '';
+  $id('rundown-pic').value = row ? row.pic || '' : '';
+  $id('rundown-description').value = row ? row.description || '' : '';
+  $id('rundown-editor-error').style.display = 'none';
+  updateRundownDuration();
+  openModal('rundown-editor-modal');
+}
+function updateRundownDuration(){
+  const start = rundownTimeMinutes($id('rundown-start-time').value);
+  const end = rundownTimeMinutes($id('rundown-end-time').value);
+  const duration = start == null || end == null || end < start ? null : end - start;
+  $id('rundown-duration').value = duration == null ? '' : formatRundownDuration(duration);
+}
+function closeRundownEditor(){
+  closeModal('rundown-editor-modal');
+}
+async function saveRundownActivity(){
+  const name = $id('rundown-activity-name').value.trim();
+  const startTime = $id('rundown-start-time').value || null;
+  const endTime = $id('rundown-end-time').value || null;
+  const start = rundownTimeMinutes(startTime);
+  const end = rundownTimeMinutes(endTime);
+  const errorEl = $id('rundown-editor-error');
+  const saveButton = $id('rundown-save-btn');
+  errorEl.style.display = 'none';
+  if(!name){
+    errorEl.textContent = 'Nama kegiatan wajib diisi.';
+    errorEl.style.display = 'block';
+    return;
+  }
+  if((startTime && start == null) || (endTime && end == null) || (start != null && end != null && end < start)){
+    errorEl.textContent = 'Waktu selesai harus sama dengan atau setelah waktu mulai.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  const payload = {
+    activity_name:name,
+    description:$id('rundown-description').value.trim() || null,
+    start_time:startTime,
+    end_time:endTime,
+    duration_minutes:start != null && end != null ? end - start : null,
+    pic:$id('rundown-pic').value.trim() || null
+  };
+  saveButton.disabled = true;
+  saveButton.textContent = 'Menyimpan...';
+  try{
+    let result;
+    if(editingRundownId){
+      result = await sb.from('rundown').update(payload).eq('id', editingRundownId).select('id').maybeSingle();
+      if(!result.error && !result.data) throw new Error('Tidak ada baris rundown diperbarui; periksa izin UPDATE/RLS.');
+    }else{
+      const nextOrder = rundownRows.reduce((max, row)=>Math.max(max, Number(row.order_index) || 0), -1) + 1;
+      result = await sb.from('rundown').insert({ ...payload, order_index:nextOrder }).select('id').maybeSingle();
+      if(!result.error && !result.data) throw new Error('Data rundown baru tidak dikembalikan setelah disimpan.');
+    }
+    if(result.error) throw result.error;
+    closeRundownEditor();
+    await loadRundown();
+  }catch(error){
+    console.error('Perubahan rundown tidak dapat disimpan:', error);
+    errorEl.textContent = 'Perubahan tidak dapat disimpan. Periksa koneksi dan izin INSERT/UPDATE tabel rundown.';
+    errorEl.style.display = 'block';
+  }finally{
+    saveButton.disabled = false;
+    saveButton.textContent = 'Simpan';
+  }
+}
+async function deleteRundownActivity(id){
+  const row = rundownRows.find(item=>String(item.id)===String(id));
+  if(!row || !confirm(`Hapus kegiatan "${row.activity_name}" dari rundown?`)) return;
+  const { data: deletedRow, error } = await sb.from('rundown').delete().eq('id', id).select('id').maybeSingle();
+  if(error || !deletedRow){
+    console.error('Kegiatan rundown tidak dapat dihapus:', error || 'Tidak ada baris yang dihapus; periksa izin DELETE/RLS.');
+    setRundownStatus('Kegiatan gagal dihapus. Periksa izin DELETE tabel rundown.', true);
+    return;
+  }
+  await loadRundown();
+}
+
+let timekeeperIndex = 0;
+let timekeeperInitialized = false;
+let timekeeperRunning = false;
+let timekeeperStarted = false;
+let timekeeperRemainingMs = 0;
+let timekeeperDeadline = null;
+let timekeeperInterval = null;
+let timekeeperPreviousBodyOverflow = null;
+
+function getTimekeeperDurationMs(row){
+  if(row && row.duration_minutes != null && Number.isFinite(Number(row.duration_minutes))){
+    return Math.max(0, Number(row.duration_minutes) * 60000);
+  }
+  const start = rundownTimeMinutes(row && row.start_time);
+  const end = rundownTimeMinutes(row && row.end_time);
+  return start != null && end != null && end >= start ? (end - start) * 60000 : 0;
+}
+function getTimekeeperRemainingMs(){
+  return timekeeperRunning ? timekeeperDeadline - Date.now() : timekeeperRemainingMs;
+}
+function formatTimekeeperClock(milliseconds){
+  const overtime = milliseconds < 0;
+  const totalSeconds = overtime
+    ? Math.floor(Math.abs(milliseconds) / 1000)
+    : Math.ceil(milliseconds / 1000);
+  const minutes = String(Math.floor(totalSeconds / 60)).padStart(2,'0');
+  const seconds = String(totalSeconds % 60).padStart(2,'0');
+  return `${overtime ? '-' : ''}${minutes}:${seconds}`;
+}
+function renderTimekeeperScreen(){
+  if(!rundownRows.length) return;
+  const row = rundownRows[timekeeperIndex];
+  if(!row) return;
+  const remaining = getTimekeeperRemainingMs();
+  const durationMs = getTimekeeperDurationMs(row);
+  const hasDuration = durationMs > 0 || timekeeperStarted || timekeeperRemainingMs > 0;
+  const overtime = hasDuration && remaining <= 0;
+  const screen = $id('timekeeper-live');
+  const clock = $id('timekeeper-clock');
+  const startButton = $id('timekeeper-start');
+
+  $id('timekeeper-event-count').textContent = `KEGIATAN ${String(timekeeperIndex+1).padStart(2,'0')} / ${String(rundownRows.length).padStart(2,'0')}`;
+  $id('timekeeper-live-title').textContent = row.activity_name;
+  clock.textContent = hasDuration ? formatTimekeeperClock(remaining) : '00:00';
+  clock.classList.toggle('is-overtime', overtime);
+  screen.classList.toggle('is-overtime', overtime);
+  $id('timekeeper-clock-state').textContent = overtime
+    ? 'OVERTIME • WAKTU TAMBAHAN'
+    : timekeeperRunning ? 'MENGHITUNG MUNDUR' : timekeeperStarted ? 'DIJEDA' : durationMs > 0 || timekeeperRemainingMs > 0 ? 'SIAP DIMULAI' : 'DURASI BELUM DIATUR';
+  startButton.textContent = timekeeperRunning ? 'JEDA' : timekeeperStarted ? 'LANJUTKAN' : 'START BLOOMS 2027';
+  startButton.classList.toggle('pause', timekeeperRunning);
+  startButton.disabled = !timekeeperRunning && !timekeeperStarted && durationMs <= 0 && timekeeperRemainingMs <= 0;
+  $id('timekeeper-prev').disabled = timekeeperIndex <= 0;
+  $id('timekeeper-next').disabled = timekeeperIndex >= rundownRows.length - 1;
+}
+function openTimekeeper(){
+  if(!rundownRows.length){
+    setRundownStatus('Rundown belum tersedia. Muat ulang halaman atau periksa koneksi Supabase.', true);
+    return;
+  }
+  if(!timekeeperInitialized){
+    timekeeperIndex = 0;
+    timekeeperRemainingMs = getTimekeeperDurationMs(rundownRows[timekeeperIndex]);
+    timekeeperInitialized = true;
+    timekeeperStarted = false;
+  }
+  const screen = $id('timekeeper-live');
+  if(!screen.classList.contains('show')){
+    timekeeperPreviousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+  }
+  screen.classList.add('show');
+  screen.setAttribute('aria-hidden','false');
+  renderTimekeeperScreen();
+  $id('timekeeper-start').focus();
+}
+function closeTimekeeper(){
+  const screen = $id('timekeeper-live');
+  screen.classList.remove('show');
+  screen.setAttribute('aria-hidden','true');
+  if(timekeeperPreviousBodyOverflow !== null){
+    document.body.style.overflow = timekeeperPreviousBodyOverflow;
+    timekeeperPreviousBodyOverflow = null;
+  }
+  $id('timekeeper-open-btn').focus();
+}
+function toggleTimekeeper(){
+  if(!timekeeperInitialized || !rundownRows[timekeeperIndex]) return;
+  if(timekeeperRunning){
+    timekeeperRemainingMs = getTimekeeperRemainingMs();
+    timekeeperRunning = false;
+    timekeeperDeadline = null;
+    clearInterval(timekeeperInterval);
+    timekeeperInterval = null;
+  }else{
+    const durationMs = getTimekeeperDurationMs(rundownRows[timekeeperIndex]);
+    if(!timekeeperStarted && durationMs <= 0 && timekeeperRemainingMs <= 0) return;
+    timekeeperDeadline = Date.now() + timekeeperRemainingMs;
+    timekeeperRunning = true;
+    timekeeperStarted = true;
+    clearInterval(timekeeperInterval);
+    timekeeperInterval = setInterval(renderTimekeeperScreen, 200);
+  }
+  renderTimekeeperScreen();
+}
+function navigateTimekeeper(direction){
+  if(!rundownRows.length) return;
+  const nextIndex = Math.max(0, Math.min(rundownRows.length - 1, timekeeperIndex + direction));
+  if(nextIndex === timekeeperIndex) return;
+  const shouldContinue = timekeeperRunning;
+  clearInterval(timekeeperInterval);
+  timekeeperInterval = null;
+  timekeeperRunning = false;
+  timekeeperIndex = nextIndex;
+  timekeeperRemainingMs = getTimekeeperDurationMs(rundownRows[timekeeperIndex]);
+  timekeeperDeadline = null;
+  timekeeperStarted = shouldContinue && timekeeperRemainingMs > 0;
+  if(timekeeperStarted){
+    timekeeperDeadline = Date.now() + timekeeperRemainingMs;
+    timekeeperRunning = true;
+    timekeeperInterval = setInterval(renderTimekeeperScreen, 200);
+  }
+  renderTimekeeperScreen();
+}
+function addTimekeeperMinutes(minutes){
+  const addedMs = minutes * 60000;
+  if(timekeeperRunning) timekeeperDeadline += addedMs;
+  else timekeeperRemainingMs += addedMs;
+  renderTimekeeperScreen();
+}
+function stopTimekeeper(){
+  if(timekeeperRunning) timekeeperRemainingMs = getTimekeeperRemainingMs();
+  timekeeperRunning = false;
+  timekeeperDeadline = null;
+  clearInterval(timekeeperInterval);
+  timekeeperInterval = null;
+  closeTimekeeper();
+}
+document.addEventListener('keydown', event=>{
+  if(!$id('timekeeper-live').classList.contains('show')) return;
+  if(event.key === 'Escape') closeTimekeeper();
+  if(event.key === 'ArrowLeft') navigateTimekeeper(-1);
+  if(event.key === 'ArrowRight') navigateTimekeeper(1);
+});
+
 /* (10) cGoTo diperbarui: Groups & Database dianggap satu nav "dbhub" */
 function cGoTo(page){
   document.querySelectorAll('#committee-app .c-page').forEach(p=>p.classList.remove('active'));
@@ -5865,6 +6331,7 @@ function renderCommitteePage(page){
   if(page==='event' && !editorLoaded) loadEventSettings();
   if(page==='games' && !editorLoaded) loadGameEditor();
   if(page==='dump') renderDumpPageC();
+  if(page==='timekeeper') loadRundown();
   if(page==='profile' && !editorLoaded) loadCommitteeProfile();
 }
 
